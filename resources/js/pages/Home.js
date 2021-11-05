@@ -10,6 +10,7 @@ import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LanguageIcon from "@mui/icons-material/Language";
 
 function Home() {
     const [customerList, setCustomerList] = useState([]);
@@ -104,6 +105,11 @@ function Home() {
                             toggleMenu={toggleDisabled}
                             nama="Tambah Lokasi"
                             Icon={AddLocationAltIcon}
+                        />
+                        <ListMenu
+                            toggleMenu={toggleDisabled}
+                            nama="Daftar Area"
+                            Icon={LanguageIcon}
                         />
                         {/* <ListMenu
                             toggleMenu={toggleDisabled}

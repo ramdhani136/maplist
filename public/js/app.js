@@ -3437,6 +3437,34 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/Language.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@mui/icons-material/Language.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"
+}), 'Language');
+
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/Logout.js":
 /*!****************************************************!*\
   !*** ./node_modules/@mui/icons-material/Logout.js ***!
@@ -10585,7 +10613,7 @@ var ListMenu = function ListMenu(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListMenu);
-var ListMenuWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-bottom: solid 1px #ddd;\n    padding: 13px;\n    font-size: 0.9em;\n    cursor: pointer;\n    align-items: center;\n    display: flex;\n    /* justify-content: space-between; */\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.035);\n    }\n"])));
+var ListMenuWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-bottom: solid 1px #ddd;\n    padding: 13px;\n    font-size: 0.9em;\n    cursor: pointer;\n    align-items: center;\n    display: flex;\n    /* justify-content: space-between; */\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.035);\n    }\n    @media screen and (max-width: 720px) {\n        padding: 20px;\n        font-size: 1em;\n    }\n"])));
 
 /***/ }),
 
@@ -10698,8 +10726,8 @@ var Customerlist = function Customerlist(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
-var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n"])));
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 160px;\n    object-fit: cover;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])));
+var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.04);\n        opacity: 0.9;\n    }\n"])));
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])));
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-top: 5px;\n    font-weight: bold;\n    font-size: 1em;\n"])));
 var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n"])));
 
@@ -10733,7 +10761,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _components_Organisms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Organisms */ "./resources/js/components/Organisms/index.js");
 /* harmony import */ var google_map_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! google-map-react */ "./node_modules/google-map-react/dist/index.modern.js");
 /* harmony import */ var _components_Moleculs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Moleculs */ "./resources/js/components/Moleculs/index.js");
@@ -10742,8 +10770,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material_Menu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/Menu */ "./node_modules/@mui/icons-material/Menu.js");
 /* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/Close */ "./node_modules/@mui/icons-material/Close.js");
 /* harmony import */ var _mui_icons_material_AddLocationAlt__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/AddLocationAlt */ "./node_modules/@mui/icons-material/AddLocationAlt.js");
-/* harmony import */ var _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/Settings */ "./node_modules/@mui/icons-material/Settings.js");
-/* harmony import */ var _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/Logout */ "./node_modules/@mui/icons-material/Logout.js");
+/* harmony import */ var _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/Settings */ "./node_modules/@mui/icons-material/Settings.js");
+/* harmony import */ var _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/icons-material/Logout */ "./node_modules/@mui/icons-material/Logout.js");
+/* harmony import */ var _mui_icons_material_Language__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/Language */ "./node_modules/@mui/icons-material/Language.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10;
 
@@ -10760,6 +10789,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -10887,12 +10917,16 @@ function Home() {
             Icon: _mui_icons_material_AddLocationAlt__WEBPACK_IMPORTED_MODULE_8__["default"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
             toggleMenu: toggleDisabled,
+            nama: "Daftar Area",
+            Icon: _mui_icons_material_Language__WEBPACK_IMPORTED_MODULE_9__["default"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
+            toggleMenu: toggleDisabled,
             nama: "Pengaturan",
-            Icon: _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_9__["default"]
+            Icon: _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_10__["default"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
             toggleMenu: toggleDisabled,
             nama: "Keluar",
-            Icon: _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_10__["default"]
+            Icon: _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_11__["default"]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CreatedBy, {
           children: "\xA9 (IT) PT. Ekatunggal Tunas Mandiri - 2021"
@@ -10927,22 +10961,22 @@ function Home() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
-var HomeWrapper = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    @media screen and (max-width: 720px) {\n        flex-direction: column;\n    }\n"])));
-var HomeMain = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    flex-basis: 40%;\n    display: flex;\n    flex-direction: column;\n    background-color: whitesmoke;\n    padding: 0.5%;\n"])));
-var ContentCustomer = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    align-content: flex-start;\n    z-index: 900;\n    @media screen and (max-width: 720px) {\n        margin-bottom: 20px;\n    }\n"])));
-var Maps = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    flex-grow: 1;\n    height: 100vh;\n    top: 0;\n    position: sticky;\n    background-color: white;\n"])));
-var Search = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-bottom: 20px;\n    position: sticky;\n    top: 0px;\n    background-color: whitesmoke;\n    z-index: 1000;\n    margin-top: -20px;\n    display: flex;\n    align-items: center;\n    @media screen and (max-width: 720px) {\n        width: 98%;\n    }\n"])));
-var SearchPanel = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #ccc;\n    width: 100%;\n    height: 40px;\n    margin-top: 10px;\n    background-color: white;\n    border-radius: 2px;\n    margin-bottom: 10px;\n    display: flex;\n    align-items: center;\n"])));
-var TextSearch = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].input(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    /* color: #bbb; */\n    font-size: 13px;\n    height: 30px;\n    padding-left: 2%;\n    flex: 1;\n    border: none;\n    margin-left: 1%;\n    margin-right: 1%;\n"])));
-var NoData = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 80vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #bbb;\n    font-size: 0.95em;\n"])));
-var WrapperMenu = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    width: 290px;\n    height: 91vh;\n    background-color: white;\n    position: fixed;\n    z-index: 20000;\n    top: 60px;\n    margin-left: ", ";\n    transition: all 0.5s ease;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    @media screen and (max-width: 720px) {\n        width: 102%;\n        margin-left: ", ";\n    }\n"])), function (_ref) {
+var HomeWrapper = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    @media screen and (max-width: 720px) {\n        flex-direction: column;\n    }\n"])));
+var HomeMain = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    flex-basis: 40%;\n    display: flex;\n    flex-direction: column;\n    background-color: whitesmoke;\n    padding: 0.5%;\n"])));
+var ContentCustomer = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    align-content: flex-start;\n    z-index: 900;\n    @media screen and (max-width: 720px) {\n        margin-bottom: 20px;\n    }\n"])));
+var Maps = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    flex-grow: 1;\n    height: 100vh;\n    top: 0;\n    position: sticky;\n    background-color: white;\n"])));
+var Search = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-bottom: 20px;\n    position: sticky;\n    top: 0px;\n    background-color: whitesmoke;\n    z-index: 1000;\n    margin-top: -20px;\n    display: flex;\n    align-items: center;\n    @media screen and (max-width: 720px) {\n        width: 98%;\n    }\n"])));
+var SearchPanel = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #ccc;\n    width: 100%;\n    height: 40px;\n    margin-top: 10px;\n    background-color: white;\n    border-radius: 2px;\n    margin-bottom: 10px;\n    display: flex;\n    align-items: center;\n"])));
+var TextSearch = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].input(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    /* color: #bbb; */\n    font-size: 13px;\n    height: 30px;\n    padding-left: 2%;\n    flex: 1;\n    border: none;\n    margin-left: 1%;\n    margin-right: 1%;\n"])));
+var NoData = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 80vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #bbb;\n    font-size: 0.95em;\n"])));
+var WrapperMenu = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    width: 290px;\n    height: 91vh;\n    background-color: white;\n    position: fixed;\n    z-index: 20000;\n    top: 60px;\n    margin-left: ", ";\n    transition: all 0.5s ease;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    @media screen and (max-width: 720px) {\n        width: 102%;\n        margin-left: ", ";\n    }\n"])), function (_ref) {
   var active = _ref.active;
   return active ? "-6px" : "-300px";
 }, function (_ref2) {
   var active = _ref2.active;
   return active ? "-6px" : "-102%";
 });
-var CreatedBy = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    font-size: 0.9em;\n    text-align: center;\n    opacity: 0.3;\n    margin-bottom: 20px;\n"])));
+var CreatedBy = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    font-size: 0.9em;\n    text-align: center;\n    opacity: 0.3;\n    margin-bottom: 20px;\n"])));
 
 /***/ }),
 

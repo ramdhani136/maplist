@@ -32,4 +32,8 @@ const ListMenuWrapper = styled.div`
     :hover {
         transform: scale(1.035);
     }
+    @media screen and (max-width: 720px) {
+        padding: 20px;
+        font-size: 1em;
+    }
 `;

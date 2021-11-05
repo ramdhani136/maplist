@@ -27,11 +27,16 @@ const CLWrapper = styled.div`
     height: auto;
     margin: 1.5%;
     cursor: pointer;
+    transition: transform 0.1s;
+    :hover {
+        transform: scale(1.04);
+        opacity: 0.9;
+    }
 `;
 
 const Img = styled.img`
     width: 100%;
-    height: 160px;
+    height: 155px;
     object-fit: cover;
     @media screen and (max-width: 720px) {
         height: 120px;
