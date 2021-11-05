@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Customerlist = ({ data, selectData }) => {
+const Customerlist = ({ data, selectData, toggleMenu }) => {
     const handleClick = () => {
         selectData(data);
+        toggleMenu();
     };
 
     return (
@@ -32,6 +33,9 @@ const Img = styled.img`
     width: 100%;
     height: 160px;
     object-fit: cover;
+    @media screen and (max-width: 720px) {
+        height: 120px;
+    }
 `;
 
 const Title = styled.div`

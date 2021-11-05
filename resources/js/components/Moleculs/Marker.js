@@ -9,7 +9,6 @@ export default Marker;
 
 const MainMarker = styled.div`
     border: solid 1.5px black;
-    background-color: #e5e5ff;
     width: 100px;
     text-align: center;
     font-weight: bold;
