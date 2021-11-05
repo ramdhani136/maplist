@@ -69,17 +69,21 @@ function Home() {
                         />
                     </SearchPanel>
                 </Search>
-                <ContentCustomer>
-                    {filterdata(customerList).map((list) => {
-                        return (
-                            <Customerlist
-                                selectData={selectData}
-                                key={list.id}
-                                data={list}
-                            />
-                        );
-                    })}
-                </ContentCustomer>
+                {filterdata(customerList).length > 0 ? (
+                    <ContentCustomer>
+                        {filterdata(customerList).map((list) => {
+                            return (
+                                <Customerlist
+                                    selectData={selectData}
+                                    key={list.id}
+                                    data={list}
+                                />
+                            );
+                        })}
+                    </ContentCustomer>
+                ) : (
+                    <NoData>Lokasi tidak ditemukan </NoData>
+                )}
             </HomeMain>
             <Maps>
                 <GoogleMapReact center={center} zoom={15}>
@@ -163,4 +167,14 @@ const TextSearch = styled.input`
     border: none;
     margin-left: 1%;
     margin-right: 1%;
+`;
+
+const NoData = styled.div`
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 0.95em;
 `;
