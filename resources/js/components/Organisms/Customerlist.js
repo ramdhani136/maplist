@@ -50,7 +50,7 @@ const Title = styled.div`
     height: auto;
     margin-top: 5px;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.9em;
 `;
 
 const Area = styled.div`
