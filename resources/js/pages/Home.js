@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Customerlist } from "../components/Organisms";
 import GoogleMapReact from "google-map-react";
-import { ListMenu, Marker } from "../components/Moleculs";
+import { ListMenu, Marker, Popup } from "../components/Moleculs";
 import _ from "lodash";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -18,6 +18,8 @@ function Home() {
     const [select, setSelect] = useState({});
     const [value, setValue] = useState("");
     const [isActive, setIsActive] = useState(false);
+    const [popup, setPopup] = useState(true);
+    const [dataPopup, setDataPopUp] = useState({});
 
     useEffect(() => {
         fetch(
@@ -50,6 +52,14 @@ function Home() {
         setIsActive(false);
     };
 
+    const popupActive = () => {
+        setPopup(true);
+    };
+
+    const popupDisabled = () => {
+        setPopup(false);
+    };
+
     const filterdata = (data) => {
         return _.filter(data, function (query) {
             var nama = value
@@ -64,106 +74,120 @@ function Home() {
     };
 
     return (
-        <HomeWrapper>
-            <HomeMain>
-                <Search>
-                    {isActive ? (
-                        <CloseIcon
-                            onClick={toggleMenu}
-                            style={{
-                                fontSize: "30px",
-                                marginRight: "10px",
-                                marginLeft: "5px",
-                                color: "black",
-                                cursor: "pointer",
-                            }}
-                        />
-                    ) : (
-                        <MenuIcon
-                            onClick={toggleMenu}
-                            style={{
-                                fontSize: "30px",
-                                marginRight: "10px",
-                                marginLeft: "5px",
-                                color: "black",
-                                cursor: "pointer",
-                            }}
-                        />
-                    )}
+        <>
+            <Popup
+                dataPopup={dataPopup}
+                isActive={popup}
+                popupDisabled={popupDisabled}
+            />
+            <HomeWrapper isPopup={popup}>
+                <HomeMain>
+                    <Search>
+                        {isActive ? (
+                            <CloseIcon
+                                onClick={toggleMenu}
+                                style={{
+                                    fontSize: "30px",
+                                    marginRight: "10px",
+                                    marginLeft: "5px",
+                                    color: "black",
+                                    cursor: "pointer",
+                                }}
+                            />
+                        ) : (
+                            <MenuIcon
+                                onClick={toggleMenu}
+                                style={{
+                                    fontSize: "30px",
+                                    marginRight: "10px",
+                                    marginLeft: "5px",
+                                    color: "black",
+                                    cursor: "pointer",
+                                }}
+                            />
+                        )}
 
-                    <SearchPanel onClick={toggleDisabled}>
-                        <TextSearch
-                            onChange={(e) => setValue(e.target.value)}
-                            type="text"
-                            placeholder="Cari lokasi .."
-                        />
-                    </SearchPanel>
-                </Search>
-                <WrapperMenu active={isActive}>
-                    <div>
-                        <ListMenu
-                            toggleMenu={toggleDisabled}
-                            nama="Tambah Lokasi"
-                            Icon={AddLocationAltIcon}
-                        />
-                        <ListMenu
-                            toggleMenu={toggleDisabled}
-                            nama="Daftar Area"
-                            Icon={LanguageIcon}
-                        />
-                        {/* <ListMenu
+                        <SearchPanel onClick={toggleDisabled}>
+                            <TextSearch
+                                onChange={(e) => setValue(e.target.value)}
+                                type="text"
+                                placeholder="Cari lokasi .."
+                            />
+                        </SearchPanel>
+                    </Search>
+                    <WrapperMenu active={isActive}>
+                        <div>
+                            <ListMenu
+                                setPopup={setPopup}
+                                setIsActive={setIsActive}
+                                nama="Tambah Lokasi"
+                                Icon={AddLocationAltIcon}
+                                setDataPopUp={setDataPopUp}
+                            />
+                            <ListMenu
+                                setPopup={setPopup}
+                                setIsActive={setIsActive}
+                                nama="Daftar Area"
+                                Icon={LanguageIcon}
+                                setDataPopUp={setDataPopUp}
+                            />
+                            {/* <ListMenu
                             toggleMenu={toggleDisabled}
                             nama="Daftar Kendaraan"
                             Icon={LocalShippingIcon}
                         /> */}
-                        <ListMenu
-                            toggleMenu={toggleDisabled}
-                            nama="Pengaturan"
-                            Icon={SettingsIcon}
-                        />
-                        <ListMenu
-                            toggleMenu={toggleDisabled}
-                            nama="Keluar"
-                            Icon={LogoutIcon}
-                        />
-                    </div>
-                    <CreatedBy>
-                        &copy; (IT) PT. Ekatunggal Tunas Mandiri - 2021
-                    </CreatedBy>
-                </WrapperMenu>
-                {filterdata(customerList).length > 0 ? (
-                    <ContentCustomer>
-                        {filterdata(customerList).map((list) => {
+                            <ListMenu
+                                setPopup={setPopup}
+                                setIsActive={setIsActive}
+                                nama="Pengaturan"
+                                Icon={SettingsIcon}
+                                setDataPopUp={setDataPopUp}
+                            />
+                            <ListMenu
+                                setIsActive={setIsActive}
+                                nama="Keluar"
+                                Icon={LogoutIcon}
+                            />
+                        </div>
+                        <CreatedBy>
+                            &copy; (IT) PT. Ekatunggal Tunas Mandiri - 2021
+                        </CreatedBy>
+                    </WrapperMenu>
+                    {filterdata(customerList).length > 0 ? (
+                        <ContentCustomer>
+                            {filterdata(customerList).map((list) => {
+                                return (
+                                    <Customerlist
+                                        select={isData(list)}
+                                        toggleMenu={toggleDisabled}
+                                        selectData={selectData}
+                                        key={list.id}
+                                        data={list}
+                                    />
+                                );
+                            })}
+                        </ContentCustomer>
+                    ) : (
+                        <NoData>Lokasi tidak ditemukan </NoData>
+                    )}
+                </HomeMain>
+                <Maps onClick={toggleDisabled}>
+                    <GoogleMapReact center={center} zoom={15}>
+                        {customerList.map((list) => {
                             return (
-                                <Customerlist
-                                    toggleMenu={toggleDisabled}
-                                    selectData={selectData}
+                                <Marker
+                                    select={isData(list)}
                                     key={list.id}
-                                    data={list}
+                                    lat={list.lat}
+                                    lng={list.lng}
+                                    text={list.nama}
                                 />
                             );
                         })}
-                    </ContentCustomer>
-                ) : (
-                    <NoData>Lokasi tidak ditemukan </NoData>
-                )}
-            </HomeMain>
-            <Maps onClick={toggleDisabled}>
-                <GoogleMapReact center={center} zoom={15}>
-                    {customerList.map((list) => {
-                        return (
-                            <Marker
-                                select={isData(list)}
-                                key={list.id}
-                                lat={list.lat}
-                                lng={list.lng}
-                                text={list.nama}
-                            />
-                        );
-                    })}
-                </GoogleMapReact>
-            </Maps>
-        </HomeWrapper>
+                    </GoogleMapReact>
+                </Maps>
+            </HomeWrapper>
+        </>
     );
 }
 
@@ -171,6 +195,7 @@ export default Home;
 
 const HomeWrapper = styled.div`
     display: flex;
+    position: ${({ isPopup }) => (isPopup ? "fixed" : "none")};
     @media screen and (max-width: 720px) {
         flex-direction: column;
     }
@@ -189,6 +214,7 @@ const ContentCustomer = styled.div`
     flex-wrap: wrap;
     align-content: flex-start;
     z-index: 900;
+
     @media screen and (max-width: 720px) {
         margin-bottom: 20px;
     }
@@ -257,10 +283,10 @@ const WrapperMenu = styled.div`
     height: 91vh;
     background-color: white;
     position: fixed;
-    z-index: 20000;
+    z-index: 2000;
     top: 60px;
     margin-left: ${({ active }) => (active ? "-6px" : "-300px")};
-    transition: all 0.5s ease;
+    transition: all 0.5s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

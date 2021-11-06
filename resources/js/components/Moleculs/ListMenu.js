@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const ListMenu = ({ nama, Icon, toggleMenu }) => {
+const ListMenu = ({ nama, Icon, setIsActive, setPopup, setDataPopUp }) => {
     return (
         <>
-            <ListMenuWrapper onClick={toggleMenu}>
+            <ListMenuWrapper
+                onClick={() => {
+                    setPopup(true);
+                    setIsActive(false);
+                    setDataPopUp({ title: nama });
+                }}
+            >
                 <Icon
                     style={{
                         fontSize: "17px",

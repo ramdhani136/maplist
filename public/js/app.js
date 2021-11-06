@@ -10595,10 +10595,18 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var ListMenu = function ListMenu(_ref) {
   var nama = _ref.nama,
       Icon = _ref.Icon,
-      toggleMenu = _ref.toggleMenu;
+      setIsActive = _ref.setIsActive,
+      setPopup = _ref.setPopup,
+      setDataPopUp = _ref.setDataPopUp;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ListMenuWrapper, {
-      onClick: toggleMenu,
+      onClick: function onClick() {
+        setPopup(true);
+        setIsActive(false);
+        setDataPopUp({
+          title: nama
+        });
+      },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Icon, {
         style: {
           fontSize: "17px",
@@ -10656,6 +10664,65 @@ var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_
 
 /***/ }),
 
+/***/ "./resources/js/components/Moleculs/Popup.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Moleculs/Popup.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/icons-material/Close */ "./node_modules/@mui/icons-material/Close.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var Popup = function Popup(_ref) {
+  var isActive = _ref.isActive,
+      popupDisabled = _ref.popupDisabled,
+      dataPopup = _ref.dataPopup;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Main, {
+    isActive: isActive,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Wrapper, {
+      onClick: popupDisabled
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Content, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(TitleHeader, {
+        children: [dataPopup.title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          onClick: popupDisabled,
+          style: {
+            cursor: "pointer",
+            fontSize: "25px"
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IsContent, {})]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
+var Main = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: relative;\n    display: ", ";\n    transition: all 2s ease-in;\n"])), function (_ref2) {
+  var isActive = _ref2.isActive;
+  return isActive ? "block" : "none";
+});
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 100vh;\n    background-color: black;\n    opacity: 0.7;\n    position: fixed;\n    z-index: 3000;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 70%;\n    height: 95vh;\n    background-color: white;\n    position: absolute;\n    z-index: 4000;\n    left: 15%;\n    top: 10px;\n    border: solid 1px #535353;\n    position: fixed;\n    border-radius: 3px;\n    display: flex;\n    flex-direction: column;\n"])));
+var TitleHeader = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 40px;\n    color: gray;\n    border-bottom: solid 1px whitesmoke;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding-left: 2%;\n    padding-right: 2%;\n    font-size: 0.92em;\n"])));
+var IsContent = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    overflow-y: scroll;\n    flex: 1;\n"])));
+
+/***/ }),
+
 /***/ "./resources/js/components/Moleculs/index.js":
 /*!***************************************************!*\
   !*** ./resources/js/components/Moleculs/index.js ***!
@@ -10666,10 +10733,13 @@ var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Marker": () => (/* reexport safe */ _Marker__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "ListMenu": () => (/* reexport safe */ _ListMenu__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */   "ListMenu": () => (/* reexport safe */ _ListMenu__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "Popup": () => (/* reexport safe */ _Popup__WEBPACK_IMPORTED_MODULE_2__["default"])
 /* harmony export */ });
 /* harmony import */ var _Marker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Marker */ "./resources/js/components/Moleculs/Marker.js");
 /* harmony import */ var _ListMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListMenu */ "./resources/js/components/Moleculs/ListMenu.js");
+/* harmony import */ var _Popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Popup */ "./resources/js/components/Moleculs/Popup.js");
+
 
 
 
@@ -10702,7 +10772,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var Customerlist = function Customerlist(_ref) {
   var data = _ref.data,
       selectData = _ref.selectData,
-      toggleMenu = _ref.toggleMenu;
+      toggleMenu = _ref.toggleMenu,
+      select = _ref.select;
 
   var handleClick = function handleClick() {
     selectData(data);
@@ -10714,8 +10785,10 @@ var Customerlist = function Customerlist(_ref) {
       onClick: handleClick,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
+          select: select,
           src: data.fotoUrl
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Area, {
+          select: select,
           children: data.harga
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Title, {
@@ -10727,9 +10800,15 @@ var Customerlist = function Customerlist(_ref) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
 var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.04);\n        opacity: 0.9;\n    }\n"])));
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])));
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref2) {
+  var select = _ref2.select;
+  return select ? "solid 3px #ffff99" : "none";
+});
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-top: 5px;\n    font-weight: bold;\n    font-size: 1em;\n"])));
-var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n"])));
+var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n"])), function (_ref3) {
+  var select = _ref3.select;
+  return select ? "solid 3px #ffff99" : "none";
+});
 
 /***/ }),
 
@@ -10806,6 +10885,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Home() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -10834,6 +10914,16 @@ function Home() {
       _useState10 = _slicedToArray(_useState9, 2),
       isActive = _useState10[0],
       setIsActive = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState12 = _slicedToArray(_useState11, 2),
+      popup = _useState12[0],
+      setPopup = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+      _useState14 = _slicedToArray(_useState13, 2),
+      dataPopup = _useState14[0],
+      setDataPopUp = _useState14[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch("https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json").then(function (res) {
@@ -10867,6 +10957,14 @@ function Home() {
     setIsActive(false);
   };
 
+  var popupActive = function popupActive() {
+    setPopup(true);
+  };
+
+  var popupDisabled = function popupDisabled() {
+    setPopup(false);
+  };
+
   var filterdata = function filterdata(data) {
     return lodash__WEBPACK_IMPORTED_MODULE_4___default().filter(data, function (query) {
       var nama = value ? query.nama.toLowerCase().includes(value.toLowerCase()) : true; // area = value
@@ -10877,103 +10975,120 @@ function Home() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(HomeWrapper, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(HomeMain, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(Search, {
-        children: [isActive ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          onClick: toggleMenu,
-          style: {
-            fontSize: "30px",
-            marginRight: "10px",
-            marginLeft: "5px",
-            color: "black",
-            cursor: "pointer"
-          }
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_Menu__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          onClick: toggleMenu,
-          style: {
-            fontSize: "30px",
-            marginRight: "10px",
-            marginLeft: "5px",
-            color: "black",
-            cursor: "pointer"
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SearchPanel, {
-          onClick: toggleDisabled,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TextSearch, {
-            onChange: function onChange(e) {
-              return setValue(e.target.value);
-            },
-            type: "text",
-            placeholder: "Cari lokasi .."
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(WrapperMenu, {
-        active: isActive,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
-            toggleMenu: toggleDisabled,
-            nama: "Tambah Lokasi",
-            Icon: _mui_icons_material_AddLocationAlt__WEBPACK_IMPORTED_MODULE_8__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
-            toggleMenu: toggleDisabled,
-            nama: "Daftar Area",
-            Icon: _mui_icons_material_Language__WEBPACK_IMPORTED_MODULE_9__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
-            toggleMenu: toggleDisabled,
-            nama: "Pengaturan",
-            Icon: _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_10__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
-            toggleMenu: toggleDisabled,
-            nama: "Keluar",
-            Icon: _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_11__["default"]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.Popup, {
+      dataPopup: dataPopup,
+      isActive: popup,
+      popupDisabled: popupDisabled
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(HomeWrapper, {
+      isPopup: popup,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(HomeMain, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(Search, {
+          children: [isActive ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            onClick: toggleMenu,
+            style: {
+              fontSize: "30px",
+              marginRight: "10px",
+              marginLeft: "5px",
+              color: "black",
+              cursor: "pointer"
+            }
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mui_icons_material_Menu__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            onClick: toggleMenu,
+            style: {
+              fontSize: "30px",
+              marginRight: "10px",
+              marginLeft: "5px",
+              color: "black",
+              cursor: "pointer"
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SearchPanel, {
+            onClick: toggleDisabled,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TextSearch, {
+              onChange: function onChange(e) {
+                return setValue(e.target.value);
+              },
+              type: "text",
+              placeholder: "Cari lokasi .."
+            })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CreatedBy, {
-          children: "\xA9 (IT) PT. Ekatunggal Tunas Mandiri - 2021"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(WrapperMenu, {
+          active: isActive,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
+              setPopup: setPopup,
+              setIsActive: setIsActive,
+              nama: "Tambah Lokasi",
+              Icon: _mui_icons_material_AddLocationAlt__WEBPACK_IMPORTED_MODULE_8__["default"],
+              setDataPopUp: setDataPopUp
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
+              setPopup: setPopup,
+              setIsActive: setIsActive,
+              nama: "Daftar Area",
+              Icon: _mui_icons_material_Language__WEBPACK_IMPORTED_MODULE_9__["default"],
+              setDataPopUp: setDataPopUp
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
+              setPopup: setPopup,
+              setIsActive: setIsActive,
+              nama: "Pengaturan",
+              Icon: _mui_icons_material_Settings__WEBPACK_IMPORTED_MODULE_10__["default"],
+              setDataPopUp: setDataPopUp
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
+              setIsActive: setIsActive,
+              nama: "Keluar",
+              Icon: _mui_icons_material_Logout__WEBPACK_IMPORTED_MODULE_11__["default"]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(CreatedBy, {
+            children: "\xA9 (IT) PT. Ekatunggal Tunas Mandiri - 2021"
+          })]
+        }), filterdata(customerList).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ContentCustomer, {
+          children: filterdata(customerList).map(function (list) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Organisms__WEBPACK_IMPORTED_MODULE_1__.Customerlist, {
+              select: isData(list),
+              toggleMenu: toggleDisabled,
+              selectData: selectData,
+              data: list
+            }, list.id);
+          })
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(NoData, {
+          children: "Lokasi tidak ditemukan "
         })]
-      }), filterdata(customerList).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ContentCustomer, {
-        children: filterdata(customerList).map(function (list) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Organisms__WEBPACK_IMPORTED_MODULE_1__.Customerlist, {
-            toggleMenu: toggleDisabled,
-            selectData: selectData,
-            data: list
-          }, list.id);
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Maps, {
+        onClick: toggleDisabled,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          center: center,
+          zoom: 15,
+          children: customerList.map(function (list) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.Marker, {
+              select: isData(list),
+              lat: list.lat,
+              lng: list.lng,
+              text: list.nama
+            }, list.id);
+          })
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(NoData, {
-        children: "Lokasi tidak ditemukan "
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Maps, {
-      onClick: toggleDisabled,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        center: center,
-        zoom: 15,
-        children: customerList.map(function (list) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.Marker, {
-            select: isData(list),
-            lat: list.lat,
-            lng: list.lng,
-            text: list.nama
-          }, list.id);
-        })
-      })
     })]
   });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
-var HomeWrapper = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    @media screen and (max-width: 720px) {\n        flex-direction: column;\n    }\n"])));
+var HomeWrapper = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    position: ", ";\n    @media screen and (max-width: 720px) {\n        flex-direction: column;\n    }\n"])), function (_ref) {
+  var isPopup = _ref.isPopup;
+  return isPopup ? "fixed" : "none";
+});
 var HomeMain = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    flex-basis: 40%;\n    display: flex;\n    flex-direction: column;\n    background-color: whitesmoke;\n    padding: 0.5%;\n"])));
-var ContentCustomer = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    align-content: flex-start;\n    z-index: 900;\n    @media screen and (max-width: 720px) {\n        margin-bottom: 20px;\n    }\n"])));
+var ContentCustomer = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    align-content: flex-start;\n    z-index: 900;\n\n    @media screen and (max-width: 720px) {\n        margin-bottom: 20px;\n    }\n"])));
 var Maps = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    flex-grow: 1;\n    height: 100vh;\n    top: 0;\n    position: sticky;\n    background-color: white;\n"])));
 var Search = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-bottom: 20px;\n    position: sticky;\n    top: 0px;\n    background-color: whitesmoke;\n    z-index: 1000;\n    margin-top: -20px;\n    display: flex;\n    align-items: center;\n    @media screen and (max-width: 720px) {\n        width: 98%;\n    }\n"])));
 var SearchPanel = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #ccc;\n    width: 100%;\n    height: 40px;\n    margin-top: 10px;\n    background-color: white;\n    border-radius: 2px;\n    margin-bottom: 10px;\n    display: flex;\n    align-items: center;\n"])));
 var TextSearch = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].input(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    /* color: #bbb; */\n    font-size: 13px;\n    height: 30px;\n    padding-left: 2%;\n    flex: 1;\n    border: none;\n    margin-left: 1%;\n    margin-right: 1%;\n"])));
 var NoData = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 80vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #bbb;\n    font-size: 0.95em;\n"])));
-var WrapperMenu = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    width: 290px;\n    height: 91vh;\n    background-color: white;\n    position: fixed;\n    z-index: 20000;\n    top: 60px;\n    margin-left: ", ";\n    transition: all 0.5s ease;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    @media screen and (max-width: 720px) {\n        width: 102%;\n        margin-left: ", ";\n    }\n"])), function (_ref) {
-  var active = _ref.active;
-  return active ? "-6px" : "-300px";
-}, function (_ref2) {
+var WrapperMenu = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    width: 290px;\n    height: 91vh;\n    background-color: white;\n    position: fixed;\n    z-index: 2000;\n    top: 60px;\n    margin-left: ", ";\n    transition: all 0.5s;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    @media screen and (max-width: 720px) {\n        width: 102%;\n        margin-left: ", ";\n    }\n"])), function (_ref2) {
   var active = _ref2.active;
+  return active ? "-6px" : "-300px";
+}, function (_ref3) {
+  var active = _ref3.active;
   return active ? "-6px" : "-102%";
 });
 var CreatedBy = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    font-size: 0.9em;\n    text-align: center;\n    opacity: 0.3;\n    margin-bottom: 20px;\n"])));

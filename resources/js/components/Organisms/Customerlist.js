@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Customerlist = ({ data, selectData, toggleMenu }) => {
+const Customerlist = ({ data, selectData, toggleMenu, select }) => {
     const handleClick = () => {
         selectData(data);
         toggleMenu();
@@ -11,8 +11,8 @@ const Customerlist = ({ data, selectData, toggleMenu }) => {
         <>
             <CLWrapper onClick={handleClick}>
                 <div>
-                    <Img src={data.fotoUrl} />
-                    <Area>{data.harga}</Area>
+                    <Img select={select} src={data.fotoUrl} />
+                    <Area select={select}>{data.harga}</Area>
                 </div>
                 <Title>{data.nama}</Title>
             </CLWrapper>
@@ -38,6 +38,8 @@ const Img = styled.img`
     width: 100%;
     height: 155px;
     object-fit: cover;
+    border: ${({ select }) => (select ? "solid 3px #ffff99" : "none")};
+    border-bottom: none;
     @media screen and (max-width: 720px) {
         height: 120px;
     }
@@ -62,4 +64,6 @@ const Area = styled.div`
     font-weight: bold;
     font-size: 13px;
     text-align: center;
+    border: ${({ select }) => (select ? "solid 3px #ffff99" : "none")};
+    border-top: none;
 `;
