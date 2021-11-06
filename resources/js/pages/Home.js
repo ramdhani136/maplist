@@ -18,7 +18,7 @@ function Home() {
     const [select, setSelect] = useState({});
     const [value, setValue] = useState("");
     const [isActive, setIsActive] = useState(false);
-    const [popup, setPopup] = useState(true);
+    const [popup, setPopup] = useState(false);
     const [dataPopup, setDataPopUp] = useState({});
 
     useEffect(() => {

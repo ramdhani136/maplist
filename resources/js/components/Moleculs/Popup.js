@@ -50,6 +50,10 @@ const Content = styled.div`
     border-radius: 3px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 720px) {
+        width: 95%;
+        left: 2.5%;
+    }
 `;
 
 const TitleHeader = styled.div`
