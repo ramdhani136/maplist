@@ -8,12 +8,13 @@ const Marker = ({ text, select }) => {
 export default Marker;
 
 const MainMarker = styled.div`
-    border: solid 1.5px black;
+    border: solid 1px #1f1f1f;
     width: 100px;
     text-align: center;
     font-weight: bold;
     padding: 5px;
     border-radius: 3px;
     font-size: 10px;
-    background-color: ${({ select }) => (select ? "#ffff99" : "#e5e5ff")};
+    background-color: ${({ select }) => (select ? "#232323" : "whitesmoke")};
+    color: ${({ select }) => (select ? "white" : "black")};
 `;

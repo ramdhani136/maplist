@@ -38,7 +38,7 @@ const Img = styled.img`
     width: 100%;
     height: 155px;
     object-fit: cover;
-    border: ${({ select }) => (select ? "solid 3px #ffff99" : "none")};
+    border: ${({ select }) => (select ? "solid 1.5px #232323" : "none")};
     border-bottom: none;
     @media screen and (max-width: 720px) {
         height: 120px;
@@ -64,6 +64,6 @@ const Area = styled.div`
     font-weight: bold;
     font-size: 13px;
     text-align: center;
-    border: ${({ select }) => (select ? "solid 3px #ffff99" : "none")};
+    border: ${({ select }) => (select ? "solid 1.5px #232323" : "none")};
     border-top: none;
 `;

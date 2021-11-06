@@ -10657,9 +10657,12 @@ var Marker = function Marker(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Marker);
-var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border: solid 1.5px black;\n    width: 100px;\n    text-align: center;\n    font-weight: bold;\n    padding: 5px;\n    border-radius: 3px;\n    font-size: 10px;\n    background-color: ", ";\n"])), function (_ref2) {
+var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border: solid 1px #1f1f1f;\n    width: 100px;\n    text-align: center;\n    font-weight: bold;\n    padding: 5px;\n    border-radius: 3px;\n    font-size: 10px;\n    background-color: ", ";\n    color: ", ";\n"])), function (_ref2) {
   var select = _ref2.select;
-  return select ? "#ffff99" : "#e5e5ff";
+  return select ? "#232323" : "whitesmoke";
+}, function (_ref3) {
+  var select = _ref3.select;
+  return select ? "white" : "black";
 });
 
 /***/ }),
@@ -10802,12 +10805,12 @@ var Customerlist = function Customerlist(_ref) {
 var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.04);\n        opacity: 0.9;\n    }\n"])));
 var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref2) {
   var select = _ref2.select;
-  return select ? "solid 3px #ffff99" : "none";
+  return select ? "solid 1.5px #232323" : "none";
 });
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-top: 5px;\n    font-weight: bold;\n    font-size: 1em;\n"])));
 var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n"])), function (_ref3) {
   var select = _ref3.select;
-  return select ? "solid 3px #ffff99" : "none";
+  return select ? "solid 1.5px #232323" : "none";
 });
 
 /***/ }),
