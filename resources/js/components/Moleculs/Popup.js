@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
+import { CreateLocation } from "../../pages/";
 
 const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     return (
@@ -14,7 +15,9 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                         style={{ cursor: "pointer", fontSize: "25px" }}
                     />
                 </TitleHeader>
-                <IsContent></IsContent>
+                <IsContent>
+                    {dataPopup.page === "CreateLocation" && <CreateLocation />}
+                </IsContent>
             </Content>
         </Main>
     );
@@ -59,14 +62,14 @@ const Content = styled.div`
 const TitleHeader = styled.div`
     width: 100%;
     height: 40px;
-    color: gray;
+    font-weight: bold;
     border-bottom: solid 1px whitesmoke;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size: 0.92em;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 1em;
 `;
 
 const IsContent = styled.div`

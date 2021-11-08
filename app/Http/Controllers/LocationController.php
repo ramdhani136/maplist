@@ -99,9 +99,6 @@ class LocationController extends Controller
     public function update(Request $request, $id)
     {
         $data =  Location::find($id);
-
-        // Location::find($id)->update($request->all());
-
         $data->name = $request->input('name');
         $data->addr = $request->input('addr');
         $data->lat = $request->input('lat');

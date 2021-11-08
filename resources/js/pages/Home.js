@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+// import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
 
@@ -21,7 +21,7 @@ function Home() {
     const [popup, setPopup] = useState(false);
     const [dataPopup, setDataPopUp] = useState({});
 
-    useEffect(() => {
+    const getLocation = () => {
         fetch(
             "https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json"
         )
@@ -29,6 +29,10 @@ function Home() {
             .then((data) => {
                 setCustomerList(data);
             });
+    };
+
+    useEffect(() => {
+        getLocation();
     }, []);
 
     const selectData = (data) => {
@@ -76,6 +80,7 @@ function Home() {
     return (
         <>
             <Popup
+                getLocation={getLocation}
                 dataPopup={dataPopup}
                 isActive={popup}
                 popupDisabled={popupDisabled}
@@ -120,6 +125,7 @@ function Home() {
                             <ListMenu
                                 setPopup={setPopup}
                                 setIsActive={setIsActive}
+                                page="CreateLocation"
                                 nama="Tambah Lokasi"
                                 Icon={AddLocationAltIcon}
                                 setDataPopUp={setDataPopUp}

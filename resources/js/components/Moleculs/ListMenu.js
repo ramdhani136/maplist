@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-const ListMenu = ({ nama, Icon, setIsActive, setPopup, setDataPopUp }) => {
+const ListMenu = ({
+    nama,
+    Icon,
+    setIsActive,
+    setPopup,
+    setDataPopUp,
+    page,
+}) => {
     return (
         <>
             <ListMenuWrapper
                 onClick={() => {
                     setPopup(true);
                     setIsActive(false);
-                    setDataPopUp({ title: nama });
+                    setDataPopUp({ title: nama, page: page });
                 }}
             >
                 <Icon
