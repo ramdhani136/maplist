@@ -1,21 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const FieldInput = ({ width, data, onChange }) => {
+const TextArea = ({ width, data }) => {
     return (
         <WrapInput width={width}>
             <Label>{data.name}</Label>
-            <Input
-                onChange={onChange}
-                type={data.type}
-                placeholder={data.ph}
-                name={data.nameInput}
-            />
+            <Textarea placeholder={data.ph} />
         </WrapInput>
     );
 };
 
-export default FieldInput;
+export default TextArea;
 
 const WrapInput = styled.div`
     width: ${({ width }) => (width ? width : "100%")};
@@ -28,12 +23,11 @@ const Label = styled.div`
     margin-bottom: 5px;
 `;
 
-const Input = styled.input`
+const Textarea = styled.textarea`
     width: 100%;
-    height: 40px;
+    height: 80px;
     border: solid 1px #ddd;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 2%;
     font-size: 0.9em;
     ::-webkit-input-placeholder {
         color: #eee;

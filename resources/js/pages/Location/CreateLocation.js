@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { FieldInput } from "../../components/Atoms";
+import { FieldInput, TextArea } from "../../components/Atoms";
+import { BASE_URL } from "../../config";
 
 const CreateLocation = () => {
+    const [previewImg, setPreviewImg] = useState("");
+    const [value, setValue] = useState({});
+
+    const imageHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setPreviewImg(reader.result);
+            }
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    };
+
+    useEffect(() => {
+        if (
+            previewImg === "" ||
+            previewImg === null ||
+            previewImg === undefined
+        ) {
+            setPreviewImg(`${BASE_URL}storage/images/noimage.png`);
+        }
+    }, [previewImg]);
+
     return (
         <WrapperCL>
             <CLleft>
                 <FieldInput
-                    tykle
                     data={{
                         name: "Nama Lokasi",
                         type: "text",
@@ -15,13 +38,9 @@ const CreateLocation = () => {
                     }}
                     width="94%"
                 />
-                <FieldInput
-                    data={{
-                        name: "Alamat",
-                        type: "text",
-                        ph: "Cth : Jl. Raya Bogor No.212 ...",
-                    }}
+                <TextArea
                     width="94%"
+                    data={{ ph: "Cth: Jl.Raya Bogor No.212", name: "Alamat" }}
                 />
                 <FieldInput
                     data={{
@@ -39,10 +58,7 @@ const CreateLocation = () => {
                     }}
                     width="94%"
                 />
-            </CLleft>
-            <CLRight>
                 <FieldInput
-                    tykle
                     data={{
                         name: "PIC",
                         type: "text",
@@ -50,8 +66,16 @@ const CreateLocation = () => {
                     }}
                     width="94%"
                 />
+                <TextArea
+                    width="94%"
+                    data={{
+                        ph: "Cth: Mobil double tidak bisa masuk",
+                        name: "Keterangan",
+                    }}
+                />
+            </CLleft>
+            <CLRight>
                 <FieldInput
-                    tykle
                     data={{
                         name: "Phone",
                         type: "text",
@@ -59,6 +83,18 @@ const CreateLocation = () => {
                     }}
                     width="94%"
                 />
+
+                <FieldInput
+                    onChange={imageHandler}
+                    data={{
+                        name: "Gambar Lokasi",
+                        type: "file",
+                        nameInput: "file",
+                    }}
+                    width="94%"
+                />
+
+                <ImgPreview src={previewImg} />
             </CLRight>
         </WrapperCL>
     );
@@ -80,4 +116,10 @@ const CLleft = styled.div`
 
 const CLRight = styled.div`
     flex: 1;
+`;
+
+const ImgPreview = styled.img`
+    width: 80%;
+    border: solid 1px #ccc;
+    object-fit: "contain";
 `;

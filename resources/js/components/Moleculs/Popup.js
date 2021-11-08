@@ -42,12 +42,12 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
     width: 70%;
-    height: 95vh;
+    height: 97vh;
     background-color: white;
     position: absolute;
     z-index: 4000;
     left: 15%;
-    top: 10px;
+    top: 5px;
     border: solid 1px #535353;
     position: fixed;
     border-radius: 3px;
@@ -61,7 +61,7 @@ const Content = styled.div`
 
 const TitleHeader = styled.div`
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-weight: bold;
     border-bottom: solid 1px whitesmoke;
     display: flex;
