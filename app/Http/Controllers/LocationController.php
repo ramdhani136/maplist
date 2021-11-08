@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\LocationResource;
 use App\Models\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class LocationController extends Controller
@@ -37,8 +38,33 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Location::create($request->all());
-        return Response(new LocationResource($data), response::HTTP_CREATED);
+        $this->validate($request, [
+            'name' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+            'id_area' => 'required',
+            'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $data = new Location;
+
+        $data->name = $request->name;
+        $data->addr = $request->addr;
+        $data->lat = $request->lat;
+        $data->lng = $request->lng;
+        $data->id_area = $request->id_area;
+        $data->description = $request->description;
+        $data->phone = $request->phone;
+        $data->pic = $request->pic;
+
+        if ($request->hasFile('file')) {
+            $request->file->store('/public/images');
+            $data->uri = $request->file->hashName();
+        }
+
+        $data->save();
+
+        return ["status" => "success"];
     }
 
     /**
@@ -72,8 +98,32 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Location::where('id', $id)->update($request->all());
-        return response('update', response::HTTP_CREATED);
+        $data =  Location::find($id);
+
+        // Location::find($id)->update($request->all());
+
+        $data->name = $request->input('name');
+        $data->addr = $request->input('addr');
+        $data->lat = $request->input('lat');
+        $data->lng = $request->input('lng');
+        $data->id_area = $request->input('id_area');
+        $data->description = $request->input('description');
+        $data->phone = $request->input('phone');
+        $data->pic = $request->input('pic');
+
+        if ($request->hasFile('file')) {
+
+            if (Storage::exists('public/images/' . $data->uri)) {
+                Storage::delete('public/images/' . $data->uri);
+                $data->delete();
+            }
+            $request->file->store('/public/images');
+            $data->uri = $request->file->hashName();
+        }
+
+        $data->update();
+
+        return ["status" => "success"];
     }
 
     /**
@@ -84,7 +134,18 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        Location::where('id', $id)->delete();
-        return response('deleted', response::HTTP_OK);
+        $gambar = Location::where('id', $id)->first();
+        if (Storage::exists('public/images/' . $gambar->uri)) {
+            Storage::delete('public/images/' . $gambar->uri);
+            $gambar->delete();
+            return response('deleted', response::HTTP_OK);
+            /*
+                Delete Multiple File like this way
+                Storage::delete(['upload/test.png', 'upload/test2.png']);
+            */
+        } else {
+            $gambar->delete();
+            return response('deleted', response::HTTP_OK);
+        }
     }
 }

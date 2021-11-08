@@ -10785,6 +10785,7 @@ var Customerlist = function Customerlist(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(CLWrapper, {
+      select: select,
       onClick: handleClick,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
@@ -10802,15 +10803,18 @@ var Customerlist = function Customerlist(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
-var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.04);\n        opacity: 0.9;\n    }\n"])));
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref2) {
+var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n"])), function (_ref2) {
   var select = _ref2.select;
-  return select ? "solid 1.5px #232323" : "none";
+  return select ? "scale(1.05)" : "none";
+});
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref3) {
+  var select = _ref3.select;
+  return select ? "solid 1.5px #ffff99" : "none";
 });
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    margin-top: 5px;\n    font-weight: bold;\n    font-size: 0.9em;\n"])));
-var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n"])), function (_ref3) {
-  var select = _ref3.select;
-  return select ? "solid 1.5px #232323" : "none";
+var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n"])), function (_ref4) {
+  var select = _ref4.select;
+  return select ? "solid 1.5px #ffff99" : "none";
 });
 
 /***/ }),

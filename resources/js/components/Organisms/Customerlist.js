@@ -9,7 +9,7 @@ const Customerlist = ({ data, selectData, toggleMenu, select }) => {
 
     return (
         <>
-            <CLWrapper onClick={handleClick}>
+            <CLWrapper select={select} onClick={handleClick}>
                 <div>
                     <Img select={select} src={data.fotoUrl} />
                     <Area select={select}>{data.harga}</Area>
@@ -29,16 +29,17 @@ const CLWrapper = styled.div`
     cursor: pointer;
     transition: transform 0.1s;
     :hover {
-        transform: scale(1.04);
+        transform: scale(1.06);
         opacity: 0.9;
     }
+    transform: ${({ select }) => (select ? "scale(1.05)" : "none")};
 `;
 
 const Img = styled.img`
     width: 100%;
     height: 155px;
     object-fit: cover;
-    border: ${({ select }) => (select ? "solid 1.5px #232323" : "none")};
+    border: ${({ select }) => (select ? "solid 1.5px #ffff99" : "none")};
     border-bottom: none;
     @media screen and (max-width: 720px) {
         height: 120px;
@@ -64,6 +65,6 @@ const Area = styled.div`
     font-weight: bold;
     font-size: 13px;
     text-align: center;
-    border: ${({ select }) => (select ? "solid 1.5px #232323" : "none")};
+    border: ${({ select }) => (select ? "solid 1.5px #ffff99" : "none")};
     border-top: none;
 `;
