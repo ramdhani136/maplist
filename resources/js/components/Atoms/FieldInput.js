@@ -29,11 +29,12 @@ const Label = styled.div`
 `;
 
 const Input = styled.input`
+    border-radius: 2px;
     width: 100%;
     height: 40px;
     border: solid 1px #ddd;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
     font-size: 0.9em;
     ::-webkit-input-placeholder {
         color: #eee;

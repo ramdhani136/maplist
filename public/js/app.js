@@ -10614,7 +10614,75 @@ var WrapInput = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_t
   return width ? width : "100%";
 });
 var Label = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    font-size: 0.93em;\n    color: #bbb;\n    margin-bottom: 5px;\n"])));
-var Input = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 40px;\n    border: solid 1px #ddd;\n    padding-left: 2%;\n    padding-right: 2%;\n    font-size: 0.9em;\n    ::-webkit-input-placeholder {\n        color: #eee;\n    }\n"])));
+var Input = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border-radius: 2px;\n    width: 100%;\n    height: 40px;\n    border: solid 1px #ddd;\n    padding-left: 3%;\n    padding-right: 3%;\n    font-size: 0.9em;\n    ::-webkit-input-placeholder {\n        color: #eee;\n    }\n"])));
+
+/***/ }),
+
+/***/ "./resources/js/components/Atoms/SelectList.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Atoms/SelectList.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var SelectList = function SelectList(_ref) {
+  var data = _ref.data,
+      width = _ref.width,
+      _onClick = _ref.onClick;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(WrapInput, {
+    width: width,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Label, {
+      children: data.name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      style: {
+        width: "100%",
+        position: "relative"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Input, {
+        onClick: function onClick() {
+          _onClick();
+
+          data.setSelectAktif(true);
+        },
+        type: data.type,
+        placeholder: data.ph,
+        name: data.nameInput
+      }), data.aktif && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Ulist, {
+        children: data.data && data.data.map(function (list) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IsList, {
+            children: list.name
+          }, list.id);
+        })
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SelectList);
+var WrapInput = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: ", ";\n    margin-bottom: 20px;\n    cursor: pointer;\n"])), function (_ref2) {
+  var width = _ref2.width;
+  return width ? width : "100%";
+});
+var Label = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    font-size: 0.93em;\n    color: #bbb;\n    margin-bottom: 5px;\n"])));
+var Input = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 40px;\n    border: solid 1px #ddd;\n    padding-left: 3%;\n    padding-right: 3%;\n    font-size: 0.9em;\n    background-color: white;\n    border-radius: 2px;\n    ::-webkit-input-placeholder {\n        color: #eee;\n    }\n"])));
+var Ulist = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    border: solid 1px #ccc;\n    max-height: 290px;\n    position: absolute;\n    background-color: white;\n    overflow-y: scroll;\n    float: left;\n"])));
+var IsList = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].ul(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 107%;\n    /* border-bottom: solid 1px whitesmoke; */\n    padding-top: 14px;\n    padding-bottom: 14px;\n    margin-bottom: 0px;\n    font-size: 0.9em;\n    margin-left: -7%;\n    color: #232323;\n"])));
 
 /***/ }),
 
@@ -10660,7 +10728,7 @@ var WrapInput = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_t
   return width ? width : "100%";
 });
 var Label = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    font-size: 0.93em;\n    color: #bbb;\n    margin-bottom: 5px;\n"])));
-var Textarea = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 80px;\n    border: solid 1px #ddd;\n    padding: 2%;\n    font-size: 0.9em;\n    ::-webkit-input-placeholder {\n        color: #eee;\n    }\n"])));
+var Textarea = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 80px;\n    border: solid 1px #ddd;\n    padding: 3%;\n    font-size: 0.9em;\n    border-radius: 2px;\n    ::-webkit-input-placeholder {\n        color: #eee;\n    }\n"])));
 
 /***/ }),
 
@@ -10674,10 +10742,13 @@ var Textarea = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].textare
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FieldInput": () => (/* reexport safe */ _FieldInput__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "TextArea": () => (/* reexport safe */ _TextArea__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */   "TextArea": () => (/* reexport safe */ _TextArea__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "SelectList": () => (/* reexport safe */ _SelectList__WEBPACK_IMPORTED_MODULE_2__["default"])
 /* harmony export */ });
 /* harmony import */ var _FieldInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FieldInput */ "./resources/js/components/Atoms/FieldInput.js");
 /* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextArea */ "./resources/js/components/Atoms/TextArea.js");
+/* harmony import */ var _SelectList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SelectList */ "./resources/js/components/Atoms/SelectList.js");
+
 
 
 
@@ -10969,7 +11040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Api_Url": () => (/* binding */ Api_Url)
 /* harmony export */ });
 var BASE_URL = "http://localhost:8000/";
-var Api_Url = "http://localhost:8000/api";
+var Api_Url = "http://localhost:8000/api/";
 
 
 /***/ }),
@@ -11297,6 +11368,16 @@ var CreateLocation = function CreateLocation() {
       value = _useState4[0],
       setValue = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      areas = _useState6[0],
+      setAreas = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      selectAktif = _useState8[0],
+      setSelectAktif = _useState8[1];
+
   var imageHandler = function imageHandler(e) {
     var reader = new FileReader();
 
@@ -11307,6 +11388,14 @@ var CreateLocation = function CreateLocation() {
     };
 
     reader.readAsDataURL(e.target.files[0]);
+  };
+
+  var getAreas = function getAreas() {
+    fetch("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "area")).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      setAreas(data.data);
+    });
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -11363,6 +11452,17 @@ var CreateLocation = function CreateLocation() {
           name: "Phone",
           type: "text",
           ph: "Cth: 021-8273823"
+        },
+        width: "94%"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.SelectList, {
+        onClick: getAreas,
+        data: {
+          name: "Group Area",
+          type: "text",
+          ph: "Pilih Area",
+          data: areas,
+          aktif: selectAktif,
+          setSelectAktif: setSelectAktif
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.FieldInput, {

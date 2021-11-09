@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { FieldInput, TextArea } from "../../components/Atoms";
-import { BASE_URL } from "../../config";
+import { FieldInput, SelectList, TextArea } from "../../components/Atoms";
+import { Api_Url, BASE_URL } from "../../config";
 
 const CreateLocation = () => {
     const [previewImg, setPreviewImg] = useState("");
     const [value, setValue] = useState({});
+    const [areas, setAreas] = useState([]);
+    const [selectAktif, setSelectAktif] = useState(false);
 
     const imageHandler = (e) => {
         const reader = new FileReader();
@@ -15,6 +17,14 @@ const CreateLocation = () => {
             }
         };
         reader.readAsDataURL(e.target.files[0]);
+    };
+
+    const getAreas = () => {
+        fetch(`${Api_Url}area`)
+            .then((res) => res.json())
+            .then((data) => {
+                setAreas(data.data);
+            });
     };
 
     useEffect(() => {
@@ -84,6 +94,18 @@ const CreateLocation = () => {
                     width="94%"
                 />
 
+                <SelectList
+                    onClick={getAreas}
+                    data={{
+                        name: "Group Area",
+                        type: "text",
+                        ph: "Pilih Area",
+                        data: areas,
+                        aktif: selectAktif,
+                        setSelectAktif: setSelectAktif,
+                    }}
+                    width="94%"
+                />
                 <FieldInput
                     onChange={imageHandler}
                     data={{

@@ -27,8 +27,9 @@ const Textarea = styled.textarea`
     width: 100%;
     height: 80px;
     border: solid 1px #ddd;
-    padding: 2%;
+    padding: 3%;
     font-size: 0.9em;
+    border-radius: 2px;
     ::-webkit-input-placeholder {
         color: #eee;
     }
