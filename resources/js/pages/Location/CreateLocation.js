@@ -9,7 +9,7 @@ import {
 import { Api_Url, BASE_URL } from "../../config";
 import _ from "lodash";
 
-const CreateLocation = () => {
+const CreateLocation = ({ setbtnAktif }) => {
     const [previewImg, setPreviewImg] = useState("");
     const [value, setValue] = useState({});
     const [areas, setAreas] = useState([]);
@@ -74,25 +74,33 @@ const CreateLocation = () => {
     };
 
     const isValid = () => {
-        if (value.name === undefined || value.name === "") {
+        if (
+            value.name === undefined ||
+            value.name === "" ||
+            value.name === null
+        ) {
             setValidName(true);
         } else {
             setValidName(false);
         }
 
-        if (value.lat === undefined || value.lat === "") {
+        if (value.lat === undefined || value.lat === "" || value.lat === null) {
             setValidLat(true);
         } else {
             setValidLat(false);
         }
 
-        if (value.lng === undefined || value.lng === "") {
+        if (value.lng === undefined || value.lng === "" || value.lng === null) {
             setvalidLng(true);
         } else {
             setvalidLng(false);
         }
 
-        if (value.id_area === undefined || value.id_area === "") {
+        if (
+            value.id_area === undefined ||
+            value.id_area === "" ||
+            value.id_area === null
+        ) {
             setValidArea(true);
         } else {
             setValidArea(false);
@@ -111,7 +119,17 @@ const CreateLocation = () => {
 
     useEffect(() => {
         isValid();
-    }, [value]);
+        if (
+            validName === false &&
+            validArea === false &&
+            validLat === false &&
+            validLng === false
+        ) {
+            setbtnAktif(true);
+        } else {
+            setbtnAktif(false);
+        }
+    });
 
     const filterdata = (data) => {
         return _.filter(data, function (query) {
@@ -135,7 +153,6 @@ const CreateLocation = () => {
                     }}
                     width="94%"
                 />
-                {console.log(value)}
                 <TextArea
                     getValue={handleAddr}
                     width="94%"
@@ -218,7 +235,6 @@ const CreateLocation = () => {
                 />
 
                 <ImgPreview src={previewImg} />
-                {console.log(value)}
             </CLRight>
         </WrapperCL>
     );

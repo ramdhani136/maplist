@@ -10973,9 +10973,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/icons-material/Close */ "./node_modules/@mui/icons-material/Close.js");
 /* harmony import */ var _pages___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/ */ "./resources/js/pages/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -10988,21 +11000,36 @@ var Popup = function Popup(_ref) {
   var isActive = _ref.isActive,
       popupDisabled = _ref.popupDisabled,
       dataPopup = _ref.dataPopup;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      btnAktif = _useState2[0],
+      setbtnAktif = _useState2[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Main, {
     isActive: isActive,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Wrapper, {
       onClick: popupDisabled
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Content, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(TitleHeader, {
-        children: [dataPopup.title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          onClick: popupDisabled,
+        children: [dataPopup.title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           style: {
-            cursor: "pointer",
-            fontSize: "25px"
-          }
+            display: "flex"
+          },
+          children: [dataPopup.page === "CreateLocation" && btnAktif ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
+            children: "Simpan"
+          }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            onClick: popupDisabled,
+            style: {
+              cursor: "pointer",
+              fontSize: "25px"
+            }
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(IsContent, {
-        children: dataPopup.page === "CreateLocation" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_pages___WEBPACK_IMPORTED_MODULE_1__.CreateLocation, {})
+        children: dataPopup.page === "CreateLocation" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_pages___WEBPACK_IMPORTED_MODULE_1__.CreateLocation, {
+          setbtnAktif: setbtnAktif
+        })
       })]
     })]
   });
@@ -11017,6 +11044,10 @@ var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_tem
 var Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 70%;\n    height: 97vh;\n    background-color: white;\n    position: absolute;\n    z-index: 4000;\n    left: 15%;\n    top: 5px;\n    border: solid 1px #535353;\n    position: fixed;\n    border-radius: 3px;\n    display: flex;\n    flex-direction: column;\n    @media screen and (max-width: 720px) {\n        width: 95%;\n        left: 2.5%;\n    }\n"])));
 var TitleHeader = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 50px;\n    font-weight: bold;\n    border-bottom: solid 1px whitesmoke;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding-left: 3%;\n    padding-right: 3%;\n    font-size: 1em;\n"])));
 var IsContent = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    overflow-y: scroll;\n    flex: 1;\n"])));
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #28a658;\n    margin-right: 30px;\n    padding: 5px;\n    border-radius: 2px;\n    cursor: pointer;\n    font-size: 0.9em;\n    padding-left: 9px;\n    padding-right: 9px;\n    background-color: #2db962;\n    color: white;\n\n    :hover {\n        transform: scale(1.03);\n        opacity: 0.9;\n    }\n    /* transform: ", "; */\n"])), function (_ref3) {
+  var select = _ref3.select;
+  return select ? "scale(1.05)" : "none";
+});
 
 /***/ }),
 
@@ -11468,7 +11499,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var CreateLocation = function CreateLocation() {
+var CreateLocation = function CreateLocation(_ref) {
+  var setbtnAktif = _ref.setbtnAktif;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       previewImg = _useState2[0],
@@ -11590,25 +11623,25 @@ var CreateLocation = function CreateLocation() {
   };
 
   var isValid = function isValid() {
-    if (value.name === undefined || value.name === "") {
+    if (value.name === undefined || value.name === "" || value.name === null) {
       setValidName(true);
     } else {
       setValidName(false);
     }
 
-    if (value.lat === undefined || value.lat === "") {
+    if (value.lat === undefined || value.lat === "" || value.lat === null) {
       setValidLat(true);
     } else {
       setValidLat(false);
     }
 
-    if (value.lng === undefined || value.lng === "") {
+    if (value.lng === undefined || value.lng === "" || value.lng === null) {
       setvalidLng(true);
     } else {
       setvalidLng(false);
     }
 
-    if (value.id_area === undefined || value.id_area === "") {
+    if (value.id_area === undefined || value.id_area === "" || value.id_area === null) {
       setValidArea(true);
     } else {
       setValidArea(false);
@@ -11622,7 +11655,13 @@ var CreateLocation = function CreateLocation() {
   }, [previewImg]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     isValid();
-  }, [value]);
+
+    if (validName === false && validArea === false && validLat === false && validLng === false) {
+      setbtnAktif(true);
+    } else {
+      setbtnAktif(false);
+    }
+  });
 
   var filterdata = function filterdata(data) {
     return lodash__WEBPACK_IMPORTED_MODULE_3___default().filter(data, function (query) {
@@ -11642,7 +11681,7 @@ var CreateLocation = function CreateLocation() {
           valid: validName
         },
         width: "94%"
-      }), console.log(value), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.TextArea, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.TextArea, {
         getValue: handleAddr,
         width: "94%",
         data: {
@@ -11718,7 +11757,7 @@ var CreateLocation = function CreateLocation() {
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ImgPreview, {
         src: previewImg
-      }), console.log(value)]
+      })]
     })]
   });
 };
