@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const TextArea = ({ width, data }) => {
+const TextArea = ({ width, data, getValue }) => {
     return (
         <WrapInput width={width}>
             <Label>{data.name}</Label>
-            <Textarea placeholder={data.ph} />
+            <Textarea
+                onChange={(e) => {
+                    getValue(e.target.value);
+                }}
+                data={data}
+                placeholder={data.ph}
+            />
         </WrapInput>
     );
 };
@@ -26,7 +32,7 @@ const Label = styled.div`
 const Textarea = styled.textarea`
     width: 100%;
     height: 80px;
-    border: solid 1px #ddd;
+    border: ${({ data }) => (data.valid ? "solid 1px red" : " solid 1px #ddd")};
     padding: 3%;
     font-size: 0.9em;
     border-radius: 2px;

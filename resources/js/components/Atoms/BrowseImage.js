@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const FieldInput = ({ width, data, onChange, getValue }) => {
+const BrowseImage = ({ width, data, onChange, getValue }) => {
     return (
         <WrapInput width={width}>
             <Label>{data.name}</Label>
             <Input
-                data={data}
-                onChange={(e) => getValue(e.target.value)}
+                onChange={onChange}
+                // onChange={(e) => getValue(e.target.value)}
                 type={data.type}
                 placeholder={data.ph}
                 name={data.nameInput}
@@ -16,11 +16,10 @@ const FieldInput = ({ width, data, onChange, getValue }) => {
     );
 };
 
-export default FieldInput;
-
+export default BrowseImage;
 const WrapInput = styled.div`
     width: ${({ width }) => (width ? width : "100%")};
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 `;
 
 const Label = styled.div`
@@ -33,11 +32,8 @@ const Input = styled.input`
     border-radius: 2px;
     width: 100%;
     height: 36px;
-    border: ${({ data }) => (data.valid ? "solid 1px red" : " solid 1px #ddd")};
-    padding-left: 3%;
-    padding-right: 3%;
     font-size: 0.9em;
-
+    color: #eee;
     ::-webkit-input-placeholder {
         color: #eee;
     }
