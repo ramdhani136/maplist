@@ -5,6 +5,7 @@ import { CreateLocation } from "../../pages/";
 
 const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     const [btnAktif, setbtnAktif] = useState(false);
+    const [btnClick, setBtnClick] = useState(false);
 
     return (
         <Main isActive={isActive}>
@@ -14,7 +15,9 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                     {dataPopup.title}
                     <div style={{ display: "flex" }}>
                         {dataPopup.page === "CreateLocation" && btnAktif ? (
-                            <Button>Simpan</Button>
+                            <Button onClick={() => setBtnClick(true)}>
+                                Simpan
+                            </Button>
                         ) : null}
                         <CloseIcon
                             onClick={popupDisabled}
@@ -24,7 +27,12 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                 </TitleHeader>
                 <IsContent>
                     {dataPopup.page === "CreateLocation" && (
-                        <CreateLocation setbtnAktif={setbtnAktif} />
+                        <CreateLocation
+                            btnClick={btnClick}
+                            setBtnClick={setBtnClick}
+                            setbtnAktif={setbtnAktif}
+                            popupDisabled={popupDisabled}
+                        />
                     )}
                 </IsContent>
             </Content>

@@ -9,7 +9,12 @@ import {
 import { Api_Url, BASE_URL } from "../../config";
 import _ from "lodash";
 
-const CreateLocation = ({ setbtnAktif }) => {
+const CreateLocation = ({
+    setbtnAktif,
+    btnClick,
+    setBtnClick,
+    popupDisabled,
+}) => {
     const [previewImg, setPreviewImg] = useState("");
     const [value, setValue] = useState({});
     const [areas, setAreas] = useState([]);
@@ -140,6 +145,31 @@ const CreateLocation = ({ setbtnAktif }) => {
         });
     };
 
+    const resetForm = () => {
+        setValue({
+            name: "",
+            addr: "",
+            lat: "",
+            lng: "",
+            id_area: "",
+            phone: "",
+            pic: "",
+            description: "",
+        });
+        setValueArea("");
+        setSaveValue("");
+        setBtnClick(false);
+        setPreviewImg("");
+        popupDisabled();
+    };
+
+    useEffect(() => {
+        if (btnClick) {
+            alert("submit");
+            resetForm();
+        }
+    }, [btnClick]);
+
     return (
         <WrapperCL>
             <CLleft>
@@ -150,13 +180,18 @@ const CreateLocation = ({ setbtnAktif }) => {
                         type: "text",
                         ph: "Cth: Ekspedisi Mala",
                         valid: validName,
+                        value: value.name,
                     }}
                     width="94%"
                 />
                 <TextArea
                     getValue={handleAddr}
                     width="94%"
-                    data={{ ph: "Cth: Jl.Raya Bogor No.212", name: "Alamat" }}
+                    data={{
+                        ph: "Cth: Jl.Raya Bogor No.212",
+                        name: "Alamat",
+                        value: value.addr,
+                    }}
                 />
                 <FieldInput
                     getValue={handleLat}
@@ -165,6 +200,7 @@ const CreateLocation = ({ setbtnAktif }) => {
                         type: "text",
                         ph: "Cth : 2.3839 ",
                         valid: validLat,
+                        value: value.lat,
                     }}
                     width="94%"
                 />
@@ -175,6 +211,7 @@ const CreateLocation = ({ setbtnAktif }) => {
                         type: "text",
                         ph: "Cth : 0.3839 ",
                         valid: validLng,
+                        value: value.lng,
                     }}
                     width="94%"
                 />
@@ -184,6 +221,7 @@ const CreateLocation = ({ setbtnAktif }) => {
                         name: "PIC",
                         type: "text",
                         ph: "Cth: Ryan Isti",
+                        value: value.pic,
                     }}
                     width="94%"
                 />
@@ -193,6 +231,7 @@ const CreateLocation = ({ setbtnAktif }) => {
                     data={{
                         ph: "Cth: Mobil double tidak bisa masuk",
                         name: "Keterangan",
+                        value: value.description,
                     }}
                 />
             </CLleft>
@@ -203,6 +242,7 @@ const CreateLocation = ({ setbtnAktif }) => {
                         name: "Phone",
                         type: "text",
                         ph: "Cth: 021-8273823",
+                        value: value.phone,
                     }}
                     width="94%"
                 />

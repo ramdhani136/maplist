@@ -11,6 +11,7 @@ const FieldInput = ({ width, data, onChange, getValue }) => {
                 type={data.type}
                 placeholder={data.ph}
                 name={data.nameInput}
+                value={data.value}
             />
         </WrapInput>
     );

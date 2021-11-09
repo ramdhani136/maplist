@@ -11,6 +11,7 @@ const TextArea = ({ width, data, getValue }) => {
                 }}
                 data={data}
                 placeholder={data.ph}
+                value={data.value}
             />
         </WrapInput>
     );

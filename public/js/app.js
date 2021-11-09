@@ -10659,7 +10659,8 @@ var FieldInput = function FieldInput(_ref) {
       },
       type: data.type,
       placeholder: data.ph,
-      name: data.nameInput
+      name: data.nameInput,
+      value: data.value
     })]
   });
 };
@@ -10813,7 +10814,8 @@ var TextArea = function TextArea(_ref) {
         getValue(e.target.value);
       },
       data: data,
-      placeholder: data.ph
+      placeholder: data.ph,
+      value: data.value
     })]
   });
 };
@@ -11006,6 +11008,11 @@ var Popup = function Popup(_ref) {
       btnAktif = _useState2[0],
       setbtnAktif = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      btnClick = _useState4[0],
+      setBtnClick = _useState4[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Main, {
     isActive: isActive,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Wrapper, {
@@ -11017,6 +11024,9 @@ var Popup = function Popup(_ref) {
             display: "flex"
           },
           children: [dataPopup.page === "CreateLocation" && btnAktif ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
+            onClick: function onClick() {
+              return setBtnClick(true);
+            },
             children: "Simpan"
           }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__["default"], {
             onClick: popupDisabled,
@@ -11028,7 +11038,10 @@ var Popup = function Popup(_ref) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(IsContent, {
         children: dataPopup.page === "CreateLocation" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_pages___WEBPACK_IMPORTED_MODULE_1__.CreateLocation, {
-          setbtnAktif: setbtnAktif
+          btnClick: btnClick,
+          setBtnClick: setBtnClick,
+          setbtnAktif: setbtnAktif,
+          popupDisabled: popupDisabled
         })
       })]
     })]
@@ -11500,7 +11513,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CreateLocation = function CreateLocation(_ref) {
-  var setbtnAktif = _ref.setbtnAktif;
+  var setbtnAktif = _ref.setbtnAktif,
+      btnClick = _ref.btnClick,
+      setBtnClick = _ref.setBtnClick,
+      popupDisabled = _ref.popupDisabled;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -11670,6 +11686,30 @@ var CreateLocation = function CreateLocation(_ref) {
     });
   };
 
+  var resetForm = function resetForm() {
+    setValue({
+      name: "",
+      addr: "",
+      lat: "",
+      lng: "",
+      id_area: "",
+      phone: "",
+      pic: "",
+      description: ""
+    });
+    setValueArea("");
+    setSaveValue("");
+    setBtnClick(false);
+    setPreviewImg("");
+    popupDisabled();
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (btnClick) {
+      alert("submit");
+      resetForm();
+    }
+  }, [btnClick]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(WrapperCL, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(CLleft, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.FieldInput, {
@@ -11678,7 +11718,8 @@ var CreateLocation = function CreateLocation(_ref) {
           name: "Nama Lokasi",
           type: "text",
           ph: "Cth: Ekspedisi Mala",
-          valid: validName
+          valid: validName,
+          value: value.name
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.TextArea, {
@@ -11686,7 +11727,8 @@ var CreateLocation = function CreateLocation(_ref) {
         width: "94%",
         data: {
           ph: "Cth: Jl.Raya Bogor No.212",
-          name: "Alamat"
+          name: "Alamat",
+          value: value.addr
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.FieldInput, {
         getValue: handleLat,
@@ -11694,7 +11736,8 @@ var CreateLocation = function CreateLocation(_ref) {
           name: "Kordinat (Lat)",
           type: "text",
           ph: "Cth : 2.3839 ",
-          valid: validLat
+          valid: validLat,
+          value: value.lat
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.FieldInput, {
@@ -11703,7 +11746,8 @@ var CreateLocation = function CreateLocation(_ref) {
           name: "Kordinat (Lng)",
           type: "text",
           ph: "Cth : 0.3839 ",
-          valid: validLng
+          valid: validLng,
+          value: value.lng
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.FieldInput, {
@@ -11711,7 +11755,8 @@ var CreateLocation = function CreateLocation(_ref) {
         data: {
           name: "PIC",
           type: "text",
-          ph: "Cth: Ryan Isti"
+          ph: "Cth: Ryan Isti",
+          value: value.pic
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.TextArea, {
@@ -11719,7 +11764,8 @@ var CreateLocation = function CreateLocation(_ref) {
         width: "94%",
         data: {
           ph: "Cth: Mobil double tidak bisa masuk",
-          name: "Keterangan"
+          name: "Keterangan",
+          value: value.description
         }
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(CLRight, {
@@ -11728,7 +11774,8 @@ var CreateLocation = function CreateLocation(_ref) {
         data: {
           name: "Phone",
           type: "text",
-          ph: "Cth: 021-8273823"
+          ph: "Cth: 021-8273823",
+          value: value.phone
         },
         width: "94%"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Atoms__WEBPACK_IMPORTED_MODULE_1__.SelectList, {
