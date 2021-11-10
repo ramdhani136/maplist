@@ -13,7 +13,7 @@ const MainMarker = styled.div`
     text-align: center;
     font-weight: bold;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 2px;
     font-size: 10px;
     background-color: ${({ select }) => (select ? "#232323" : "whitesmoke")};
     color: ${({ select }) => (select ? "white" : "black")};

@@ -10958,7 +10958,7 @@ var Marker = function Marker(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Marker);
-var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border: solid 1px #1f1f1f;\n    width: 100px;\n    text-align: center;\n    font-weight: bold;\n    padding: 5px;\n    border-radius: 3px;\n    font-size: 10px;\n    background-color: ", ";\n    color: ", ";\n"])), function (_ref2) {
+var MainMarker = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border: solid 1px #1f1f1f;\n    width: 100px;\n    text-align: center;\n    font-weight: bold;\n    padding: 5px;\n    border-radius: 2px;\n    font-size: 10px;\n    background-color: ", ";\n    color: ", ";\n"])), function (_ref2) {
   var select = _ref2.select;
   return select ? "#232323" : "whitesmoke";
 }, function (_ref3) {
@@ -11435,15 +11435,27 @@ function Home() {
               color: "black",
               cursor: "pointer"
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(SearchPanel, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(SearchPanel, {
             onClick: toggleDisabled,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(TextSearch, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(TextSearch, {
               onChange: function onChange(e) {
                 return setValue(e.target.value);
               },
               type: "text",
-              placeholder: "Cari lokasi .."
-            })
+              placeholder: "Cari lokasi ..",
+              value: value
+            }), value && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              onClick: function onClick() {
+                return setValue("");
+              },
+              style: {
+                position: "absolute",
+                fontSize: "20px",
+                color: "#ddd",
+                right: "12px",
+                cursor: "pointer"
+              }
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(WrapperMenu, {
           active: isActive,

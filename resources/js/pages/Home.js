@@ -123,7 +123,20 @@ function Home() {
                                 onChange={(e) => setValue(e.target.value)}
                                 type="text"
                                 placeholder="Cari lokasi .."
+                                value={value}
                             />
+                            {value && (
+                                <CloseIcon
+                                    onClick={() => setValue("")}
+                                    style={{
+                                        position: "absolute",
+                                        fontSize: "20px",
+                                        color: "#ddd",
+                                        right: "12px",
+                                        cursor: "pointer",
+                                    }}
+                                />
+                            )}
                         </SearchPanel>
                     </Search>
                     <WrapperMenu active={isActive}>
