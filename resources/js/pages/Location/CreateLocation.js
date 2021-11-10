@@ -16,6 +16,9 @@ const CreateLocation = ({
     btnClick,
     setBtnClick,
     popupDisabled,
+    data,
+    reset,
+    setReset,
 }) => {
     const defaultValue = {
         name: "",
@@ -215,6 +218,22 @@ const CreateLocation = ({
             onSubmit();
         }
     }, [btnClick]);
+
+    useEffect(() => {
+        if (data) {
+            setValue(data);
+            setPreviewImg(`${BASE_URL}storage/images/${data.uri}`);
+            setValueArea(data.area);
+            setSaveValue(data.area);
+        }
+    }, [data]);
+
+    useEffect(() => {
+        if (reset) {
+            resetForm();
+            setReset(false);
+        }
+    }, [reset]);
 
     return (
         <form>

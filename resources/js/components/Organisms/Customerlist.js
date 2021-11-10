@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Customerlist = ({ data, selectData, toggleMenu, select }) => {
+const Customerlist = ({
+    data,
+    selectData,
+    toggleMenu,
+    select,
+    setPopup,
+    page,
+    setDataPopUp,
+    nama,
+}) => {
     const handleClick = () => {
         selectData(data);
         toggleMenu();
@@ -9,10 +18,11 @@ const Customerlist = ({ data, selectData, toggleMenu, select }) => {
 
     return (
         <>
-            <CLWrapper select={select} onClick={handleClick}>
+            <CLWrapper select={select}>
                 <div>
                     {data.uri ? (
                         <Img
+                            onClick={handleClick}
                             select={select}
                             src={
                                 "http://localhost:8000/storage/images/" +
@@ -21,18 +31,30 @@ const Customerlist = ({ data, selectData, toggleMenu, select }) => {
                         />
                     ) : (
                         <Img
+                            onClick={handleClick}
                             select={select}
                             src={
                                 "http://localhost:8000/storage/images/noimage.png"
                             }
                         />
                     )}
-                    <Area select={select}>
+                    <Area
+                        onClick={() => {
+                            setPopup(true);
+                            setDataPopUp({
+                                title: nama,
+                                page: page,
+                                data: data,
+                            });
+                        }}
+                        select={select}
+                    >
                         <a>{data.name}</a> -{" "}
                         <a style={{ color: "#ffc107" }}>{data.area}</a>
                     </Area>
                 </div>
                 {/* <Title>{data.name}</Title> */}
+                {/* <HoverAksi></HoverAksi> */}
             </CLWrapper>
         </>
     );
@@ -51,6 +73,7 @@ const CLWrapper = styled.div`
         opacity: 0.9;
     }
     transform: ${({ select }) => (select ? "scale(1.05)" : "none")};
+    position: relative;
 `;
 
 const Img = styled.img`
@@ -87,3 +110,19 @@ const Area = styled.div`
     border-top: none;
     font-size: 0.85em;
 `;
+
+// const HoverAksi = styled.div`
+//     position: absolute;
+//     width: auto;
+//     height: auto;
+//     top: 0;
+//     right: 0;
+//     background-color: white;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: "#ffc107";
+//     font-size: 0.9em;
+//     padding-left: 5%;
+//     padding-right: 5%;
+// `;

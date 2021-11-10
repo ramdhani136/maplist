@@ -11022,10 +11022,18 @@ var Popup = function Popup(_ref) {
       btnClick = _useState4[0],
       setBtnClick = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      reset = _useState6[0],
+      setReset = _useState6[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Main, {
     isActive: isActive,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Wrapper, {
-      onClick: popupDisabled
+      onClick: function onClick() {
+        popupDisabled();
+        setReset(true);
+      }
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Content, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(TitleHeader, {
         children: [dataPopup.title, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -11038,7 +11046,10 @@ var Popup = function Popup(_ref) {
             },
             children: "Simpan"
           }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            onClick: popupDisabled,
+            onClick: function onClick() {
+              popupDisabled();
+              setReset(true);
+            },
             style: {
               cursor: "pointer",
               fontSize: "25px"
@@ -11047,10 +11058,13 @@ var Popup = function Popup(_ref) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(IsContent, {
         children: dataPopup.page === "CreateLocation" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_pages___WEBPACK_IMPORTED_MODULE_1__.CreateLocation, {
+          data: dataPopup.data,
           btnClick: btnClick,
           setBtnClick: setBtnClick,
           setbtnAktif: setbtnAktif,
-          popupDisabled: popupDisabled
+          popupDisabled: popupDisabled,
+          reset: reset,
+          setReset: setReset
         })
       })]
     })]
@@ -11123,7 +11137,11 @@ var Customerlist = function Customerlist(_ref) {
   var data = _ref.data,
       selectData = _ref.selectData,
       toggleMenu = _ref.toggleMenu,
-      select = _ref.select;
+      select = _ref.select,
+      setPopup = _ref.setPopup,
+      page = _ref.page,
+      setDataPopUp = _ref.setDataPopUp,
+      nama = _ref.nama;
 
   var handleClick = function handleClick() {
     selectData(data);
@@ -11133,15 +11151,24 @@ var Customerlist = function Customerlist(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CLWrapper, {
       select: select,
-      onClick: handleClick,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
+          onClick: handleClick,
           select: select,
           src: "http://localhost:8000/storage/images/" + data.uri
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
+          onClick: handleClick,
           select: select,
           src: "http://localhost:8000/storage/images/noimage.png"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Area, {
+          onClick: function onClick() {
+            setPopup(true);
+            setDataPopUp({
+              title: nama,
+              page: page,
+              data: data
+            });
+          },
           select: select,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             children: data.name
@@ -11158,7 +11185,7 @@ var Customerlist = function Customerlist(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
-var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n"])), function (_ref2) {
+var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n    position: relative;\n"])), function (_ref2) {
   var select = _ref2.select;
   return select ? "scale(1.05)" : "none";
 });
@@ -11176,7 +11203,21 @@ var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templat
 var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n    font-size: 0.85em;\n"])), function (_ref4) {
   var select = _ref4.select;
   return select ? "solid 1.5px #ffff99" : "none";
-});
+}); // const HoverAksi = styled.div`
+//     position: absolute;
+//     width: auto;
+//     height: auto;
+//     top: 0;
+//     right: 0;
+//     background-color: white;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: "#ffc107";
+//     font-size: 0.9em;
+//     padding-left: 5%;
+//     padding-right: 5%;
+// `;
 
 /***/ }),
 
@@ -11437,6 +11478,10 @@ function Home() {
         }), filterdata(customerList).length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(ContentCustomer, {
           children: filterdata(customerList).map(function (list) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Organisms__WEBPACK_IMPORTED_MODULE_1__.Customerlist, {
+              page: "CreateLocation",
+              nama: "Rincian Lokasi",
+              setPopup: setPopup,
+              setDataPopUp: setDataPopUp,
               select: isData(list),
               toggleMenu: toggleDisabled,
               selectData: selectData,
@@ -11546,7 +11591,10 @@ var CreateLocation = function CreateLocation(_ref) {
   var setbtnAktif = _ref.setbtnAktif,
       btnClick = _ref.btnClick,
       setBtnClick = _ref.setBtnClick,
-      popupDisabled = _ref.popupDisabled;
+      popupDisabled = _ref.popupDisabled,
+      data = _ref.data,
+      reset = _ref.reset,
+      setReset = _ref.setReset;
   var defaultValue = {
     name: "",
     addr: "",
@@ -11788,6 +11836,20 @@ var CreateLocation = function CreateLocation(_ref) {
       onSubmit();
     }
   }, [btnClick]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (data) {
+      setValue(data);
+      setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/").concat(data.uri));
+      setValueArea(data.area);
+      setSaveValue(data.area);
+    }
+  }, [data]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (reset) {
+      resetForm();
+      setReset(false);
+    }
+  }, [reset]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("form", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(WrapperCL, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(CLleft, {

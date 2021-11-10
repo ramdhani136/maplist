@@ -170,6 +170,10 @@ function Home() {
                             {filterdata(customerList).map((list) => {
                                 return (
                                     <Customerlist
+                                        page="CreateLocation"
+                                        nama="Rincian Lokasi"
+                                        setPopup={setPopup}
+                                        setDataPopUp={setDataPopUp}
                                         select={isData(list)}
                                         toggleMenu={toggleDisabled}
                                         selectData={selectData}

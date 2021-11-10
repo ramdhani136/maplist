@@ -6,10 +6,16 @@ import { CreateLocation } from "../../pages/";
 const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     const [btnAktif, setbtnAktif] = useState(false);
     const [btnClick, setBtnClick] = useState(false);
+    const [reset, setReset] = useState(false);
 
     return (
         <Main isActive={isActive}>
-            <Wrapper onClick={popupDisabled}></Wrapper>
+            <Wrapper
+                onClick={() => {
+                    popupDisabled();
+                    setReset(true);
+                }}
+            ></Wrapper>
             <Content>
                 <TitleHeader>
                     {dataPopup.title}
@@ -20,7 +26,10 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                             </Button>
                         ) : null}
                         <CloseIcon
-                            onClick={popupDisabled}
+                            onClick={() => {
+                                popupDisabled();
+                                setReset(true);
+                            }}
                             style={{ cursor: "pointer", fontSize: "25px" }}
                         />
                     </div>
@@ -28,10 +37,13 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                 <IsContent>
                     {dataPopup.page === "CreateLocation" && (
                         <CreateLocation
+                            data={dataPopup.data}
                             btnClick={btnClick}
                             setBtnClick={setBtnClick}
                             setbtnAktif={setbtnAktif}
                             popupDisabled={popupDisabled}
+                            reset={reset}
+                            setReset={setReset}
                         />
                     )}
                 </IsContent>
