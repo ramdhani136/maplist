@@ -11,10 +11,14 @@ import SettingsIcon from "@mui/icons-material/Settings";
 // import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
+import { Api_Url } from "../config";
 
 function Home() {
     const [customerList, setCustomerList] = useState([]);
-    const [center, setCenter] = useState({ lat: -7.797068, lng: 110.371754 });
+    const [center, setCenter] = useState({
+        lat: -6.510267344418401,
+        lng: 106.8653413387919,
+    });
     const [select, setSelect] = useState({});
     const [value, setValue] = useState("");
     const [isActive, setIsActive] = useState(false);
@@ -22,12 +26,10 @@ function Home() {
     const [dataPopup, setDataPopUp] = useState({});
 
     const getLocation = () => {
-        fetch(
-            "https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json"
-        )
+        fetch(`${Api_Url}locations`)
             .then((res) => res.json())
             .then((data) => {
-                setCustomerList(data);
+                setCustomerList(data.data);
             });
     };
 
@@ -37,7 +39,10 @@ function Home() {
 
     const selectData = (data) => {
         if (data) {
-            setCenter({ lat: data.lat, lng: data.lng });
+            setCenter({
+                lat: parseFloat(data.lat),
+                lng: parseFloat(data.lng),
+            });
             setSelect(data);
         }
     };
@@ -62,18 +67,19 @@ function Home() {
 
     const popupDisabled = () => {
         setPopup(false);
+        getLocation();
     };
 
     const filterdata = (data) => {
         return _.filter(data, function (query) {
-            var nama = value
-                ? query.nama.toLowerCase().includes(value.toLowerCase())
-                : true;
-            // area = value
-            //     ? query.harga.toLowerCase().includes(value.toLowerCase())
-            //     : true;
+            var name = value
+                    ? query.name.toLowerCase().includes(value.toLowerCase())
+                    : true,
+                area = value
+                    ? query.area.toLowerCase().includes(value.toLowerCase())
+                    : true;
 
-            return nama;
+            return name || area;
         });
     };
 
@@ -186,7 +192,7 @@ function Home() {
                                     key={list.id}
                                     lat={list.lat}
                                     lng={list.lng}
-                                    text={list.nama}
+                                    text={list.name}
                                 />
                             );
                         })}

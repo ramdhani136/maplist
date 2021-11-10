@@ -8,6 +8,8 @@ import {
 } from "../../components/Atoms";
 import { Api_Url, BASE_URL } from "../../config";
 import _ from "lodash";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const CreateLocation = ({
     setbtnAktif,
@@ -15,8 +17,19 @@ const CreateLocation = ({
     setBtnClick,
     popupDisabled,
 }) => {
+    const defaultValue = {
+        name: "",
+        addr: "",
+        lat: "",
+        lng: "",
+        id_area: "",
+        phone: "",
+        pic: "",
+        description: "",
+    };
+
     const [previewImg, setPreviewImg] = useState("");
-    const [value, setValue] = useState({});
+    const [value, setValue] = useState(defaultValue);
     const [areas, setAreas] = useState([]);
     const [validName, setValidName] = useState(true);
     const [validLat, setValidLat] = useState(true);
@@ -25,6 +38,8 @@ const CreateLocation = ({
     const [selectAktif, setSelectAktif] = useState(false);
     const [valueArea, setValueArea] = useState("");
     const [saveValue, setSaveValue] = useState("");
+    const [clearImage, setClearImage] = useState(false);
+    const [image, setImage] = useState("");
 
     const handleName = (e) => {
         setValue({ ...value, name: e });
@@ -68,6 +83,7 @@ const CreateLocation = ({
             }
         };
         reader.readAsDataURL(e.target.files[0]);
+        setImage(e.target.files[0]);
     };
 
     const getAreas = () => {
@@ -161,122 +177,163 @@ const CreateLocation = ({
         setBtnClick(false);
         setPreviewImg("");
         popupDisabled();
+        setClearImage(true);
+        setImage("");
+    };
+
+    const onSubmit = () => {
+        const inData = new FormData();
+        {
+            image && inData.append("file", image);
+        }
+        inData.append("name", value.name);
+        inData.append("addr", value.addr);
+        inData.append("lat", value.lat);
+        inData.append("lng", value.lng);
+        inData.append("id_area", value.id_area);
+        inData.append("description", value.description);
+        inData.append("pic", value.pic);
+        inData.append("phone", value.phone);
+        axios
+            .post(`${Api_Url}locations`, inData, {
+                headers: {
+                    "content-type": "multipart/form-data",
+                },
+            })
+            .then((res) => {
+                Swal.fire("Sukses!", "Berhasil menambahkan lokasi", "success");
+                resetForm();
+            })
+            .catch((err) => {
+                setBtnClick(false);
+                alert("Nama lokasi sudah diinput sebelumnya!");
+            });
     };
 
     useEffect(() => {
         if (btnClick) {
-            alert("submit");
-            resetForm();
+            onSubmit();
         }
     }, [btnClick]);
 
     return (
-        <WrapperCL>
-            <CLleft>
-                <FieldInput
-                    getValue={handleName}
-                    data={{
-                        name: "Nama Lokasi",
-                        type: "text",
-                        ph: "Cth: Ekspedisi Mala",
-                        valid: validName,
-                        value: value.name,
-                    }}
-                    width="94%"
-                />
-                <TextArea
-                    getValue={handleAddr}
-                    width="94%"
-                    data={{
-                        ph: "Cth: Jl.Raya Bogor No.212",
-                        name: "Alamat",
-                        value: value.addr,
-                    }}
-                />
-                <FieldInput
-                    getValue={handleLat}
-                    data={{
-                        name: "Kordinat (Lat)",
-                        type: "text",
-                        ph: "Cth : 2.3839 ",
-                        valid: validLat,
-                        value: value.lat,
-                    }}
-                    width="94%"
-                />
-                <FieldInput
-                    getValue={handleLng}
-                    data={{
-                        name: "Kordinat (Lng)",
-                        type: "text",
-                        ph: "Cth : 0.3839 ",
-                        valid: validLng,
-                        value: value.lng,
-                    }}
-                    width="94%"
-                />
-                <FieldInput
-                    getValue={handlePic}
-                    data={{
-                        name: "PIC",
-                        type: "text",
-                        ph: "Cth: Ryan Isti",
-                        value: value.pic,
-                    }}
-                    width="94%"
-                />
-                <TextArea
-                    getValue={handleDesc}
-                    width="94%"
-                    data={{
-                        ph: "Cth: Mobil double tidak bisa masuk",
-                        name: "Keterangan",
-                        value: value.description,
-                    }}
-                />
-            </CLleft>
-            <CLRight>
-                <FieldInput
-                    getValue={handlePhone}
-                    data={{
-                        name: "Phone",
-                        type: "text",
-                        ph: "Cth: 021-8273823",
-                        value: value.phone,
-                    }}
-                    width="94%"
-                />
+        <form>
+            <WrapperCL>
+                <CLleft>
+                    <FieldInput
+                        getValue={handleName}
+                        data={{
+                            name: "Nama Lokasi",
+                            type: "text",
+                            ph: "Cth: Ekspedisi Mala",
+                            valid: validName,
+                            value: value.name,
+                            nameInput: "name",
+                        }}
+                        width="94%"
+                    />
+                    <TextArea
+                        getValue={handleAddr}
+                        width="94%"
+                        data={{
+                            ph: "Cth: Jl.Raya Bogor No.212",
+                            name: "Alamat",
+                            value: value.addr,
+                            nameInput: "addr",
+                        }}
+                    />
+                    <FieldInput
+                        getValue={handleLat}
+                        data={{
+                            name: "Kordinat (Lat)",
+                            type: "number",
+                            ph: "Cth : 2.3839 ",
+                            valid: validLat,
+                            value: value.lat,
+                            nameInput: "lat",
+                        }}
+                        width="94%"
+                    />
+                    <FieldInput
+                        getValue={handleLng}
+                        data={{
+                            name: "Kordinat (Lng)",
+                            type: "number",
+                            ph: "Cth : 0.3839 ",
+                            valid: validLng,
+                            value: value.lng,
+                            nameInput: "lng",
+                        }}
+                        width="94%"
+                    />
+                    <FieldInput
+                        getValue={handlePic}
+                        data={{
+                            name: "PIC",
+                            type: "text",
+                            ph: "Cth: Ryan Isti",
+                            value: value.pic,
+                            nameInput: "pic",
+                        }}
+                        width="94%"
+                    />
+                    <TextArea
+                        getValue={handleDesc}
+                        width="94%"
+                        data={{
+                            ph: "Cth: Mobil double tidak bisa masuk",
+                            name: "Keterangan",
+                            value: value.description,
+                            nameInput: "description",
+                        }}
+                    />
+                </CLleft>
+                <CLRight>
+                    <FieldInput
+                        getValue={handlePhone}
+                        data={{
+                            name: "Phone",
+                            type: "text",
+                            ph: "Cth: 021-8273823",
+                            value: value.phone,
+                            nameInput: "phone",
+                        }}
+                        width="94%"
+                    />
 
-                <SelectList
-                    saveValue={saveValue}
-                    getValue={handleArea}
-                    onClick={getAreas}
-                    data={{
-                        name: "Group Area",
-                        type: "text",
-                        ph: "Pilih Area",
-                        data: filterdata(areas),
-                        aktif: selectAktif,
-                        value: valueArea,
-                        valid: validArea,
-                        setSelectAktif: setSelectAktif,
-                        setValue: setValueArea,
-                    }}
-                    width="94%"
-                />
-                <BrowseImage
-                    onChange={imageHandler}
-                    data={{
-                        name: "Gambar Lokasi",
-                        type: "file",
-                        nameInput: "file",
-                    }}
-                    width="94%"
-                />
+                    <SelectList
+                        saveValue={saveValue}
+                        getValue={handleArea}
+                        onClick={getAreas}
+                        data={{
+                            name: "Group Area",
+                            type: "text",
+                            ph: "Pilih Area",
+                            data: filterdata(areas),
+                            aktif: selectAktif,
+                            value: valueArea,
+                            valid: validArea,
+                            setSelectAktif: setSelectAktif,
+                            setValue: setValueArea,
+                            nameInput: "id_area",
+                        }}
+                        width="94%"
+                    />
+                    <BrowseImage
+                        onChange={imageHandler}
+                        data={{
+                            name: "Gambar Lokasi",
+                            type: "file",
+                            nameInput: "file",
+                        }}
+                        width="94%"
+                        clearImage={clearImage}
+                    />
 
-                <ImgPreview src={previewImg} />
-            </CLRight>
-        </WrapperCL>
+                    <ImgPreview src={previewImg} />
+                </CLRight>
+            </WrapperCL>
+        </form>
     );
 };
 

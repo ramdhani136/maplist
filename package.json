@@ -34,6 +34,7 @@
         "history": "5",
         "react-redux": "^7.2.6",
         "react-router-dom": "6",
-        "styled-components": "^5.3.3"
+        "styled-components": "^5.3.3",
+        "sweetalert2": "^11.1.10"
     }
 }

@@ -11,10 +11,28 @@ const Customerlist = ({ data, selectData, toggleMenu, select }) => {
         <>
             <CLWrapper select={select} onClick={handleClick}>
                 <div>
-                    <Img select={select} src={data.fotoUrl} />
-                    <Area select={select}>{data.harga}</Area>
+                    {data.uri ? (
+                        <Img
+                            select={select}
+                            src={
+                                "http://localhost:8000/storage/images/" +
+                                data.uri
+                            }
+                        />
+                    ) : (
+                        <Img
+                            select={select}
+                            src={
+                                "http://localhost:8000/storage/images/noimage.png"
+                            }
+                        />
+                    )}
+                    <Area select={select}>
+                        <a>{data.name}</a> -{" "}
+                        <a style={{ color: "#ffc107" }}>{data.area}</a>
+                    </Area>
                 </div>
-                <Title>{data.nama}</Title>
+                {/* <Title>{data.name}</Title> */}
             </CLWrapper>
         </>
     );
@@ -46,13 +64,13 @@ const Img = styled.img`
     }
 `;
 
-const Title = styled.div`
-    width: 100%;
-    height: auto;
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 0.9em;
-`;
+// const Title = styled.div`
+//     width: 100%;
+//     height: auto;
+//     margin-top: 5px;
+//     font-weight: bold;
+//     font-size: 0.9em;
+// `;
 
 const Area = styled.div`
     width: auto;
@@ -67,4 +85,5 @@ const Area = styled.div`
     text-align: center;
     border: ${({ select }) => (select ? "solid 1.5px #ffff99" : "none")};
     border-top: none;
+    font-size: 0.85em;
 `;

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const BrowseImage = ({ width, data, onChange, getValue }) => {
+const BrowseImage = ({ width, data, onChange, clearImage }) => {
+    const browseRef = useRef();
+
+    useEffect(() => {
+        if (clearImage) {
+            browseRef.current.value = "";
+        }
+    }, [clearImage]);
+
     return (
         <WrapInput width={width}>
             <Label>{data.name}</Label>
@@ -11,6 +19,8 @@ const BrowseImage = ({ width, data, onChange, getValue }) => {
                 type={data.type}
                 placeholder={data.ph}
                 name={data.nameInput}
+                ref={browseRef}
+                accept="image/*"
             />
         </WrapInput>
     );

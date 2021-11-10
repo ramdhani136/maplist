@@ -17,7 +17,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return LocationResource::collection(Location::orderBy('name', 'ASC')->get());
+        return LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
     }
 
     /**
