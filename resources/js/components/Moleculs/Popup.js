@@ -7,6 +7,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     const [btnAktif, setbtnAktif] = useState(false);
     const [btnClick, setBtnClick] = useState(false);
     const [reset, setReset] = useState(false);
+    const [isAction, setIsAction] = useState("");
 
     return (
         <Main isActive={isActive}>
@@ -20,10 +21,42 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                 <TitleHeader>
                     {dataPopup.title}
                     <div style={{ display: "flex" }}>
-                        {dataPopup.page === "CreateLocation" && btnAktif ? (
-                            <Button onClick={() => setBtnClick(true)}>
+                        {dataPopup.page === "CreateLocation" &&
+                        btnAktif &&
+                        dataPopup.action === "create" ? (
+                            <Button
+                                onClick={() => {
+                                    setBtnClick(true);
+                                    setIsAction("post");
+                                }}
+                            >
                                 Simpan
                             </Button>
+                        ) : null}
+
+                        {dataPopup.page === "CreateLocation" &&
+                        btnAktif &&
+                        dataPopup.action === "update" ? (
+                            <Button
+                                onClick={() => {
+                                    setBtnClick(true);
+                                    setIsAction("put");
+                                }}
+                            >
+                                Simpan
+                            </Button>
+                        ) : null}
+
+                        {dataPopup.page === "CreateLocation" &&
+                        dataPopup.action === "update" ? (
+                            <ButtonDel
+                                onClick={() => {
+                                    setBtnClick(true);
+                                    setIsAction("delete");
+                                }}
+                            >
+                                Hapus
+                            </ButtonDel>
                         ) : null}
                         <CloseIcon
                             onClick={() => {
@@ -44,6 +77,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                             popupDisabled={popupDisabled}
                             reset={reset}
                             setReset={setReset}
+                            isAction={isAction}
                         />
                     )}
                 </IsContent>
@@ -108,7 +142,7 @@ const IsContent = styled.div`
 
 const Button = styled.div`
     border: solid 1px #28a658;
-    margin-right: 30px;
+    margin-right: 5px;
     padding: 5px;
     border-radius: 2px;
     cursor: pointer;
@@ -122,5 +156,24 @@ const Button = styled.div`
         transform: scale(1.03);
         opacity: 0.9;
     }
-    /* transform: ${({ select }) => (select ? "scale(1.05)" : "none")}; */
+    transform: ${({ select }) => (select ? "scale(1.05)" : "none")};
+`;
+
+const ButtonDel = styled.div`
+    border: solid 1px #bd2e3f;
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: #d33446;
+    color: white;
+
+    :hover {
+        transform: scale(1.03);
+        opacity: 0.9;
+    }
+    transform: ${({ select }) => (select ? "scale(1.05)" : "none")};
 `;

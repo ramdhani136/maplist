@@ -10897,7 +10897,8 @@ var ListMenu = function ListMenu(_ref) {
       setIsActive = _ref.setIsActive,
       setPopup = _ref.setPopup,
       setDataPopUp = _ref.setDataPopUp,
-      page = _ref.page;
+      page = _ref.page,
+      action = _ref.action;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(ListMenuWrapper, {
       onClick: function onClick() {
@@ -10905,7 +10906,8 @@ var ListMenu = function ListMenu(_ref) {
         setIsActive(false);
         setDataPopUp({
           title: nama,
-          page: page
+          page: page,
+          action: action
         });
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Icon, {
@@ -10984,7 +10986,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/icons-material/Close */ "./node_modules/@mui/icons-material/Close.js");
 /* harmony import */ var _pages___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/ */ "./resources/js/pages/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -11027,6 +11029,11 @@ var Popup = function Popup(_ref) {
       reset = _useState6[0],
       setReset = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      isAction = _useState8[0],
+      setIsAction = _useState8[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Main, {
     isActive: isActive,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Wrapper, {
@@ -11040,11 +11047,24 @@ var Popup = function Popup(_ref) {
           style: {
             display: "flex"
           },
-          children: [dataPopup.page === "CreateLocation" && btnAktif ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
+          children: [dataPopup.page === "CreateLocation" && btnAktif && dataPopup.action === "create" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
             onClick: function onClick() {
-              return setBtnClick(true);
+              setBtnClick(true);
+              setIsAction("post");
             },
             children: "Simpan"
+          }) : null, dataPopup.page === "CreateLocation" && btnAktif && dataPopup.action === "update" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
+            onClick: function onClick() {
+              setBtnClick(true);
+              setIsAction("put");
+            },
+            children: "Simpan"
+          }) : null, dataPopup.page === "CreateLocation" && dataPopup.action === "update" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ButtonDel, {
+            onClick: function onClick() {
+              setBtnClick(true);
+              setIsAction("delete");
+            },
+            children: "Hapus"
           }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mui_icons_material_Close__WEBPACK_IMPORTED_MODULE_3__["default"], {
             onClick: function onClick() {
               popupDisabled();
@@ -11064,7 +11084,8 @@ var Popup = function Popup(_ref) {
           setbtnAktif: setbtnAktif,
           popupDisabled: popupDisabled,
           reset: reset,
-          setReset: setReset
+          setReset: setReset,
+          isAction: isAction
         })
       })]
     })]
@@ -11080,8 +11101,12 @@ var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_tem
 var Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 70%;\n    height: 97vh;\n    background-color: white;\n    position: absolute;\n    z-index: 4000;\n    left: 15%;\n    top: 5px;\n    border: solid 1px #535353;\n    position: fixed;\n    border-radius: 3px;\n    display: flex;\n    flex-direction: column;\n    @media screen and (max-width: 720px) {\n        width: 95%;\n        left: 2.5%;\n    }\n"])));
 var TitleHeader = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 50px;\n    font-weight: bold;\n    border-bottom: solid 1px whitesmoke;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding-left: 3%;\n    padding-right: 3%;\n    font-size: 1em;\n"])));
 var IsContent = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    overflow-y: scroll;\n    flex: 1;\n"])));
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #28a658;\n    margin-right: 30px;\n    padding: 5px;\n    border-radius: 2px;\n    cursor: pointer;\n    font-size: 0.9em;\n    padding-left: 9px;\n    padding-right: 9px;\n    background-color: #2db962;\n    color: white;\n\n    :hover {\n        transform: scale(1.03);\n        opacity: 0.9;\n    }\n    /* transform: ", "; */\n"])), function (_ref3) {
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    border: solid 1px #28a658;\n    margin-right: 5px;\n    padding: 5px;\n    border-radius: 2px;\n    cursor: pointer;\n    font-size: 0.9em;\n    padding-left: 9px;\n    padding-right: 9px;\n    background-color: #2db962;\n    color: white;\n\n    :hover {\n        transform: scale(1.03);\n        opacity: 0.9;\n    }\n    transform: ", ";\n"])), function (_ref3) {
   var select = _ref3.select;
+  return select ? "scale(1.05)" : "none";
+});
+var ButtonDel = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    border: solid 1px #bd2e3f;\n    margin-right: 20px;\n    padding: 5px;\n    border-radius: 2px;\n    cursor: pointer;\n    font-size: 0.9em;\n    padding-left: 9px;\n    padding-right: 9px;\n    background-color: #d33446;\n    color: white;\n\n    :hover {\n        transform: scale(1.03);\n        opacity: 0.9;\n    }\n    transform: ", ";\n"])), function (_ref4) {
+  var select = _ref4.select;
   return select ? "scale(1.05)" : "none";
 });
 
@@ -11121,11 +11146,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config */ "./resources/js/config/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _templateObject, _templateObject2, _templateObject3;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -11141,38 +11168,41 @@ var Customerlist = function Customerlist(_ref) {
       setPopup = _ref.setPopup,
       page = _ref.page,
       setDataPopUp = _ref.setDataPopUp,
-      nama = _ref.nama;
+      nama = _ref.nama,
+      action = _ref.action;
 
   var handleClick = function handleClick() {
     selectData(data);
     toggleMenu();
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CLWrapper, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CLWrapper, {
       select: select,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Img, {
           onClick: handleClick,
           select: select,
-          src: "http://localhost:8000/storage/images/" + data.uri
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Img, {
+          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/").concat(data.uri)
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Img, {
           onClick: handleClick,
           select: select,
-          src: "http://localhost:8000/storage/images/noimage.png"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Area, {
+          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/noimage.png")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Area, {
           onClick: function onClick() {
             setPopup(true);
             setDataPopUp({
               title: nama,
               page: page,
-              data: data
+              data: data,
+              action: action
             });
+            toggleMenu();
           },
           select: select,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
             children: data.name
-          }), " -", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          }), " -", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
             style: {
               color: "#ffc107"
             },
@@ -11185,11 +11215,11 @@ var Customerlist = function Customerlist(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
-var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n    position: relative;\n"])), function (_ref2) {
+var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n    position: relative;\n"])), function (_ref2) {
   var select = _ref2.select;
   return select ? "scale(1.05)" : "none";
 });
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref3) {
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref3) {
   var select = _ref3.select;
   return select ? "solid 1.5px #ffff99" : "none";
 }); // const Title = styled.div`
@@ -11200,7 +11230,7 @@ var Img = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templat
 //     font-size: 0.9em;
 // `;
 
-var Area = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n    font-size: 0.85em;\n"])), function (_ref4) {
+var Area = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n    font-size: 0.85em;\n"])), function (_ref4) {
   var select = _ref4.select;
   return select ? "solid 1.5px #ffff99" : "none";
 }); // const HoverAksi = styled.div`
@@ -11466,7 +11496,8 @@ function Home() {
               page: "CreateLocation",
               nama: "Tambah Lokasi",
               Icon: _mui_icons_material_AddLocationAlt__WEBPACK_IMPORTED_MODULE_9__["default"],
-              setDataPopUp: setDataPopUp
+              setDataPopUp: setDataPopUp,
+              action: "create"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.ListMenu, {
               setPopup: setPopup,
               setIsActive: setIsActive,
@@ -11497,7 +11528,8 @@ function Home() {
               select: isData(list),
               toggleMenu: toggleDisabled,
               selectData: selectData,
-              data: list
+              data: list,
+              action: "update"
             }, list.id);
           })
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(NoData, {
@@ -11507,7 +11539,7 @@ function Home() {
         onClick: toggleDisabled,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
           center: center,
-          zoom: 15,
+          zoom: 11,
           children: customerList.map(function (list) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Moleculs__WEBPACK_IMPORTED_MODULE_3__.Marker, {
               select: isData(list),
@@ -11606,7 +11638,8 @@ var CreateLocation = function CreateLocation(_ref) {
       popupDisabled = _ref.popupDisabled,
       data = _ref.data,
       reset = _ref.reset,
-      setReset = _ref.setReset;
+      setReset = _ref.setReset,
+      isAction = _ref.isAction;
   var defaultValue = {
     name: "",
     addr: "",
@@ -11835,25 +11868,76 @@ var CreateLocation = function CreateLocation(_ref) {
         "content-type": "multipart/form-data"
       }
     }).then(function (res) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Sukses!", "Berhasil menambahkan lokasi", "success");
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi udh saya tambahin ya!", "success");
       resetForm();
+      setBtnClick(false);
     })["catch"](function (err) {
       setBtnClick(false);
       alert("Nama lokasi sudah diinput sebelumnya!");
     });
   };
 
+  var onDelete = function onDelete() {
+    resetForm();
+    var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().mixin({
+      customClass: {
+        confirmButton: "btn btn-success ml-2",
+        cancelButton: "btn btn-danger"
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Yakin nih?",
+      text: "Mau hapus lokasi ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Iya, Yakin Sumpah!",
+      cancelButtonText: "Nggak, Gak jadi!",
+      reverseButtons: true
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        axios__WEBPACK_IMPORTED_MODULE_4___default()["delete"]("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "locations/").concat(value.id)).then(function (res) {
+          resetForm();
+          setBtnClick(false);
+          swalWithBootstrapButtons.fire("Terhapus!", "Data lokasi udh gw hapus :).", "success");
+        })["catch"](function (err) {
+          resetForm();
+          sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Waduh!", "Gagal hapus lokasi euy!", "error");
+          setBtnClick(false);
+        });
+      } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === (sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().DismissReason.cancel)) {
+        resetForm();
+        setBtnClick(false);
+        swalWithBootstrapButtons.fire("Batal", "Ok data lokasi gak jadi gw hapus kok :)", "error");
+      }
+    });
+  };
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (btnClick) {
-      onSubmit();
+      if (isAction === "post") {
+        onSubmit();
+      } else if (isAction === "put") {
+        alert("edit");
+        setBtnClick(false);
+      } else if (isAction === "delete") {
+        onDelete();
+      }
     }
   }, [btnClick]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (data) {
       setValue(data);
-      setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/").concat(data.uri));
       setValueArea(data.area);
       setSaveValue(data.area);
+
+      if (data.uri) {
+        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/").concat(data.uri));
+      } else {
+        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/noimage.png"));
+      }
     }
   }, [data]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {

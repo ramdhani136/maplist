@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { BASE_URL } from "../../config";
 
 const Customerlist = ({
     data,
@@ -10,6 +11,7 @@ const Customerlist = ({
     page,
     setDataPopUp,
     nama,
+    action,
 }) => {
     const handleClick = () => {
         selectData(data);
@@ -24,18 +26,13 @@ const Customerlist = ({
                         <Img
                             onClick={handleClick}
                             select={select}
-                            src={
-                                "http://localhost:8000/storage/images/" +
-                                data.uri
-                            }
+                            src={`${BASE_URL}storage/images/${data.uri}`}
                         />
                     ) : (
                         <Img
                             onClick={handleClick}
                             select={select}
-                            src={
-                                "http://localhost:8000/storage/images/noimage.png"
-                            }
+                            src={`${BASE_URL}storage/images/noimage.png`}
                         />
                     )}
                     <Area
@@ -45,7 +42,9 @@ const Customerlist = ({
                                 title: nama,
                                 page: page,
                                 data: data,
+                                action: action,
                             });
+                            toggleMenu();
                         }}
                         select={select}
                     >

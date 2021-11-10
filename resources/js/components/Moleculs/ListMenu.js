@@ -8,6 +8,7 @@ const ListMenu = ({
     setPopup,
     setDataPopUp,
     page,
+    action,
 }) => {
     return (
         <>
@@ -15,7 +16,7 @@ const ListMenu = ({
                 onClick={() => {
                     setPopup(true);
                     setIsActive(false);
-                    setDataPopUp({ title: nama, page: page });
+                    setDataPopUp({ title: nama, page: page, action: action });
                 }}
             >
                 <Icon

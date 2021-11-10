@@ -19,6 +19,7 @@ const CreateLocation = ({
     data,
     reset,
     setReset,
+    isAction,
 }) => {
     const defaultValue = {
         name: "",
@@ -204,8 +205,13 @@ const CreateLocation = ({
                 },
             })
             .then((res) => {
-                Swal.fire("Sukses!", "Berhasil menambahkan lokasi", "success");
+                Swal.fire(
+                    "Mantab!",
+                    "Data lokasi udh saya tambahin ya!",
+                    "success"
+                );
                 resetForm();
+                setBtnClick(false);
             })
             .catch((err) => {
                 setBtnClick(false);
@@ -213,18 +219,86 @@ const CreateLocation = ({
             });
     };
 
+    const onDelete = () => {
+        resetForm();
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+            .fire({
+                title: "Yakin nih?",
+                text: "Mau hapus lokasi ini!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Iya, Yakin Sumpah!",
+                cancelButtonText: "Nggak, Gak jadi!",
+                reverseButtons: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                        .delete(`${Api_Url}locations/${value.id}`)
+                        .then((res) => {
+                            resetForm();
+                            setBtnClick(false);
+                            swalWithBootstrapButtons.fire(
+                                "Terhapus!",
+                                "Data lokasi udh gw hapus :).",
+                                "success"
+                            );
+                        })
+                        .catch((err) => {
+                            resetForm();
+                            Swal.fire(
+                                "Waduh!",
+                                "Gagal hapus lokasi euy!",
+                                "error"
+                            );
+                            setBtnClick(false);
+                        });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    resetForm();
+                    setBtnClick(false);
+                    swalWithBootstrapButtons.fire(
+                        "Batal",
+                        "Ok data lokasi gak jadi gw hapus kok :)",
+                        "error"
+                    );
+                }
+            });
+    };
+
     useEffect(() => {
         if (btnClick) {
-            onSubmit();
+            if (isAction === "post") {
+                onSubmit();
+            } else if (isAction === "put") {
+                alert("edit");
+                setBtnClick(false);
+            } else if (isAction === "delete") {
+                onDelete();
+            }
         }
     }, [btnClick]);
 
     useEffect(() => {
         if (data) {
             setValue(data);
-            setPreviewImg(`${BASE_URL}storage/images/${data.uri}`);
             setValueArea(data.area);
             setSaveValue(data.area);
+            if (data.uri) {
+                setPreviewImg(`${BASE_URL}storage/images/${data.uri}`);
+            } else {
+                setPreviewImg(`${BASE_URL}storage/images/noimage.png`);
+            }
         }
     }, [data]);
 

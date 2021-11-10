@@ -148,6 +148,7 @@ function Home() {
                                 nama="Tambah Lokasi"
                                 Icon={AddLocationAltIcon}
                                 setDataPopUp={setDataPopUp}
+                                action="create"
                             />
                             <ListMenu
                                 setPopup={setPopup}
@@ -192,6 +193,7 @@ function Home() {
                                         selectData={selectData}
                                         key={list.id}
                                         data={list}
+                                        action="update"
                                     />
                                 );
                             })}
@@ -201,7 +203,7 @@ function Home() {
                     )}
                 </HomeMain>
                 <Maps onClick={toggleDisabled}>
-                    <GoogleMapReact center={center} zoom={15}>
+                    <GoogleMapReact center={center} zoom={11}>
                         {customerList.map((list) => {
                             return (
                                 <Marker
