@@ -20,6 +20,7 @@ const CreateLocation = ({
     reset,
     setReset,
     isAction,
+    setBtnUpdate,
 }) => {
     const defaultValue = {
         name: "",
@@ -50,7 +51,11 @@ const CreateLocation = ({
     };
 
     const handleAddr = (e) => {
-        setValue({ ...value, addr: e });
+        if (e === "") {
+            setValue({ ...value, addr: null });
+        } else {
+            setValue({ ...value, addr: e });
+        }
     };
 
     const handleLat = (e) => {
@@ -62,15 +67,27 @@ const CreateLocation = ({
     };
 
     const handlePic = (e) => {
-        setValue({ ...value, pic: e });
+        if (e === "") {
+            setValue({ ...value, pic: null });
+        } else {
+            setValue({ ...value, pic: e });
+        }
     };
 
     const handleDesc = (e) => {
-        setValue({ ...value, description: e });
+        if (e === "") {
+            setValue({ ...value, description: null });
+        } else {
+            setValue({ ...value, description: e });
+        }
     };
 
     const handlePhone = (e) => {
-        setValue({ ...value, phone: e });
+        if (e === "") {
+            setValue({ ...value, phone: null });
+        } else {
+            setValue({ ...value, phone: e });
+        }
     };
 
     const handleArea = (e) => {
@@ -190,14 +207,16 @@ const CreateLocation = ({
         {
             image && inData.append("file", image);
         }
-        inData.append("name", value.name);
-        inData.append("addr", value.addr);
-        inData.append("lat", value.lat);
-        inData.append("lng", value.lng);
-        inData.append("id_area", value.id_area);
-        inData.append("description", value.description);
-        inData.append("pic", value.pic);
-        inData.append("phone", value.phone);
+        value.name !== null ? inData.append("name", value.name) : null;
+        value.addr !== null ? inData.append("addr", value.addr) : null;
+        value.lat !== null ? inData.append("lat", value.lat) : null;
+        value.lng !== null ? inData.append("lng", value.lng) : null;
+        value.id_area !== null ? inData.append("id_area", value.id_area) : null;
+        value.description !== null
+            ? inData.append("description", value.description)
+            : null;
+        value.pic !== null ? inData.append("pic", value.pic) : null;
+        value.phone !== null ? inData.append("phone", value.phone) : null;
         axios
             .post(`${Api_Url}locations`, inData, {
                 headers: {
@@ -344,6 +363,14 @@ const CreateLocation = ({
             setReset(false);
         }
     }, [reset]);
+
+    useEffect(() => {
+        if (JSON.stringify(data) !== JSON.stringify(value) || image) {
+            setBtnUpdate(true);
+        } else {
+            setBtnUpdate(false);
+        }
+    }, [value, image]);
 
     return (
         <form>

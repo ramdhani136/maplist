@@ -11034,6 +11034,11 @@ var Popup = function Popup(_ref) {
       isAction = _useState8[0],
       setIsAction = _useState8[1];
 
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      btnUpdate = _useState10[0],
+      setBtnUpdate = _useState10[1];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Main, {
     isActive: isActive,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Wrapper, {
@@ -11053,7 +11058,7 @@ var Popup = function Popup(_ref) {
               setIsAction("post");
             },
             children: "Simpan"
-          }) : null, dataPopup.page === "CreateLocation" && btnAktif && dataPopup.action === "update" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
+          }) : null, dataPopup.page === "CreateLocation" && btnAktif && dataPopup.action === "update" && btnUpdate ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Button, {
             onClick: function onClick() {
               setBtnClick(true);
               setIsAction("put");
@@ -11085,7 +11090,8 @@ var Popup = function Popup(_ref) {
           popupDisabled: popupDisabled,
           reset: reset,
           setReset: setReset,
-          isAction: isAction
+          isAction: isAction,
+          setBtnUpdate: setBtnUpdate
         })
       })]
     })]
@@ -11639,7 +11645,8 @@ var CreateLocation = function CreateLocation(_ref) {
       data = _ref.data,
       reset = _ref.reset,
       setReset = _ref.setReset,
-      isAction = _ref.isAction;
+      isAction = _ref.isAction,
+      setBtnUpdate = _ref.setBtnUpdate;
   var defaultValue = {
     name: "",
     addr: "",
@@ -11718,9 +11725,15 @@ var CreateLocation = function CreateLocation(_ref) {
   };
 
   var handleAddr = function handleAddr(e) {
-    setValue(_objectSpread(_objectSpread({}, value), {}, {
-      addr: e
-    }));
+    if (e === "") {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        addr: null
+      }));
+    } else {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        addr: e
+      }));
+    }
   };
 
   var handleLat = function handleLat(e) {
@@ -11736,21 +11749,39 @@ var CreateLocation = function CreateLocation(_ref) {
   };
 
   var handlePic = function handlePic(e) {
-    setValue(_objectSpread(_objectSpread({}, value), {}, {
-      pic: e
-    }));
+    if (e === "") {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        pic: null
+      }));
+    } else {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        pic: e
+      }));
+    }
   };
 
   var handleDesc = function handleDesc(e) {
-    setValue(_objectSpread(_objectSpread({}, value), {}, {
-      description: e
-    }));
+    if (e === "") {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        description: null
+      }));
+    } else {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        description: e
+      }));
+    }
   };
 
   var handlePhone = function handlePhone(e) {
-    setValue(_objectSpread(_objectSpread({}, value), {}, {
-      phone: e
-    }));
+    if (e === "") {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        phone: null
+      }));
+    } else {
+      setValue(_objectSpread(_objectSpread({}, value), {}, {
+        phone: e
+      }));
+    }
   };
 
   var handleArea = function handleArea(e) {
@@ -11855,14 +11886,14 @@ var CreateLocation = function CreateLocation(_ref) {
     {
       image && inData.append("file", image);
     }
-    inData.append("name", value.name);
-    inData.append("addr", value.addr);
-    inData.append("lat", value.lat);
-    inData.append("lng", value.lng);
-    inData.append("id_area", value.id_area);
-    inData.append("description", value.description);
-    inData.append("pic", value.pic);
-    inData.append("phone", value.phone);
+    value.name !== null ? inData.append("name", value.name) : null;
+    value.addr !== null ? inData.append("addr", value.addr) : null;
+    value.lat !== null ? inData.append("lat", value.lat) : null;
+    value.lng !== null ? inData.append("lng", value.lng) : null;
+    value.id_area !== null ? inData.append("id_area", value.id_area) : null;
+    value.description !== null ? inData.append("description", value.description) : null;
+    value.pic !== null ? inData.append("pic", value.pic) : null;
+    value.phone !== null ? inData.append("phone", value.phone) : null;
     axios__WEBPACK_IMPORTED_MODULE_4___default().post("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "locations"), inData, {
       headers: {
         "content-type": "multipart/form-data"
@@ -11973,6 +12004,13 @@ var CreateLocation = function CreateLocation(_ref) {
       setReset(false);
     }
   }, [reset]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (JSON.stringify(data) !== JSON.stringify(value) || image) {
+      setBtnUpdate(true);
+    } else {
+      setBtnUpdate(false);
+    }
+  }, [value, image]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("form", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(WrapperCL, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(CLleft, {

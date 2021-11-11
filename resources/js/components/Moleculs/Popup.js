@@ -8,6 +8,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     const [btnClick, setBtnClick] = useState(false);
     const [reset, setReset] = useState(false);
     const [isAction, setIsAction] = useState("");
+    const [btnUpdate, setBtnUpdate] = useState(false);
 
     return (
         <Main isActive={isActive}>
@@ -36,7 +37,8 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
 
                         {dataPopup.page === "CreateLocation" &&
                         btnAktif &&
-                        dataPopup.action === "update" ? (
+                        dataPopup.action === "update" &&
+                        btnUpdate ? (
                             <Button
                                 onClick={() => {
                                     setBtnClick(true);
@@ -78,6 +80,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                             reset={reset}
                             setReset={setReset}
                             isAction={isAction}
+                            setBtnUpdate={setBtnUpdate}
                         />
                     )}
                 </IsContent>
