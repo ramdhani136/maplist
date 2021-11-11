@@ -96,7 +96,7 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function Onupdate(Request $request, $id)
     {
         $data =  Location::find($id);
         $data->name = $request->input('name');
@@ -112,7 +112,6 @@ class LocationController extends Controller
 
             if (Storage::exists('public/images/' . $data->uri)) {
                 Storage::delete('public/images/' . $data->uri);
-                $data->delete();
             }
             $request->file->store('/public/images');
             $data->uri = $request->file->hashName();

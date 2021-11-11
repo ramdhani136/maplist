@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('/locations', LocationController::class);
 Route::resource('/area', AreaController::class);
+Route::resource('/editLocation', AreaController::class);
+Route::post('/editLocation/{id}', [LocationController::class, 'Onupdate']);

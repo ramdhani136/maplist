@@ -11877,6 +11877,34 @@ var CreateLocation = function CreateLocation(_ref) {
     });
   };
 
+  var onUpdate = function onUpdate() {
+    var inData = new FormData();
+    {
+      image && inData.append("file", image);
+    }
+    value.name !== null ? inData.append("name", value.name) : null;
+    value.addr !== null ? inData.append("addr", value.addr) : null;
+    value.lat !== null ? inData.append("lat", value.lat) : null;
+    value.lng !== null ? inData.append("lng", value.lng) : null;
+    value.id_area !== null ? inData.append("id_area", value.id_area) : null;
+    value.description !== null ? inData.append("description", value.description) : null;
+    value.pic !== null ? inData.append("pic", value.pic) : null;
+    value.phone !== null ? inData.append("phone", value.phone) : null;
+    axios__WEBPACK_IMPORTED_MODULE_4___default().post("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "editLocation/").concat(value.id), inData, {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    }).then(function (res) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi udh gw perbarui !", "success");
+      resetForm();
+      setBtnClick(false);
+    })["catch"](function (err) {
+      setBtnClick(false);
+      alert("Gagal ubah lokasi!");
+      console.error(err.response.data);
+    });
+  };
+
   var onDelete = function onDelete() {
     resetForm();
     var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().mixin({
@@ -11920,8 +11948,7 @@ var CreateLocation = function CreateLocation(_ref) {
       if (isAction === "post") {
         onSubmit();
       } else if (isAction === "put") {
-        alert("edit");
-        setBtnClick(false);
+        onUpdate();
       } else if (isAction === "delete") {
         onDelete();
       }

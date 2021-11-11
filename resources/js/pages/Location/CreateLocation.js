@@ -219,6 +219,43 @@ const CreateLocation = ({
             });
     };
 
+    const onUpdate = () => {
+        const inData = new FormData();
+        {
+            image && inData.append("file", image);
+        }
+        value.name !== null ? inData.append("name", value.name) : null;
+        value.addr !== null ? inData.append("addr", value.addr) : null;
+        value.lat !== null ? inData.append("lat", value.lat) : null;
+        value.lng !== null ? inData.append("lng", value.lng) : null;
+        value.id_area !== null ? inData.append("id_area", value.id_area) : null;
+        value.description !== null
+            ? inData.append("description", value.description)
+            : null;
+        value.pic !== null ? inData.append("pic", value.pic) : null;
+        value.phone !== null ? inData.append("phone", value.phone) : null;
+        axios
+            .post(`${Api_Url}editLocation/${value.id}`, inData, {
+                headers: {
+                    "content-type": "multipart/form-data",
+                },
+            })
+            .then((res) => {
+                Swal.fire(
+                    "Mantab!",
+                    "Data lokasi udh gw perbarui !",
+                    "success"
+                );
+                resetForm();
+                setBtnClick(false);
+            })
+            .catch((err) => {
+                setBtnClick(false);
+                alert("Gagal ubah lokasi!");
+                console.error(err.response.data);
+            });
+    };
+
     const onDelete = () => {
         resetForm();
         const swalWithBootstrapButtons = Swal.mixin({
@@ -281,8 +318,7 @@ const CreateLocation = ({
             if (isAction === "post") {
                 onSubmit();
             } else if (isAction === "put") {
-                alert("edit");
-                setBtnClick(false);
+                onUpdate();
             } else if (isAction === "delete") {
                 onDelete();
             }
