@@ -156,6 +156,7 @@ function Home() {
                                 nama="Daftar Area"
                                 Icon={LanguageIcon}
                                 setDataPopUp={setDataPopUp}
+                                page={"AreaPage"}
                             />
                             {/* <ListMenu
                             toggleMenu={toggleDisabled}

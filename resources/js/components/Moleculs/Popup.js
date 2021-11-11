@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
-import { CreateLocation } from "../../pages/";
+import { AreaPage, CreateLocation } from "../../pages/";
 
 const Popup = ({ isActive, popupDisabled, dataPopup }) => {
     const [btnAktif, setbtnAktif] = useState(false);
@@ -83,6 +83,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                             setBtnUpdate={setBtnUpdate}
                         />
                     )}
+                    {dataPopup.page === "AreaPage" && <AreaPage />}
                 </IsContent>
             </Content>
         </Main>

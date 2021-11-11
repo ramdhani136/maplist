@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
 
 const SelectList = ({ data, width, onClick, getValue, saveValue }) => {
     return (
@@ -54,6 +55,23 @@ const SelectList = ({ data, width, onClick, getValue, saveValue }) => {
                                     </IsList>
                                 );
                             })}
+
+                        <IsList
+                            style={{ color: "#ddd" }}
+                            onClick={() => {
+                                getValue(list);
+                                data.setSelectAktif(false);
+                            }}
+                        >
+                            <AddIcon
+                                style={{
+                                    fontSize: "15px",
+                                    color: "#ddd",
+                                    marginTop: "-2px",
+                                }}
+                            />
+                            Tambah {data.name}
+                        </IsList>
                     </Ulist>
                 )}
             </div>
@@ -69,6 +87,7 @@ const WrapInput = styled.div`
     height: auto;
     display: flex;
     flex-direction: column;
+    position: relative;
 `;
 
 const Label = styled.div`
