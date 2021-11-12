@@ -11757,7 +11757,7 @@ var CreateArea = function CreateArea(_ref) {
           setFormArea(false);
           swalWithBootstrapButtons.fire("Sukses!", "Data area berhasil di tambahkan.", "success");
         })["catch"](function (err) {
-          swalWithBootstrapButtons.fire("Error!", "gagal dapat menambah data area.", "error");
+          swalWithBootstrapButtons.fire("Error!", "gagal manambahkan data.", "error");
         });
       } else if (
       /* Read more about handling dismissals below */
@@ -11767,11 +11767,57 @@ var CreateArea = function CreateArea(_ref) {
     });
   };
 
+  var onUpdate = function onUpdate() {
+    var swalWithBootstrapButtons = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
+      customClass: {
+        confirmButton: "btn btn-success ml-2",
+        cancelButton: "btn btn-danger",
+        customClass: {
+          container: "my-swal"
+        }
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Kamu yakin?",
+      text: "Ingin merubah data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Iya, Yakin!",
+      cancelButtonText: "Nggak jadi!",
+      reverseButtons: true
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        axios__WEBPACK_IMPORTED_MODULE_3___default().put("".concat(_config__WEBPACK_IMPORTED_MODULE_4__.Api_Url, "area/").concat(value.id), {
+          name: value.name,
+          status: value.status
+        }).then(function (res) {
+          setIsInsertArea(true);
+          setValue({
+            name: "",
+            status: "Y"
+          });
+          setFormArea(false);
+          setDataArea({});
+          swalWithBootstrapButtons.fire("Sukses!", "Data area berhasil di perbarui.", "success");
+        })["catch"](function (err) {
+          swalWithBootstrapButtons.fire("Error!", "Gagal merubah data.", "error");
+        });
+      } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === (sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().DismissReason.cancel)) {
+        swalWithBootstrapButtons.fire("Cancel", "Batal merubah data  :)", "error");
+      }
+    });
+  };
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (data) {
       setValue(data);
+      setInput(data.name);
     } else {
       setValue(defaultValue);
+      setInput("");
     }
   }, [data]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -11838,7 +11884,7 @@ var CreateArea = function CreateArea(_ref) {
               style: {
                 opacity: value.name ? "1" : "0.7"
               },
-              onClick: value.name ? onSubmit : null,
+              onClick: value.name ? data.id ? onUpdate : onSubmit : null,
               children: "Simpan"
             })
           })]

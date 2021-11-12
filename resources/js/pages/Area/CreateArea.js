@@ -63,7 +63,7 @@ const CreateArea = ({ setFormArea, setIsInsertArea, data, setDataArea }) => {
                         .catch((err) => {
                             swalWithBootstrapButtons.fire(
                                 "Error!",
-                                "gagal dapat menambah data area.",
+                                "gagal manambahkan data.",
                                 "error"
                             );
                         });
@@ -80,11 +80,73 @@ const CreateArea = ({ setFormArea, setIsInsertArea, data, setDataArea }) => {
             });
     };
 
+    const onUpdate = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2",
+                cancelButton: "btn btn-danger",
+                customClass: {
+                    container: "my-swal",
+                },
+            },
+            buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+            .fire({
+                title: "Kamu yakin?",
+                text: "Ingin merubah data ini!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Iya, Yakin!",
+                cancelButtonText: "Nggak jadi!",
+                reverseButtons: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                        .put(`${Api_Url}area/${value.id}`, {
+                            name: value.name,
+                            status: value.status,
+                        })
+                        .then((res) => {
+                            setIsInsertArea(true);
+                            setValue({ name: "", status: "Y" });
+                            setFormArea(false);
+                            setDataArea({});
+                            swalWithBootstrapButtons.fire(
+                                "Sukses!",
+                                "Data area berhasil di perbarui.",
+                                "success"
+                            );
+                        })
+                        .catch((err) => {
+                            swalWithBootstrapButtons.fire(
+                                "Error!",
+                                "Gagal merubah data.",
+                                "error"
+                            );
+                        });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        "Cancel",
+                        "Batal merubah data  :)",
+                        "error"
+                    );
+                }
+            });
+    };
+
     useEffect(() => {
         if (data) {
             setValue(data);
+            setInput(data.name);
         } else {
             setValue(defaultValue);
+            setInput("");
         }
     }, [data]);
 
@@ -147,7 +209,13 @@ const CreateArea = ({ setFormArea, setIsInsertArea, data, setDataArea }) => {
                         >
                             <Button
                                 style={{ opacity: value.name ? "1" : "0.7" }}
-                                onClick={value.name ? onSubmit : null}
+                                onClick={
+                                    value.name
+                                        ? data.id
+                                            ? onUpdate
+                                            : onSubmit
+                                        : null
+                                }
                             >
                                 Simpan
                             </Button>
