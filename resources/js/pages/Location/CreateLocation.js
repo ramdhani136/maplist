@@ -21,6 +21,7 @@ const CreateLocation = ({
     setReset,
     isAction,
     setBtnUpdate,
+    setFormArea,
 }) => {
     const defaultValue = {
         name: "",
@@ -457,6 +458,7 @@ const CreateLocation = ({
                         saveValue={saveValue}
                         getValue={handleArea}
                         onClick={getAreas}
+                        setFormArea={setFormArea}
                         data={{
                             name: "Group Area",
                             type: "text",

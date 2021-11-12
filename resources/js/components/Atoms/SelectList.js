@@ -3,7 +3,14 @@ import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 
-const SelectList = ({ data, width, onClick, getValue, saveValue }) => {
+const SelectList = ({
+    data,
+    width,
+    onClick,
+    getValue,
+    saveValue,
+    setFormArea,
+}) => {
     return (
         <WrapInput width={width}>
             <Label>{data.name}</Label>
@@ -59,7 +66,7 @@ const SelectList = ({ data, width, onClick, getValue, saveValue }) => {
                         <IsList
                             style={{ color: "#ddd" }}
                             onClick={() => {
-                                getValue(list);
+                                setFormArea(true);
                                 data.setSelectAktif(false);
                             }}
                         >

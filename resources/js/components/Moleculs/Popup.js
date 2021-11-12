@@ -3,7 +3,15 @@ import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import { AreaPage, CreateLocation } from "../../pages/";
 
-const Popup = ({ isActive, popupDisabled, dataPopup }) => {
+const Popup = ({
+    isActive,
+    popupDisabled,
+    dataPopup,
+    setFormArea,
+    isInsertArea,
+    setIsInsertArea,
+    setDataArea,
+}) => {
     const [btnAktif, setbtnAktif] = useState(false);
     const [btnClick, setBtnClick] = useState(false);
     const [reset, setReset] = useState(false);
@@ -72,6 +80,7 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                 <IsContent>
                     {dataPopup.page === "CreateLocation" && (
                         <CreateLocation
+                            setFormArea={setFormArea}
                             data={dataPopup.data}
                             btnClick={btnClick}
                             setBtnClick={setBtnClick}
@@ -84,7 +93,13 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                         />
                     )}
                     {dataPopup.page === "AreaPage" && (
-                        <AreaPage popupDisabled={popupDisabled} />
+                        <AreaPage
+                            setDataArea={setDataArea}
+                            setIsInsertArea={setIsInsertArea}
+                            isInsertArea={isInsertArea}
+                            popupDisabled={popupDisabled}
+                            setFormArea={setFormArea}
+                        />
                     )}
                 </IsContent>
             </Content>
@@ -106,7 +121,7 @@ const Wrapper = styled.div`
     background-color: black;
     opacity: 0.7;
     position: fixed;
-    z-index: 3000;
+    z-index: 1020;
 `;
 
 const Content = styled.div`
@@ -114,7 +129,7 @@ const Content = styled.div`
     height: 97vh;
     background-color: white;
     position: absolute;
-    z-index: 4000;
+    z-index: 1021;
     left: 15%;
     top: 5px;
     border: solid 1px #535353;

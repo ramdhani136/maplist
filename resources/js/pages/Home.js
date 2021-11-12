@@ -12,6 +12,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Api_Url } from "../config";
+import { CreateArea } from ".";
 
 function Home() {
     const [customerList, setCustomerList] = useState([]);
@@ -24,6 +25,9 @@ function Home() {
     const [isActive, setIsActive] = useState(false);
     const [popup, setPopup] = useState(false);
     const [dataPopup, setDataPopUp] = useState({});
+    const [formArea, setFormArea] = useState(false);
+    const [isInsertArea, setIsInsertArea] = useState(false);
+    const [dataArea, setDataArea] = useState({});
 
     const getLocation = () => {
         fetch(`${Api_Url}locations`)
@@ -85,7 +89,19 @@ function Home() {
 
     return (
         <>
+            {formArea && (
+                <CreateArea
+                    setDataArea={setDataArea}
+                    data={dataArea}
+                    setFormArea={setFormArea}
+                    setIsInsertArea={setIsInsertArea}
+                />
+            )}
             <Popup
+                setDataArea={setDataArea}
+                setIsInsertArea={setIsInsertArea}
+                isInsertArea={isInsertArea}
+                setFormArea={setFormArea}
                 getLocation={getLocation}
                 dataPopup={dataPopup}
                 isActive={popup}
@@ -163,7 +179,7 @@ function Home() {
                             nama="Daftar Kendaraan"
                             Icon={LocalShippingIcon}
                         /> */}
-                            <ListMenu
+                            {/* <ListMenu
                                 setPopup={setPopup}
                                 setIsActive={setIsActive}
                                 nama="Pengaturan"
@@ -174,7 +190,7 @@ function Home() {
                                 setIsActive={setIsActive}
                                 nama="Keluar"
                                 Icon={LogoutIcon}
-                            />
+                            /> */}
                         </div>
                         <CreatedBy>
                             &copy; (IT) PT. Ekatunggal Tunas Mandiri - 2021
@@ -315,7 +331,7 @@ const WrapperMenu = styled.div`
     height: 91vh;
     background-color: white;
     position: fixed;
-    z-index: 2000;
+    z-index: 1001;
     top: 60px;
     margin-left: ${({ active }) => (active ? "-6px" : "-300px")};
     transition: all 0.5s;

@@ -7,7 +7,13 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import _ from "lodash";
 import Swal from "sweetalert2";
 
-const AreaPage = ({ popupDisabled }) => {
+const AreaPage = ({
+    popupDisabled,
+    setFormArea,
+    isInsertArea,
+    setIsInsertArea,
+    setDataArea,
+}) => {
     const [area, setArea] = useState([]);
     const [value, setValue] = useState("");
 
@@ -33,7 +39,7 @@ const AreaPage = ({ popupDisabled }) => {
     };
 
     const onDelete = (id) => {
-        popupDisabled(true);
+        // popupDisabled(true);
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: "btn btn-success ml-2 ",
@@ -89,6 +95,12 @@ const AreaPage = ({ popupDisabled }) => {
         getArea();
     }, []);
 
+    useEffect(() => {
+        if (isInsertArea) {
+            getArea();
+        }
+    }, [isInsertArea]);
+
     return (
         <Wrapper>
             <Panel>
@@ -98,17 +110,26 @@ const AreaPage = ({ popupDisabled }) => {
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
                     />
-                    <CloseIcon
-                        onClick={() => setValue("")}
-                        style={{
-                            fontSize: "20px",
-                            color: "#ddd",
-                            marginLeft: "-30px",
-                            cursor: "pointer",
-                        }}
-                    />
+                    {value && (
+                        <CloseIcon
+                            onClick={() => setValue("")}
+                            style={{
+                                fontSize: "20px",
+                                color: "#ddd",
+                                marginLeft: "-30px",
+                                cursor: "pointer",
+                            }}
+                        />
+                    )}
                 </div>
-                <ButtonCreate>Tambah Area</ButtonCreate>
+                <ButtonCreate
+                    onClick={() => {
+                        setFormArea(true);
+                        setIsInsertArea(false);
+                    }}
+                >
+                    Tambah Area
+                </ButtonCreate>
             </Panel>
             <UlList>
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -171,7 +192,16 @@ const AreaPage = ({ popupDisabled }) => {
                                         {nomor + 1}
                                     </td>
                                     <td style={{ textAlign: "left" }}>
-                                        {item.name}
+                                        <a
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => {
+                                                setDataArea(item);
+                                                setFormArea(true);
+                                                setIsInsertArea(false);
+                                            }}
+                                        >
+                                            {item.name}
+                                        </a>
                                     </td>
                                     <td style={{ textAlign: "left" }}>
                                         <FiberManualRecordIcon
