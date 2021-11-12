@@ -11497,7 +11497,7 @@ var AreaPage = function AreaPage(_ref) {
           swalWithBootstrapButtons.fire("Deleted!", "Area berhasil di hapus.", "success");
         })["catch"](function (err) {
           console.error(err);
-          swalWithBootstrapButtons.fire("Error!", "Gagal hapus area, area sudah di gunakan oleh data lokasi :)", "error");
+          swalWithBootstrapButtons.fire("Error!", "Gagal menghapus, area ini sudah di gunakan oleh data lokasi :)", "error");
         });
       } else if (
       /* Read more about handling dismissals below */
@@ -12270,7 +12270,7 @@ var CreateLocation = function CreateLocation(_ref) {
         "content-type": "multipart/form-data"
       }
     }).then(function (res) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi udh saya tambahin ya!", "success");
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi sudah di tambahkan ya!", "success");
       resetForm();
       setBtnClick(false);
     })["catch"](function (err) {
@@ -12297,7 +12297,7 @@ var CreateLocation = function CreateLocation(_ref) {
         "content-type": "multipart/form-data"
       }
     }).then(function (res) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi udh gw perbarui !", "success");
+      sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Mantab!", "Data lokasi sudah diperbarui !", "success");
       resetForm();
       setBtnClick(false);
     })["catch"](function (err) {
@@ -12329,10 +12329,10 @@ var CreateLocation = function CreateLocation(_ref) {
         axios__WEBPACK_IMPORTED_MODULE_4___default()["delete"]("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "locations/").concat(value.id)).then(function (res) {
           resetForm();
           setBtnClick(false);
-          swalWithBootstrapButtons.fire("Terhapus!", "Data lokasi udh gw hapus :).", "success");
+          swalWithBootstrapButtons.fire("Terhapus!", "Data lokasi berhasil dihapus :).", "success");
         })["catch"](function (err) {
           resetForm();
-          sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Waduh!", "Gagal hapus lokasi euy!", "error");
+          sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire("Waduh!", "Gagal hapus lokasi!", "error");
           setBtnClick(false);
         });
       } else if (
@@ -12340,7 +12340,7 @@ var CreateLocation = function CreateLocation(_ref) {
       result.dismiss === (sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().DismissReason.cancel)) {
         resetForm();
         setBtnClick(false);
-        swalWithBootstrapButtons.fire("Batal", "Ok data lokasi gak jadi gw hapus kok :)", "error");
+        swalWithBootstrapButtons.fire("Batal", "Ok data lokasi gak jadi di hapus kok :)", "error");
       }
     });
   };

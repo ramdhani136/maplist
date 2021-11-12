@@ -68,7 +68,7 @@ const AreaPage = ({ popupDisabled }) => {
                             console.error(err);
                             swalWithBootstrapButtons.fire(
                                 "Error!",
-                                "Gagal hapus area, area sudah di gunakan oleh data lokasi :)",
+                                "Gagal menghapus, area ini sudah di gunakan oleh data lokasi :)",
                                 "error"
                             );
                         });

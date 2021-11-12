@@ -226,7 +226,7 @@ const CreateLocation = ({
             .then((res) => {
                 Swal.fire(
                     "Mantab!",
-                    "Data lokasi udh saya tambahin ya!",
+                    "Data lokasi sudah di tambahkan ya!",
                     "success"
                 );
                 resetForm();
@@ -262,7 +262,7 @@ const CreateLocation = ({
             .then((res) => {
                 Swal.fire(
                     "Mantab!",
-                    "Data lokasi udh gw perbarui !",
+                    "Data lokasi sudah diperbarui !",
                     "success"
                 );
                 resetForm();
@@ -304,17 +304,13 @@ const CreateLocation = ({
                             setBtnClick(false);
                             swalWithBootstrapButtons.fire(
                                 "Terhapus!",
-                                "Data lokasi udh gw hapus :).",
+                                "Data lokasi berhasil dihapus :).",
                                 "success"
                             );
                         })
                         .catch((err) => {
                             resetForm();
-                            Swal.fire(
-                                "Waduh!",
-                                "Gagal hapus lokasi euy!",
-                                "error"
-                            );
+                            Swal.fire("Waduh!", "Gagal hapus lokasi!", "error");
                             setBtnClick(false);
                         });
                 } else if (
@@ -325,7 +321,7 @@ const CreateLocation = ({
                     setBtnClick(false);
                     swalWithBootstrapButtons.fire(
                         "Batal",
-                        "Ok data lokasi gak jadi gw hapus kok :)",
+                        "Ok data lokasi gak jadi di hapus kok :)",
                         "error"
                     );
                 }
