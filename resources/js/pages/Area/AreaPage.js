@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import { Api_Url } from "../../config";
-import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import _ from "lodash";
+import Swal from "sweetalert2";
 
-const AreaPage = () => {
+const AreaPage = ({ popupDisabled }) => {
     const [area, setArea] = useState([]);
+    const [value, setValue] = useState("");
 
     const getArea = () => {
         axios
@@ -19,6 +22,69 @@ const AreaPage = () => {
             });
     };
 
+    const filterdata = (data) => {
+        return _.filter(data, function (query) {
+            var name = value
+                ? query.name.toLowerCase().includes(value.toLowerCase())
+                : true;
+
+            return name;
+        });
+    };
+
+    const onDelete = (id) => {
+        popupDisabled(true);
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success ml-2 ",
+                cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: false,
+        });
+
+        swalWithBootstrapButtons
+            .fire({
+                title: "Kamu yakin?",
+                text: "Ingin menghapus area ini!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Iya, yakin deh!",
+                cancelButtonText: "Nggak, batalin!",
+                reverseButtons: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                        .delete(`${Api_Url}area/${id}`)
+                        .then((res) => {
+                            getArea();
+                            swalWithBootstrapButtons.fire(
+                                "Deleted!",
+                                "Area berhasil di hapus.",
+                                "success"
+                            );
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                            swalWithBootstrapButtons.fire(
+                                "Error!",
+                                "Gagal hapus area, area sudah di gunakan oleh data lokasi :)",
+                                "error"
+                            );
+                        });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        "Cancelled",
+                        "Kamu batal menghapus area ini :)",
+                        "error"
+                    );
+                }
+            });
+    };
+
     useEffect(() => {
         getArea();
     }, []);
@@ -27,8 +93,13 @@ const AreaPage = () => {
         <Wrapper>
             <Panel>
                 <div style={{ marginLeft: "5%" }}>
-                    <InputSearch placeholder="Pencarian" />
+                    <InputSearch
+                        placeholder="Pencarian"
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                    />
                     <CloseIcon
+                        onClick={() => setValue("")}
                         style={{
                             fontSize: "20px",
                             color: "#ddd",
@@ -70,7 +141,7 @@ const AreaPage = () => {
                             <th style={{ width: "50%", textAlign: "left" }}>
                                 Nama
                             </th>
-                            <th style={{ width: "15%", textAlign: "center" }}>
+                            <th style={{ width: "15%", textAlign: "left" }}>
                                 Status
                             </th>
                             <th style={{ width: "20%", textAlign: "center" }}>
@@ -79,9 +150,10 @@ const AreaPage = () => {
                         </tr>
                     </thead>
                     <tbody style={{ width: "100%" }}>
-                        {area.map((item, nomor) => {
+                        {filterdata(area).map((item, nomor) => {
                             return (
                                 <tr
+                                    key={nomor}
                                     style={{
                                         width: "100%",
                                         borderBottom: "solid 1px whitesmoke",
@@ -101,13 +173,25 @@ const AreaPage = () => {
                                     <td style={{ textAlign: "left" }}>
                                         {item.name}
                                     </td>
-                                    <td style={{ textAlign: "center" }}>
+                                    <td style={{ textAlign: "left" }}>
+                                        <FiberManualRecordIcon
+                                            style={{
+                                                fontSize: "12px",
+                                                marginTop: "-3px",
+                                                marginRight: "5px",
+                                                color:
+                                                    item.status === "Y"
+                                                        ? "#98d95b"
+                                                        : "#f75c5d",
+                                            }}
+                                        />
                                         {item.status === "Y"
                                             ? "Aktif"
                                             : "Disabled"}
                                     </td>
                                     <td style={{ textAlign: "center" }}>
                                         <DeleteForeverOutlinedIcon
+                                            onClick={() => onDelete(item.id)}
                                             style={{
                                                 color: "#dc3547",
                                                 fontSize: "23",
@@ -119,6 +203,19 @@ const AreaPage = () => {
                         })}
                     </tbody>
                 </table>
+                {filterdata(area).length < 1 && (
+                    <div
+                        style={{
+                            width: "100%",
+                            textAlign: "center",
+                            marginTop: "130px",
+                            color: "#ddd",
+                            fontSize: "0.96em",
+                        }}
+                    >
+                        Tidak ada data yang di temukan
+                    </div>
+                )}
             </UlList>
         </Wrapper>
     );

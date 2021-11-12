@@ -83,7 +83,9 @@ const Popup = ({ isActive, popupDisabled, dataPopup }) => {
                             setBtnUpdate={setBtnUpdate}
                         />
                     )}
-                    {dataPopup.page === "AreaPage" && <AreaPage />}
+                    {dataPopup.page === "AreaPage" && (
+                        <AreaPage popupDisabled={popupDisabled} />
+                    )}
                 </IsContent>
             </Content>
         </Main>
