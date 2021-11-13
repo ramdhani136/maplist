@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AreaResource;
-use App\Models\area;
+use App\Models\Area;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
