@@ -26,13 +26,13 @@ const Customerlist = ({
                         <Img
                             onClick={handleClick}
                             select={select}
-                            src={`${BASE_URL}storage/${data.uri}`}
+                            src={`${BASE_URL}storage/images/${data.uri}`}
                         />
                     ) : (
                         <Img
                             onClick={handleClick}
                             select={select}
-                            src={`${BASE_URL}storage/noimage.png`}
+                            src={`${BASE_URL}storage/images/noimage.png`}
                         />
                     )}
                     <Area
