@@ -11321,11 +11321,11 @@ var Customerlist = function Customerlist(_ref) {
         children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Img, {
           onClick: handleClick,
           select: select,
-          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/").concat(data.uri)
+          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/").concat(data.uri)
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Img, {
           onClick: handleClick,
           select: select,
-          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/noimage.png")
+          src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/noimage.png")
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Area, {
           onClick: function onClick() {
             setPopup(true);
@@ -11428,10 +11428,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "BASE_URL": () => (/* binding */ BASE_URL),
 /* harmony export */   "Api_Url": () => (/* binding */ Api_Url)
 /* harmony export */ });
-// const BASE_URL = "https://maplist.ekatunggal.com/";
-// const Api_Url = "https://maplist.ekatunggal.com/api/";
-var BASE_URL = "http://localhost:8000/";
-var Api_Url = "http://localhost:8000/api/";
+var BASE_URL = "maplist.ekatunggal.com/";
+var Api_Url = "maplist.ekatunggal.com/api/"; // const BASE_URL = "http://localhost:8000/";
+// const Api_Url = "http://localhost:8000/api/";
+
 
 
 /***/ }),
@@ -12557,7 +12557,7 @@ var CreateLocation = function CreateLocation(_ref) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (previewImg === "" || previewImg === null || previewImg === undefined) {
-      setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/noimage.png"));
+      setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/noimage.png"));
     }
   }, [previewImg]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -12708,9 +12708,9 @@ var CreateLocation = function CreateLocation(_ref) {
       setSaveValue(data.area);
 
       if (data.uri) {
-        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/").concat(data.uri));
+        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/").concat(data.uri));
       } else {
-        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/images/noimage.png"));
+        setPreviewImg("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.BASE_URL, "storage/noimage.png"));
       }
     }
   }, [data]);
