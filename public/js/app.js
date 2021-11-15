@@ -3523,6 +3523,34 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/InsertLink.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/InsertLink.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+}), 'InsertLink');
+
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/Language.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/icons-material/Language.js ***!
@@ -3574,6 +3602,34 @@ var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/r
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
   d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
 }), 'Menu');
+
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/Room.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@mui/icons-material/Room.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
+
+var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+}), 'Room');
 
 exports["default"] = _default;
 
@@ -11211,12 +11267,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config */ "./resources/js/config/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3;
+/* harmony import */ var _mui_icons_material_InsertLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/InsertLink */ "./node_modules/@mui/icons-material/InsertLink.js");
+/* harmony import */ var _mui_icons_material_Room__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/Room */ "./node_modules/@mui/icons-material/Room.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
 
 
 
@@ -11241,19 +11304,29 @@ var Customerlist = function Customerlist(_ref) {
     toggleMenu();
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CLWrapper, {
+  var onCopy = function onCopy() {
+    navigator.clipboard.writeText("https://maps.google.com/maps?q=".concat(data.lat, "%2C").concat(data.lng, "&z=17&hl=id"));
+    sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("Copied!", "Url maps di copy , klik paste untuk memindahkan!", "success");
+  };
+
+  var getCordinate = function getCordinate() {
+    navigator.clipboard.writeText("".concat(data.lat, ",").concat(data.lng));
+    sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("Copied!", "Kordinat berhasil di copy , klik paste untuk memindahkan!", "success");
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(CLWrapper, {
       select: select,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Img, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [data.uri ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Img, {
           onClick: handleClick,
           select: select,
           src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/").concat(data.uri)
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Img, {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Img, {
           onClick: handleClick,
           select: select,
           src: "".concat(_config__WEBPACK_IMPORTED_MODULE_1__.BASE_URL, "storage/images/noimage.png")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Area, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Area, {
           onClick: function onClick() {
             setPopup(true);
             setDataPopUp({
@@ -11265,26 +11338,49 @@ var Customerlist = function Customerlist(_ref) {
             toggleMenu();
           },
           select: select,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
             children: data.name
-          }), " -", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          }), " -", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
             style: {
               color: "#ffc107"
             },
             children: data.area
           })]
         })]
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(HoverAksi, {
+        onClick: function onClick() {
+          return onCopy();
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_InsertLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          style: {
+            color: "gray",
+            cursor: "pointer",
+            fontSize: "20px"
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CopyKord, {
+        onClick: function onClick() {
+          return getCordinate();
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_Room__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          style: {
+            color: "gray",
+            cursor: "pointer",
+            fontSize: "13px",
+            margin: "3px"
+          }
+        })
+      })]
     })
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customerlist);
-var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n    position: relative;\n"])), function (_ref2) {
+var CLWrapper = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 47%;\n    height: auto;\n    margin: 1.5%;\n    cursor: pointer;\n    transition: transform 0.1s;\n    :hover {\n        transform: scale(1.06);\n        opacity: 0.9;\n    }\n    transform: ", ";\n    position: relative;\n"])), function (_ref2) {
   var select = _ref2.select;
   return select ? "scale(1.05)" : "none";
 });
-var Img = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref3) {
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].img(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 155px;\n    object-fit: cover;\n    border: ", ";\n    border-bottom: none;\n    @media screen and (max-width: 720px) {\n        height: 120px;\n    }\n"])), function (_ref3) {
   var select = _ref3.select;
   return select ? "solid 1.5px #ffff99" : "none";
 }); // const Title = styled.div`
@@ -11295,24 +11391,12 @@ var Img = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img(_templat
 //     font-size: 0.9em;
 // `;
 
-var Area = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n    font-size: 0.85em;\n"])), function (_ref4) {
+var Area = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    border: solid 1px #ccc;\n    position: relative;\n    background-color: white;\n    padding: 5px;\n    color: black;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    border: ", ";\n    border-top: none;\n    font-size: 0.85em;\n"])), function (_ref4) {
   var select = _ref4.select;
   return select ? "solid 1.5px #ffff99" : "none";
-}); // const HoverAksi = styled.div`
-//     position: absolute;
-//     width: auto;
-//     height: auto;
-//     top: 0;
-//     right: 0;
-//     background-color: white;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     color: "#ffc107";
-//     font-size: 0.9em;
-//     padding-left: 5%;
-//     padding-right: 5%;
-// `;
+});
+var HoverAksi = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    position: absolute;\n    width: 23px;\n    height: 23px;\n    top: 0;\n    right: 0;\n    background-color: black;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: \"#ffc107\";\n    font-size: 0.9em;\n    padding-left: 5%;\n    padding-right: 5%;\n    opacity: 0.75;\n"])));
+var CopyKord = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    position: absolute;\n    width: 23px;\n    height: 23px;\n    top: 0;\n    right: 23px;\n    background-color: black;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: \"#ffc107\";\n    font-size: 0.9em;\n    padding-left: 5%;\n    padding-right: 5%;\n    opacity: 0.75;\n"])));
 
 /***/ }),
 
