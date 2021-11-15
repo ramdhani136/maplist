@@ -8,6 +8,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/jpg" href="https://maplist.ekatunggal.com/storage/logo.png" />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRn3Bp2cpbSN8xNlz1yagJ-F_S3hqnt4" type="text/javascript"></script>
     <title>Mapping Customer</title>
 </head>

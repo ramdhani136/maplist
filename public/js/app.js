@@ -11344,8 +11344,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "BASE_URL": () => (/* binding */ BASE_URL),
 /* harmony export */   "Api_Url": () => (/* binding */ Api_Url)
 /* harmony export */ });
-var BASE_URL = "http://maplist.ekatunggal.com/";
-var Api_Url = "http://maplist.ekatunggal.com/api/"; // const BASE_URL = "http://localhost:8000/";
+var BASE_URL = "https://maplist.ekatunggal.com/";
+var Api_Url = "https://maplist.ekatunggal.com/api/"; // const BASE_URL = "http://localhost:8000/";
 // const Api_Url = "http://localhost:8000/api/";
 
 
