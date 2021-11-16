@@ -156,7 +156,7 @@ const CreateLocation = ({
             previewImg === null ||
             previewImg === undefined
         ) {
-            setPreviewImg(`${BASE_URL}storage/noimage.png`);
+            setPreviewImg(`${BASE_URL}storage/images/noimage.png`);
         }
     }, [previewImg]);
 
@@ -347,9 +347,9 @@ const CreateLocation = ({
             setValueArea(data.area);
             setSaveValue(data.area);
             if (data.uri) {
-                setPreviewImg(`${BASE_URL}storage/${data.uri}`);
+                setPreviewImg(`${BASE_URL}storage/images/${data.uri}`);
             } else {
-                setPreviewImg(`${BASE_URL}storage/noimage.png`);
+                setPreviewImg(`${BASE_URL}storage/images/noimage.png`);
             }
         }
     }, [data]);
