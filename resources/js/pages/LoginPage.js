@@ -17,14 +17,20 @@ const LoginPage = () => {
             .post(`${Api_Url}login`, value)
             .then((response) => {
                 //set token on localStorage
-                localStorage.setItem("token", response.data.token);
 
+                localStorage.setItem("token", response.data.token);
+                Swal.fire("Success!", "Berhasil login!", "success");
                 //redirect to dashboard
                 navigate("/");
             })
             .catch((error) => {
                 //assign error to state "validation"
                 // setValidation(error.response.data);
+                Swal.fire(
+                    "Error!",
+                    "Username & password tidak sesuai!",
+                    "error"
+                );
             });
     };
 

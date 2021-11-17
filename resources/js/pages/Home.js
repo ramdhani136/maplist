@@ -13,13 +13,16 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Api_Url } from "../config";
 import { CreateArea } from ".";
-import { selectUser } from "../redux/slices/UserSlice";
+import { inUser, selectUser } from "../redux/slices/UserSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
 
 function Home() {
     const navigate = useNavigate();
-    const isUser = useSelector(selectUser);
+    const dispatch = useDispatch();
+    // const isUser = useSelector(selectUser);
     const [customerList, setCustomerList] = useState([]);
     const [center, setCenter] = useState({
         lat: -6.510267344418401,
@@ -44,8 +47,21 @@ function Home() {
 
     useEffect(() => {
         if (!localStorage.getItem("token")) {
-            //redirect page dashboard
+            Swal.fire("Error!", "Silahkan login terlebih dahulu!", "error");
             navigate("/login");
+        } else {
+            axios.defaults.headers.common[
+                "Authorization"
+            ] = `Bearer ${localStorage.getItem("token")}`;
+
+            axios
+                .get(`${Api_Url}user`)
+                .then((res) => {
+                    dispatch(inUser(res.data));
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
 
         getLocation();
@@ -95,6 +111,18 @@ function Home() {
 
             return name || area;
         });
+    };
+
+    const onLogout = () => {
+        axios
+            .post(`${Api_Url}logout`)
+            .then((res) => {
+                dispatch(inUser({}));
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
@@ -166,7 +194,6 @@ function Home() {
                             )}
                         </SearchPanel>
                     </Search>
-                    {console.log(localStorage.getItem("token"))}
                     <WrapperMenu active={isActive}>
                         <div>
                             <ListMenu
@@ -198,7 +225,11 @@ function Home() {
                                 Icon={SettingsIcon}
                                 setDataPopUp={setDataPopUp}
                             />
-                            <ListMenu
+                           */}
+                            {/* <ListMenu
+                                setPopup={setPopup}
+                                setDataPopUp={setDataPopUp}
+                                onClick={onLogout}
                                 setIsActive={setIsActive}
                                 nama="Keluar"
                                 Icon={LogoutIcon}
