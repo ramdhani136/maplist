@@ -118,7 +118,8 @@ function Home() {
             .post(`${Api_Url}logout`)
             .then((res) => {
                 dispatch(inUser({}));
-                console.log(res);
+                localStorage.removeItem("token");
+                navigate("/login");
             })
             .catch((err) => {
                 console.log(err);
@@ -234,6 +235,16 @@ function Home() {
                                 nama="Keluar"
                                 Icon={LogoutIcon}
                             /> */}
+                            <ListMenuWrapper onClick={onLogout}>
+                                <LogoutIcon
+                                    style={{
+                                        fontSize: "17px",
+                                        color: "#aaa",
+                                        marginRight: "10px",
+                                    }}
+                                />
+                                <a>Keluar</a>
+                            </ListMenuWrapper>
                         </div>
                         <CreatedBy>
                             &copy; (IT) PT. Ekatunggal Tunas Mandiri - 2021
@@ -392,4 +403,22 @@ const CreatedBy = styled.div`
     text-align: center;
     opacity: 0.3;
     margin-bottom: 20px;
+`;
+
+const ListMenuWrapper = styled.div`
+    border-bottom: solid 1px #ddd;
+    padding: 13px;
+    font-size: 0.9em;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    /* justify-content: space-between; */
+    transition: transform 0.1s;
+    :hover {
+        transform: scale(1.035);
+    }
+    @media screen and (max-width: 720px) {
+        padding: 20px;
+        font-size: 1em;
+    }
 `;
