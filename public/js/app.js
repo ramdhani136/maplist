@@ -13650,6 +13650,7 @@ function Home() {
       dispatch((0,_redux_slices_UserSlice__WEBPACK_IMPORTED_MODULE_7__.inUser)({}));
       localStorage.removeItem("token");
       navigate("/login");
+      sweetalert2__WEBPACK_IMPORTED_MODULE_9___default().fire("Success!", "Berhasil Logout!", "success");
     })["catch"](function (err) {
       console.log(err);
     });
@@ -14465,8 +14466,8 @@ var LoginPage = function LoginPage() {
       navigate("/");
     }
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Wrapper, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Content, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(Wrapper, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Content, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(Form, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Title, {
           children: "Login"
@@ -14521,13 +14522,19 @@ var LoginPage = function LoginPage() {
           children: "Login"
         })]
       })
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      style: {
+        color: "white",
+        marginTop: "100px"
+      },
+      children: "\xA9 (IT) PT. Ekatunggal Tunas Mandiri - 2021"
+    })]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginPage);
-var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    width: 100%;\n    height: 100vh;\n    justify-content: center;\n    background-color: #1f2531;\n"])));
-var Content = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin-top: 40px;\n    width: 400px;\n    height: 390px;\n    border: solid 1px gray;\n    background-color: white;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"])));
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    width: 100%;\n    height: 100vh;\n    justify-content: center;\n    background-color: #1f2531;\n    flex-direction: column;\n    align-items: center;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 400px;\n    height: 390px;\n    border: solid 1px gray;\n    background-color: white;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n"])));
 var Form = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 90%;\n    flex: 0.95;\n    margin-top: 20px;\n    border: solid 1.5px #ddd;\n    border-radius: 5px;\n"])));
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].h3(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    padding: 15px;\n"])));
 var FormGroup = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    padding-left: 15px;\n    padding-right: 15px;\n    margin-bottom: 10px;\n"])));

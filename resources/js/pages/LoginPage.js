@@ -88,6 +88,9 @@ const LoginPage = () => {
                     <Button onClick={onLogin}>Login</Button>
                 </Form>
             </Content>
+            <div style={{ color: "white", marginTop: "100px" }}>
+                &copy; (IT) PT. Ekatunggal Tunas Mandiri - 2021
+            </div>
         </Wrapper>
     );
 };
@@ -100,10 +103,11 @@ const Wrapper = styled.div`
     height: 100vh;
     justify-content: center;
     background-color: #1f2531;
+    flex-direction: column;
+    align-items: center;
 `;
 
 const Content = styled.div`
-    margin-top: 40px;
     width: 400px;
     height: 390px;
     border: solid 1px gray;

@@ -120,6 +120,7 @@ function Home() {
                 dispatch(inUser({}));
                 localStorage.removeItem("token");
                 navigate("/login");
+                Swal.fire("Success!", "Berhasil Logout!", "success");
             })
             .catch((err) => {
                 console.log(err);
