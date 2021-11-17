@@ -13,8 +13,13 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Api_Url } from "../config";
 import { CreateArea } from ".";
+import { selectUser } from "../redux/slices/UserSlice";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+    const navigate = useNavigate();
+    const isUser = useSelector(selectUser);
     const [customerList, setCustomerList] = useState([]);
     const [center, setCenter] = useState({
         lat: -6.510267344418401,
@@ -38,6 +43,11 @@ function Home() {
     };
 
     useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            //redirect page dashboard
+            navigate("/login");
+        }
+
         getLocation();
     }, []);
 
@@ -97,6 +107,7 @@ function Home() {
                     setIsInsertArea={setIsInsertArea}
                 />
             )}
+
             <Popup
                 setDataArea={setDataArea}
                 setIsInsertArea={setIsInsertArea}
@@ -155,6 +166,7 @@ function Home() {
                             )}
                         </SearchPanel>
                     </Search>
+                    {console.log(localStorage.getItem("token"))}
                     <WrapperMenu active={isActive}>
                         <div>
                             <ListMenu

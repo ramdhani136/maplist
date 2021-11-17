@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::resource('/locations', LocationController::class);
+Route::resource('/area', AreaController::class);
+Route::resource('/editLocation', AreaController::class);
+Route::post('/editLocation/{id}', [LocationController::class, 'Onupdate']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
-    Route::resource('/locations', LocationController::class);
-    Route::resource('/area', AreaController::class);
-    Route::resource('/editLocation', AreaController::class);
-    Route::post('/editLocation/{id}', [LocationController::class, 'Onupdate']);
 });
