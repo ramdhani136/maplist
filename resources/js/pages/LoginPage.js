@@ -23,7 +23,7 @@ const LoginPage = () => {
             .catch((error) => {
                 Swal.fire(
                     "Error!",
-                    "Username & password tidak sesuai!",
+                    "Periksa kembali username & password anda!",
                     "error"
                 );
             });
@@ -42,7 +42,7 @@ const LoginPage = () => {
                 <Form>
                     <Title>Login</Title>
                     <FormGroup>
-                        <Label>Username :</Label>
+                        <Label>Email :</Label>
                         <Input
                             type="text"
                             onChange={(e) =>

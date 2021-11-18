@@ -14444,7 +14444,7 @@ var LoginPage = function LoginPage() {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("Success!", "Berhasil login!", "success");
                 navigate("/");
               })["catch"](function (error) {
-                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("Error!", "Username & password tidak sesuai!", "error");
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire("Error!", "Periksa kembali username & password anda!", "error");
               });
 
             case 2:
@@ -14473,7 +14473,7 @@ var LoginPage = function LoginPage() {
           children: "Login"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(FormGroup, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Label, {
-            children: "Username :"
+            children: "Email :"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Input, {
             type: "text",
             onChange: function onChange(e) {
