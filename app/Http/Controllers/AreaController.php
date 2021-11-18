@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AreaCreated;
 use App\Http\Resources\AreaResource;
 use App\Models\Area;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class AreaController extends Controller
      */
     public function index()
     {
-        return AreaResource::collection(Area::orderBy('name', 'ASC')->get());
+        $showArea = AreaResource::collection(Area::orderBy('name', 'ASC')->get());
+        return $showArea;
     }
 
     /**
@@ -38,6 +40,8 @@ class AreaController extends Controller
     public function store(Request $request)
     {
         $data = Area::create($request->all());
+        $showArea = AreaResource::collection(Area::orderBy('name', 'ASC')->get());
+        AreaCreated::dispatch($showArea);
         return Response(new AreaResource($data), response::HTTP_CREATED);
     }
 
@@ -73,6 +77,8 @@ class AreaController extends Controller
     public function update(Request $request, $id)
     {
         Area::where('id', $id)->update($request->all());
+        $showArea = AreaResource::collection(Area::orderBy('name', 'ASC')->get());
+        AreaCreated::dispatch($showArea);
         return response('update', response::HTTP_CREATED);
     }
 
@@ -85,6 +91,8 @@ class AreaController extends Controller
     public function destroy($id)
     {
         Area::where('id', $id)->delete();
+        $showArea = AreaResource::collection(Area::orderBy('name', 'ASC')->get());
+        AreaCreated::dispatch($showArea);
         return response('deleted', response::HTTP_OK);
     }
 }

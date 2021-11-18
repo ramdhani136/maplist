@@ -101,6 +101,12 @@ const AreaPage = ({
         }
     }, [isInsertArea]);
 
+    useEffect(() => {
+        window.Echo.channel("area").listen("AreaCreated", (event) => {
+            setArea(event.area);
+        });
+    });
+
     return (
         <Wrapper>
             <Panel>

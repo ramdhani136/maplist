@@ -125,6 +125,12 @@ function Home() {
             });
     };
 
+    useEffect(() => {
+        window.Echo.channel("location").listen("LocationCreated", (event) => {
+            setCustomerList(event.location);
+        });
+    });
+
     return (
         <>
             {formArea && (

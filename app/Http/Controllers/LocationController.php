@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LocationCreated;
 use App\Http\Resources\LocationResource;
 use App\Models\Location;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+        $data = LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+        return $data;
     }
 
     /**
@@ -62,8 +64,12 @@ class LocationController extends Controller
             $data->uri = $request->file->hashName();
         }
 
+
+
         $data->save();
 
+        $showAll = LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+        LocationCreated::dispatch($showAll);
         return ["status" => "success"];
     }
 
@@ -118,6 +124,8 @@ class LocationController extends Controller
         }
 
         $data->update();
+        $showAll = LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+        LocationCreated::dispatch($showAll);
 
         return ["status" => "success"];
     }
@@ -134,6 +142,8 @@ class LocationController extends Controller
         if (Storage::exists('public/images/' . $gambar->uri)) {
             Storage::delete('public/images/' . $gambar->uri);
             $gambar->delete();
+            $showAll = LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+            LocationCreated::dispatch($showAll);
             return response('deleted', response::HTTP_OK);
             /*
                 Delete Multiple File like this way
@@ -141,6 +151,8 @@ class LocationController extends Controller
             */
         } else {
             $gambar->delete();
+            $showAll = LocationResource::collection(Location::orderBy('id_area', 'ASC')->get());
+            LocationCreated::dispatch($showAll);
             return response('deleted', response::HTTP_OK);
         }
     }
