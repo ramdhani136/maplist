@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use Symfony\Component\HttpFoundation\Response;
+
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 

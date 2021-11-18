@@ -13581,10 +13581,8 @@ function Home() {
       setDataArea = _useState20[1];
 
   var getLocation = function getLocation() {
-    fetch("".concat(_config__WEBPACK_IMPORTED_MODULE_5__.Api_Url, "locations")).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      setCustomerList(data.data);
+    axios.get("".concat(_config__WEBPACK_IMPORTED_MODULE_5__.Api_Url, "locations")).then(function (res) {
+      setCustomerList(res.data.data);
     });
   };
 
@@ -14032,10 +14030,10 @@ var CreateLocation = function CreateLocation(_ref) {
   };
 
   var getAreas = function getAreas() {
-    fetch("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "area")).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      setAreas(data.data);
+    axios__WEBPACK_IMPORTED_MODULE_4___default().get("".concat(_config__WEBPACK_IMPORTED_MODULE_2__.Api_Url, "area")).then(function (res) {
+      setAreas(res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
     });
   };
 

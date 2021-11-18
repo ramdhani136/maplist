@@ -38,11 +38,9 @@ function Home() {
     const [dataArea, setDataArea] = useState({});
 
     const getLocation = () => {
-        fetch(`${Api_Url}locations`)
-            .then((res) => res.json())
-            .then((data) => {
-                setCustomerList(data.data);
-            });
+        axios.get(`${Api_Url}locations`).then((res) => {
+            setCustomerList(res.data.data);
+        });
     };
 
     useEffect(() => {

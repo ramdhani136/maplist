@@ -109,10 +109,13 @@ const CreateLocation = ({
     };
 
     const getAreas = () => {
-        fetch(`${Api_Url}area`)
-            .then((res) => res.json())
-            .then((data) => {
-                setAreas(data.data);
+        axios
+            .get(`${Api_Url}area`)
+            .then((res) => {
+                setAreas(res.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
             });
     };
 
