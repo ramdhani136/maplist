@@ -17,8 +17,8 @@ function Main() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/maplist" element={<Maplist />} />
                     <Route path="/" element={<Home />} exact={true} />
-                    <Route path="/atk/list" element={<AtkPage />} />
-                    <Route path="/atk/" element={<AtkPage />} />
+                    <Route path="/stationary/list" element={<AtkPage />} />
+                    <Route path="/stationary/" element={<AtkPage />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

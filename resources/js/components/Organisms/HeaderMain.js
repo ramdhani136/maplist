@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/slices/UserSlice";
 
 const HeaderMain = ({ View }) => {
-    const [isSearch, setIsSearch] = useState(true);
+    const [isSearch, setIsSearch] = useState(false);
 
     const user = useSelector(selectUser);
 
@@ -23,7 +23,10 @@ const HeaderMain = ({ View }) => {
                     <a>EtmSystem</a>
                 </Logo>
                 <MainCenter>
-                    <Search>
+                    <Search
+                        onClick={() => setIsSearch(true)}
+                        onMouseLeave={() => setIsSearch(false)}
+                    >
                         <InputSearch placeholder="Search your menu" />
                         <SearchIcon
                             style={{
@@ -32,26 +35,28 @@ const HeaderMain = ({ View }) => {
                                 color: "#bbb",
                             }}
                         />
-                        {/* <WrapperList>
-                            <ListSearch>Maplist Customer</ListSearch>
-                            <ListSearch>Form Request</ListSearch>
-                        </WrapperList> */}
+                        {isSearch && (
+                            <WrapperList>
+                                <ListSearch>Mapping Customer List</ListSearch>
+                                <ListSearch>Stationary List</ListSearch>
+                            </WrapperList>
+                        )}
                     </Search>
                 </MainCenter>
                 <Menu>
                     <Badge
-                        invisible={false}
+                        invisible={true}
                         variant="dot"
                         color="primary"
                         style={{
                             cursor: "pointer",
                         }}
                     >
-                        <NotificationsNoneIcon
+                        <TextsmsOutlinedIcon
                             color="action"
                             style={{
                                 fontSize: "18px",
-                                marginRight: "-3px",
+                                marginRight: "3px",
                             }}
                         />
                     </Badge>
@@ -61,11 +66,11 @@ const HeaderMain = ({ View }) => {
                         variant="dot"
                         color="primary"
                     >
-                        <TextsmsOutlinedIcon
+                        <NotificationsNoneIcon
                             color="action"
                             style={{
                                 fontSize: "18px",
-                                marginRight: "3px",
+                                marginRight: "-3px",
                             }}
                         />
                     </Badge>
@@ -82,7 +87,7 @@ const HeaderMain = ({ View }) => {
                     <a
                         style={{
                             marginLeft: "10px",
-                            color: "#444",
+                            color: "#666",
                             fontSize: "0.9em",
                             fontWeight: "300",
                         }}
@@ -110,8 +115,8 @@ const Header = styled.div`
     background-color: #fff;
     border: solid 1px #e0e2e4;
     display: flex;
-    padding-left: 6%;
-    padding-right: 7%;
+    padding-left: 8%;
+    padding-right: 8%;
     align-items: center;
     position: fixed;
     top: 0;
@@ -162,16 +167,19 @@ const WrapperList = styled.div`
     z-index: 99;
     overflow-y: scroll;
     padding-top: 0.5px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 `;
 
 const ListSearch = styled.div`
     padding: 10px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 0.85em;
-    color: #888;
+    color: black;
+
     :hover {
-        background-color: #f5f6f8;
+        background-color: #f5f7fa;
         cursor: pointer;
         border-top: solid 1px #eee;
         border-bottom: solid 1px #eee;
