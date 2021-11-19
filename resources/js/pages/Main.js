@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Home, LoginPage } from ".";
+import { AtkPage, Home, LoginPage, Maplist } from ".";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 
@@ -14,8 +14,11 @@ function Main() {
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<LoginPage />} exact={true} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/maplist" element={<Maplist />} />
                     <Route path="/" element={<Home />} exact={true} />
+                    <Route path="/atk/list" element={<AtkPage />} />
+                    <Route path="/atk/" element={<AtkPage />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

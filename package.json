@@ -34,6 +34,7 @@
         "history": "5",
         "laravel-echo": "^1.11.3",
         "pusher-js": "^7.0.3",
+        "react-helmet": "^6.1.0",
         "react-redux": "^7.2.6",
         "react-router-dom": "6",
         "styled-components": "^5.3.3",
