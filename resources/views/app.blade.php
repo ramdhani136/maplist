@@ -12,7 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRn3Bp2cpbSN8xNlz1yagJ-F_S3hqnt4" type="text/javascript"></script>
 </head>
 
-<body>
+<body style="background-color: white;">
 
     <div id="app"></div>
 </body>

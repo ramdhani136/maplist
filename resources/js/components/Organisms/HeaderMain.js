@@ -106,12 +106,12 @@ export default HeaderMain;
 
 const Header = styled.div`
     width: 100%;
-    height: 50px;
+    height: 55px;
     background-color: #fff;
-    border: solid 1px #eee;
+    border: solid 1px #e0e2e4;
     display: flex;
     padding-left: 6%;
-    padding-right: 6%;
+    padding-right: 7%;
     align-items: center;
     position: fixed;
     top: 0;
@@ -200,14 +200,14 @@ const InputSearch = styled.input`
 const SlideMenu = styled.div`
     width: 22%;
     height: 100%;
-    border-right: solid 1px #eee;
+    border-right: solid 1px #e0e2e4;
     position: fixed;
     background-color: white;
     z-index: 1001;
 `;
 
 const Content = styled.div`
-    margin-top: 50px;
+    margin-top: 55px;
     width: 100%;
     height: 1000px;
 `;

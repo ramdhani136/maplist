@@ -14099,7 +14099,7 @@ var HeaderMain = function HeaderMain(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderMain);
-var Header = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 50px;\n    background-color: #fff;\n    border: solid 1px #eee;\n    display: flex;\n    padding-left: 6%;\n    padding-right: 6%;\n    align-items: center;\n    position: fixed;\n    top: 0;\n    z-index: 1000;\n"])));
+var Header = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 55px;\n    background-color: #fff;\n    border: solid 1px #e0e2e4;\n    display: flex;\n    padding-left: 6%;\n    padding-right: 7%;\n    align-items: center;\n    position: fixed;\n    top: 0;\n    z-index: 1000;\n"])));
 var Logo = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    @import url(\"https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,900&display=swap\");\n    flex: 0.8;\n    font-weight: 700;\n    font-size: 22px;\n    font-family: \"Bodoni Moda\", serif;\n    color: #3c4d7c;\n"])));
 var MainCenter = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    flex: 1.2;\n    display: flex;\n    justify-content: left;\n"])));
 var Menu = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    flex: 1;\n    display: flex;\n    justify-content: end;\n    align-items: center;\n"])));
@@ -14107,8 +14107,8 @@ var Search = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_tem
 var WrapperList = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    margin-top: 4px;\n    border: solid 1px #ddd;\n    background-color: white;\n    width: 100%;\n    height: auto;\n    max-height: 300px;\n    position: \"absolute\";\n    z-index: 99;\n    overflow-y: scroll;\n    padding-top: 0.5px;\n"])));
 var ListSearch = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    padding: 10px;\n    padding-top: 12px;\n    padding-bottom: 12px;\n    font-size: 0.85em;\n    color: #888;\n    :hover {\n        background-color: #f5f6f8;\n        cursor: pointer;\n        border-top: solid 1px #eee;\n        border-bottom: solid 1px #eee;\n    }\n"])));
 var InputSearch = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].input(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    flex: 1;\n    padding-left: 15px;\n    padding-right: 15px;\n    font-size: 0.9em;\n    border: none;\n    width: 92%;\n    height: 90%;\n    @import url(\"https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,900&family=Lato:ital,wght@1,300&display=swap\");\n    font-family: \"Bodoni Moda\", serif;\n    font-family: \"Lato\", sans-serif;\n    ::-webkit-input-placeholder {\n        color: #ddd;\n    }\n    :focus {\n        outline: none;\n    }\n"])));
-var SlideMenu = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    width: 22%;\n    height: 100%;\n    border-right: solid 1px #eee;\n    position: fixed;\n    background-color: white;\n    z-index: 1001;\n"])));
-var Content = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    margin-top: 50px;\n    width: 100%;\n    height: 1000px;\n"])));
+var SlideMenu = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    width: 22%;\n    height: 100%;\n    border-right: solid 1px #e0e2e4;\n    position: fixed;\n    background-color: white;\n    z-index: 1001;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    margin-top: 55px;\n    width: 100%;\n    height: 1000px;\n"])));
 
 /***/ }),
 
@@ -14727,7 +14727,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
 /* harmony import */ var _components_Organisms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Organisms */ "./resources/js/components/Organisms/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -14741,10 +14741,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var AtkView = function AtkView() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Wrapper, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FilterMain, {
-      children: "d"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Content, {
-      children: "d"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FilterMain, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Content, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Header, {})
     })]
   });
 };
@@ -14763,8 +14761,9 @@ var AtkPage = function AtkPage() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AtkPage);
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    display: flex;\n"])));
-var FilterMain = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-right: solid 1px #eee;\n    width: 23%;\n    height: 100vh;\n    position: sticky;\n    background-color: white;\n    left: 0;\n    top: 50px;\n"])));
-var Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 77%;\n    background-color: white;\n    height: 1000px;\n"])));
+var FilterMain = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-right: solid 1px #e0e2e4;\n    width: 23.4%;\n    height: 100vh;\n    position: sticky;\n    background-color: white;\n    left: 0;\n    top: 55px;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 66%;\n    background-color: white;\n    height: 1000px;\n    border-right: solid 1px #e0e2e4;\n"])));
+var Header = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 50px;\n    background-color: #f5f7fa;\n    border-bottom: solid 1px #e0e2e4;\n"])));
 
 /***/ }),
 

@@ -6,8 +6,10 @@ import { HeaderMain } from "../../components/Organisms";
 const AtkView = () => {
     return (
         <Wrapper>
-            <FilterMain>d</FilterMain>
-            <Content>d</Content>
+            <FilterMain></FilterMain>
+            <Content>
+                <Header></Header>
+            </Content>
         </Wrapper>
     );
 };
@@ -32,17 +34,25 @@ const Wrapper = styled.div`
 `;
 
 const FilterMain = styled.div`
-    border-right: solid 1px #eee;
-    width: 23%;
+    border-right: solid 1px #e0e2e4;
+    width: 23.4%;
     height: 100vh;
     position: sticky;
     background-color: white;
     left: 0;
-    top: 50px;
+    top: 55px;
 `;
 
 const Content = styled.div`
-    width: 77%;
+    width: 66%;
     background-color: white;
     height: 1000px;
+    border-right: solid 1px #e0e2e4;
+`;
+
+const Header = styled.div`
+    width: 100%;
+    height: 50px;
+    background-color: #f5f7fa;
+    border-bottom: solid 1px #e0e2e4;
 `;
