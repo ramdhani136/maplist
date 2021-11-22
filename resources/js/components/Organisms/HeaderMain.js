@@ -4,21 +4,29 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+import ArrowDropUpOutlinedIcon from "@mui/icons-material/ArrowDropUpOutlined";
 import Avatar from "@mui/material/Avatar";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/slices/UserSlice";
+import { useNavigate } from "react-router";
 
 const HeaderMain = ({ View }) => {
     const [isSearch, setIsSearch] = useState(false);
+    const [activeSlide, setActiveSlide] = useState({
+        ms: false,
+        bel: false,
+        sett: false,
+    });
+    const [value, setValue] = useState("");
 
     const user = useSelector(selectUser);
+    const navigate = useNavigate();
 
     return (
         <>
             <Header>
-                {console.log(user)}
                 <Logo>
                     <a>EtmSystem</a>
                 </Logo>
@@ -27,7 +35,11 @@ const HeaderMain = ({ View }) => {
                         onClick={() => setIsSearch(true)}
                         onMouseLeave={() => setIsSearch(false)}
                     >
-                        <InputSearch placeholder="Search your menu" />
+                        <InputSearch
+                            onChange={(e) => setValue(e.target.value)}
+                            value={value}
+                            placeholder="Search your menu"
+                        />
                         <SearchIcon
                             style={{
                                 marginRight: "5px",
@@ -37,8 +49,24 @@ const HeaderMain = ({ View }) => {
                         />
                         {isSearch && (
                             <WrapperList>
-                                <ListSearch>Mapping Customer List</ListSearch>
-                                <ListSearch>Stationary List</ListSearch>
+                                <ListSearch
+                                    onClick={() => {
+                                        navigate("/maplist");
+                                        setIsSearch(false);
+                                        setValue("");
+                                    }}
+                                >
+                                    Mapping Customer List
+                                </ListSearch>
+                                <ListSearch
+                                    onClick={() => {
+                                        navigate("/stationary");
+                                        setIsSearch(false);
+                                        setValue("");
+                                    }}
+                                >
+                                    Stationary List
+                                </ListSearch>
                             </WrapperList>
                         )}
                     </Search>
@@ -76,9 +104,10 @@ const HeaderMain = ({ View }) => {
                     </Badge>
 
                     <Avatar
-                        src="https://img.okezone.com/content/2020/02/24/33/2173485/4-aktor-ganteng-mandarin-tak-kalah-dengan-popularitas-k-pop-oaSmBNw2kJ.jpg"
+                        src=""
                         style={{
                             marginLeft: "70px",
+                            cursor: "pointer",
                         }}
                         sx={{ width: 37, height: 37 }}
                     >
@@ -86,6 +115,7 @@ const HeaderMain = ({ View }) => {
                     </Avatar>
                     <a
                         style={{
+                            cursor: "pointer",
                             marginLeft: "10px",
                             color: "#666",
                             fontSize: "0.9em",
@@ -94,9 +124,43 @@ const HeaderMain = ({ View }) => {
                     >
                         Hi, Ilham
                     </a>
-                    <ArrowDropDownOutlinedIcon
-                        style={{ color: "gray", cursor: "pointer" }}
-                    />
+                    {!activeSlide.sett && (
+                        <ArrowDropDownOutlinedIcon
+                            onClick={() =>
+                                setActiveSlide({
+                                    ms: false,
+                                    bel: false,
+                                    sett: !activeSlide.sett,
+                                })
+                            }
+                            style={{ color: "gray", cursor: "pointer" }}
+                        />
+                    )}
+                    {activeSlide.sett && (
+                        <ArrowDropUpOutlinedIcon
+                            onClick={() =>
+                                setActiveSlide({
+                                    ms: false,
+                                    bel: false,
+                                    sett: !activeSlide.sett,
+                                })
+                            }
+                            style={{ color: "gray", cursor: "pointer" }}
+                        />
+                    )}
+                    <SlideSetting
+                        active={activeSlide.sett}
+                        onMouseLeave={() =>
+                            setActiveSlide({
+                                ms: false,
+                                bel: false,
+                                sett: false,
+                            })
+                        }
+                    >
+                        <ListSetting>Profile</ListSetting>
+                        <ListSetting>Sign Out</ListSetting>
+                    </SlideSetting>
                 </Menu>
             </Header>
             {/* <SlideMenu></SlideMenu> */}
@@ -143,6 +207,38 @@ const Menu = styled.div`
     display: flex;
     justify-content: end;
     align-items: center;
+    position: relative;
+    z-index: 999;
+    background-color: white;
+`;
+
+const SlideSetting = styled.div`
+    width: 60%;
+    height: auto;
+    border: solid 1px #eee;
+    border-top: none;
+    position: absolute;
+    top: 46px;
+    background-color: white;
+    z-index: 900;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    display: ${({ active }) => (active ? "block" : "none")};
+`;
+
+const ListSetting = styled.div`
+    width: 100%;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.87em;
+    color: #888;
+
+    :hover {
+        /* background-color: #f5f7fa; */
+        cursor: pointer;
+        color: #000;
+    }
 `;
 
 const Search = styled.div`
@@ -179,10 +275,10 @@ const ListSearch = styled.div`
     color: black;
 
     :hover {
-        background-color: #f5f7fa;
+        background-color: #fffdfa;
         cursor: pointer;
-        border-top: solid 1px #eee;
-        border-bottom: solid 1px #eee;
+        border-top: solid 1px #fffbf0;
+        border-bottom: solid 1px #fffbf0;
     }
 `;
 

@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 // import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -245,6 +246,16 @@ function Maplist() {
                                 nama="Keluar"
                                 Icon={LogoutIcon}
                             /> */}
+                            <ListMenuWrapper onClick={() => navigate("/")}>
+                                <HomeOutlinedIcon
+                                    style={{
+                                        fontSize: "17px",
+                                        color: "#aaa",
+                                        marginRight: "10px",
+                                    }}
+                                />
+                                <a>Beranda</a>
+                            </ListMenuWrapper>
                             <ListMenuWrapper onClick={onLogout}>
                                 <LogoutIcon
                                     style={{
