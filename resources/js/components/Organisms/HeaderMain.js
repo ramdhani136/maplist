@@ -313,5 +313,5 @@ const SlideMenu = styled.div`
 const Content = styled.div`
     margin-top: 55px;
     width: 100%;
-    height: 1000px;
+    height: auto;
 `;

@@ -22229,7 +22229,7 @@ var WrapperList = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div
 var ListSearch = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    padding: 10px;\n    padding-top: 15px;\n    padding-bottom: 15px;\n    font-size: 0.85em;\n    color: black;\n\n    :hover {\n        background-color: #fffdfa;\n        cursor: pointer;\n        border-top: solid 1px #fffbf0;\n        border-bottom: solid 1px #fffbf0;\n    }\n"])));
 var InputSearch = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].input(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    flex: 1;\n    padding-left: 15px;\n    padding-right: 15px;\n    font-size: 0.9em;\n    border: none;\n    width: 92%;\n    height: 90%;\n    @import url(\"https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,900&family=Lato:ital,wght@1,300&display=swap\");\n    font-family: \"Bodoni Moda\", serif;\n    font-family: \"Lato\", sans-serif;\n    ::-webkit-input-placeholder {\n        color: #ddd;\n    }\n    :focus {\n        outline: none;\n    }\n"])));
 var SlideMenu = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n    width: 22%;\n    height: 100%;\n    border-right: solid 1px #e0e2e4;\n    position: fixed;\n    background-color: white;\n    z-index: 1001;\n"])));
-var Content = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    margin-top: 55px;\n    width: 100%;\n    height: 1000px;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    margin-top: 55px;\n    width: 100%;\n    height: auto;\n"])));
 
 /***/ }),
 
@@ -22844,18 +22844,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
 /* harmony import */ var _components_Organisms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Organisms */ "./resources/js/components/Organisms/index.js");
-/* harmony import */ var _mui_material_SpeedDial__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material/SpeedDial */ "./node_modules/@mui/material/SpeedDial/SpeedDial.js");
-/* harmony import */ var _mui_material_SpeedDialIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/SpeedDialIcon */ "./node_modules/@mui/material/SpeedDialIcon/SpeedDialIcon.js");
-/* harmony import */ var _mui_material_SpeedDialAction__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/SpeedDialAction */ "./node_modules/@mui/material/SpeedDialAction/SpeedDialAction.js");
+/* harmony import */ var _mui_material_SpeedDial__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/SpeedDial */ "./node_modules/@mui/material/SpeedDial/SpeedDial.js");
+/* harmony import */ var _mui_material_SpeedDialIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/SpeedDialIcon */ "./node_modules/@mui/material/SpeedDialIcon/SpeedDialIcon.js");
+/* harmony import */ var _mui_material_SpeedDialAction__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/SpeedDialAction */ "./node_modules/@mui/material/SpeedDialAction/SpeedDialAction.js");
 /* harmony import */ var _mui_icons_material_FileCopyOutlined__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/FileCopyOutlined */ "./node_modules/@mui/icons-material/FileCopyOutlined.js");
 /* harmony import */ var _mui_icons_material_NoteAddOutlined__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/NoteAddOutlined */ "./node_modules/@mui/icons-material/NoteAddOutlined.js");
 /* harmony import */ var _mui_icons_material_DeleteOutlineOutlined__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/DeleteOutlineOutlined */ "./node_modules/@mui/icons-material/DeleteOutlineOutlined.js");
+/* harmony import */ var _mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/FiberManualRecord */ "./node_modules/@mui/icons-material/FiberManualRecord.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -22881,6 +22882,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  // import SaveIcon from "@mui/icons-material/Save";
 // import PrintIcon from "@mui/icons-material/Print";
 // import ShareIcon from "@mui/icons-material/Share";
+
 
 
 
@@ -22938,8 +22940,8 @@ var AtkView = function AtkView() {
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Wrapper, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FilterMain, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Content, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Header, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FilterMain, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Content, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Header, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Input, {
             placeholder: "Code"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Input, {
@@ -22949,20 +22951,365 @@ var AtkView = function AtkView() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Input, {
             placeholder: "Status"
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDial__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Table, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "10%",
+                  paddingLeft: "5%"
+                },
+                children: "No"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "10%"
+                },
+                children: "Code"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "12%"
+                },
+                children: "Status"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "23%"
+                },
+                children: "Name"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "12%"
+                },
+                children: "Qty"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TitleColumn, {
+                style: {
+                  width: "10%"
+                },
+                children: "Uom"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tbody", {
+            children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0001"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Pulpen Standard Hitam"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "123"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pcs"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "2"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0002"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Pulpen Standard Biru"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "234"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pcs"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "3"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0003"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Pulpen Standard Merah"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "1003"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pcs"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0004"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Pulpen Standard Hijau"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "384"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pcs"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "5"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0005"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Kertas A4 Sidu"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "913"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Rim"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "6"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0006"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Kertas F4 Sidu"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "29"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Rim"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0007"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Staples 5R"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "91"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pack"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0008"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#FF5858"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Disabled"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Map Gantung A4"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "40"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Lembar"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Row, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  paddingLeft: "5%"
+                },
+                children: "9"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "ATK0009"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Column, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material_FiberManualRecord__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  style: {
+                    fontSize: "13px",
+                    marginTop: "-3px",
+                    marginRight: "5px",
+                    color: "#98D85B"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                  style: {
+                    color: "#707780",
+                    fontWeight: "600"
+                  },
+                  children: "Approved"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                style: {
+                  fontWeight: "600",
+                  color: "#36414C"
+                },
+                children: "Penghapus Karet"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "38"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Column, {
+                children: "Pcs"
+              })]
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDial__WEBPACK_IMPORTED_MODULE_9__["default"], {
         ariaLabel: "SpeedDial uncontrolled open example",
         sx: {
           position: "fixed",
           bottom: 20,
           right: 35
         },
-        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDialIcon__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+        icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDialIcon__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
         onClose: handleClose,
         onOpen: handleOpen,
         open: open,
         children: actions.map(function (action) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDialAction__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material_SpeedDialAction__WEBPACK_IMPORTED_MODULE_11__["default"], {
             icon: action.icon,
             tooltipTitle: action.name,
             onClick: handleClose
@@ -22986,16 +23333,20 @@ var AtkPage = function AtkPage() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AtkPage);
-var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    display: flex;\n"])));
-var FilterMain = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-right: solid 1px #e0e2e4;\n    width: 23.4%;\n    height: 100vh;\n    position: sticky;\n    background-color: white;\n    left: 0;\n    top: 55px;\n"])));
-var Content = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 67.7%;\n    background-color: white;\n    height: 1000px;\n    border-right: solid 1px #e0e2e4;\n"])));
-var Header = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 57px;\n    display: flex;\n    background-color: #f5f7fa;\n    border-bottom: solid 1px #e0e2e4;\n    align-items: center;\n    padding-left: 2%;\n    position: sticky;\n\n    top: 55px;\n"])));
-var Input = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].input(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    border: solid 1px #ccc;\n    border-radius: 3px;\n    padding: 7px;\n    font-size: 0.86em;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-right: 10px;\n    color: gray;\n    ::placeholder {\n        color: #ddd;\n    }\n    :focus {\n        outline: none;\n    }\n"])));
-var UpHeader = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 70px;\n    border-bottom: solid 1px #e0e2e4;\n    display: flex;\n    align-items: center;\n    padding-left: 8%;\n    padding-right: 8%;\n"])));
-var TitleMenu = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    flex: 1;\n    font-size: 0.93em;\n    color: #aaa;\n    cursor: pointer;\n    display: flex;\n"])));
-var TitleLeft = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    flex: 1;\n"])));
-var TitleRight = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    flex: 1;\n    display: flex;\n    justify-content: end;\n"])));
-var Button = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    padding: 5px 13px 5px 13px;\n    border-radius: 3px;\n    margin-right: 10px;\n    background-color: #f5f7fa;\n    color: gray;\n    :hover {\n        background-color: whitesmoke;\n        transform: scale(1.035);\n    }\n    /* color: white; */\n"])));
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    height: auto;\n    display: flex;\n"])));
+var FilterMain = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    border-right: solid 1px #e0e2e4;\n    width: 23.4%;\n    height: 100vh;\n    position: sticky;\n    background-color: white;\n    left: 0;\n    top: 55px;\n"])));
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 67.7%;\n    background-color: white;\n    height: auto;\n    border-right: solid 1px #e0e2e4;\n"])));
+var Header = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 57px;\n    display: flex;\n    background-color: #f5f7fa;\n    border-bottom: solid 1px #e0e2e4;\n    align-items: center;\n    padding-left: 2%;\n    position: sticky;\n\n    top: 55px;\n"])));
+var Input = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].input(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    border: solid 1px #ccc;\n    border-radius: 3px;\n    padding: 7px;\n    font-size: 0.86em;\n    padding-left: 10px;\n    padding-right: 10px;\n    margin-right: 10px;\n    color: gray;\n    ::placeholder {\n        color: #ddd;\n    }\n    :focus {\n        outline: none;\n    }\n"])));
+var UpHeader = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 70px;\n    border-bottom: solid 1px #e0e2e4;\n    display: flex;\n    align-items: center;\n    padding-left: 8%;\n    padding-right: 8%;\n"])));
+var TitleMenu = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    flex: 1;\n    font-size: 0.93em;\n    color: #aaa;\n    cursor: pointer;\n    display: flex;\n"])));
+var TitleLeft = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    flex: 1;\n"])));
+var TitleRight = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    flex: 1;\n    display: flex;\n    justify-content: end;\n"])));
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    border: solid 1px #ddd;\n    padding: 5px 13px 5px 13px;\n    border-radius: 3px;\n    margin-right: 10px;\n    background-color: #f5f7fa;\n    color: gray;\n    :hover {\n        background-color: whitesmoke;\n        transform: scale(1.035);\n    }\n    /* color: white; */\n"])));
+var Table = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].table(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n    width: 100%;\n"])));
+var Row = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].tr(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    border-bottom: solid 1px #e5e9eb;\n    color: #aaa;\n    font-size: 0.93em;\n    cursor: pointer;\n    background-color: #fff;\n    :hover {\n        background-color: #f7fafc;\n    }\n"])));
+var TitleColumn = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].th(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    height: 45px;\n    font-size: 0.96em;\n    color: #888;\n    font-weight: normal;\n    background-color: #fbfcfe;\n"])));
+var Column = styled_components__WEBPACK_IMPORTED_MODULE_12__["default"].td(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    height: 45px;\n"])));
 
 /***/ }),
 
